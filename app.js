@@ -758,50 +758,52 @@ $(window).on("load", function () {
     expandImage(".team_photo", false)
     expandImage(".team_member_img")
 
-    $(".fubmit_mail_btn").click(function () {
-        var submitAllowed = {val: true};
+    $(".fubmit_mail_btn").click(function (e) {
+        e.preventDefault();
+        // console.log(grecapture.getResponse())
+        var submitAllowed = { val: true };
         var flname = $(".sender_name>input").val().trim();
-        var mail = $(".sender_mail>input").val().trim();
+        var email = $(".sender_mail>input").val().trim();
         var text = $(".textarea_and_submit>textarea").val().trim();
 
-        if(flname == '' ){
+        if (flname == '') {
             submitAllowed.val = false
             alert('saxelis veli ar unda iyos carieli')
         }
 
-        if(mail == '' ){
+        if (email == '') {
             submitAllowed.val = false
             alert('mailis veli ar unda iyos carieli')
         }
 
-        if(text == '' ){
+        if (text == '') {
             submitAllowed.val = false
             alert('teqsti ar unda iyos carieli')
         }
 
         if (submitAllowed.val) {
-            $(".sender_name>input").val('')
-            $(".sender_mail>input").val('')
-            $(".textarea_and_submit>textarea").val('')
+            $(".mail_message").css({opacity: 1, "z-index": 1000});
             $.ajax({
-                url: "../temp-mail",
+                url: "../mail",
                 type: "post",
-                data :{
+                data: {
                     mailBtn: true,
                     flname: flname,
-                    mail: mail,
+                    email: email,
                     text: text,
 
                 },
-                success: function(data){
+                success: function (data) {
+                    $(".sender_name>input").val('')
+                    $(".sender_mail>input").val('')
+                    $(".textarea_and_submit>textarea").val('')
                     alert(data)
+                    $(".mail_message").css({opacity: 0, "z-index": -1000});
                 }
-            })            
+            })
         }
-        
+
     })
-
-
 
 })
 

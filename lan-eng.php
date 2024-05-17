@@ -92,6 +92,7 @@ return [
         8 => 'text...',
         9 => 'send',
         10 => 'Facebook',
+        11 => 'Wait For Response',
     ],
     'project page' => [
         'titles' => ["berth-7", "berth-15", "container terminal", "Rehabilitation of 7th Berth", "Payment Terminal", "Poti Apartment"],
