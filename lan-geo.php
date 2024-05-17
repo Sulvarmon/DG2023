@@ -13,6 +13,8 @@ return [
     'language' => 'ენა',
     'language1' => 'ინგ',
     'language2' => 'რუს',
+    'language1 flag' => 'eng_flag',
+    'language2 flag' => 'rus_flag',
     'font-family' => ['_ffc', '_ffn'],
     'gd2023' => 'შპს ჯორჯიან დეველოპმენტი 2023',
     'important projects' => 'მნიშვნელოვანი პროექტები',

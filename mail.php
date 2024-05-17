@@ -41,9 +41,9 @@ try {
     $mail->Body    = $text;
 
     $mail->send();
-    echo 'Mail sent successfully.';
+    echo 'good';
 } catch (Exception $e) {
-    error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
-    echo 'There was an issue sending your message. Please try again later.';
+    // error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    echo 'not good';
 }
 ?>

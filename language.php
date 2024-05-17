@@ -10,13 +10,13 @@ if (isset($_POST['lanBtn'])) {
             $_SESSION['languageArray'] = include "./lan-eng.php";
             break;
         case 'რუს':
-        case 'ru':
+        case 'rus':
         case 'рус':
             $_SESSION['languageArray'] = include "./lan-ru.php";
             break;
         case 'ქარ':
         case 'geo':
-        case 'груз':
+        case 'гру':
             $_SESSION['languageArray'] = include "./lan-geo.php";
             break;
         default:

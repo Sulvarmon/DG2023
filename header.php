@@ -62,7 +62,7 @@ if (!isset($_SESSION['languageArray'])) {
                             <form class="usn mt1" action=<?php echo $language ?> method="post">
                                 <button class="dfjcac gap1 cp" type="submit" name="lanBtn">
                                     <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
-                                    <div class="lan_flag eng_flag"></div>
+                                    <div class="lan_flag <?php echo $languageArray['language1 flag']?>"></div>
                                 </button>
                                 <input class="dn" type="text" value=<?php echo $languageArray['language1'] ?> name="language">
                                 <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
@@ -70,7 +70,7 @@ if (!isset($_SESSION['languageArray'])) {
                             <form class="usn mt1" action=<?php echo $language ?> method="post">
                                 <button class="dfjcac gap1 cp" type="submit" name="lanBtn">
                                     <span class=<?php echo $languageArray['font-family'][0] ?>><?php echo $languageArray['language2'] ?></span>
-                                    <div class="lan_flag ru_flag"></div>
+                                    <div class="lan_flag <?php echo $languageArray['language2 flag']?>"></div>
                                 </button>
                                 <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
                                 <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
@@ -118,7 +118,7 @@ if (!isset($_SESSION['languageArray'])) {
                         <form class="usn p1" action=<?php echo $language ?> method="post">
                             <button class="dfjcac gap1 cp menu_hover" type="submit" name="lanBtn">
                                 <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
-                                <div class="lan_flag eng_flag"></div>
+                                <div class="lan_flag <?php echo $languageArray['language1 flag']?>"></div>
                             </button>
                             <input class="dn" type="text" value=<?php echo $languageArray['language1'] ?> name="language">
                             <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
@@ -126,7 +126,7 @@ if (!isset($_SESSION['languageArray'])) {
                         <form class="usn p1" action=<?php echo $language ?> method="post">
                             <button class="dfjcac gap1 cp menu_hover" type="submit" name="lanBtn">
                                 <span class=<?php echo $languageArray['font-family'][0] ?>><?php echo $languageArray['language2'] ?></span>
-                                <div class="lan_flag ru_flag"></div>
+                                <div class="lan_flag <?php echo $languageArray['language2 flag']?>"></div>
                             </button>
                             <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
                             <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">

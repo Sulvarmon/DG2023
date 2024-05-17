@@ -51,7 +51,7 @@ include "../reusable/side-contacts.php";
             </div>
             <div class="contact_cont_item o0 to1">
                 <div class="tac mb4 ls5 <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][7] ?></div>
-                <form>
+                <form class="dfcjcae">
                     <div class="dfjlac fww gap5 p2">
                         <div class="sender_name_and_mail_cont">
                             <div class="sender_name dfcjcas gap1">

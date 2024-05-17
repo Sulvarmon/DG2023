@@ -760,29 +760,58 @@ $(window).on("load", function () {
 
     $(".fubmit_mail_btn").click(function (e) {
         e.preventDefault();
-        // console.log(grecapture.getResponse())
         var submitAllowed = { val: true };
         var flname = $(".sender_name>input").val().trim();
         var email = $(".sender_mail>input").val().trim();
         var text = $(".textarea_and_submit>textarea").val().trim();
+        var googleCaptcha = grecaptcha.getResponse();
+        var texts = [];
+console.log($(".lan>div:eq(0)>div:eq(0)").text().trim())
+        switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
+            case "ენა":
+                texts = ['სახელის ველი არ უნდა იყოს ცარიელი', 'ელ.ფოსტის ველი არ უნდა იყოს ცარიელი',
+                    'თქვენ არ შეგიძლიათ ცარიელი ტექსტის გაგზავნა', 'დაადასტურეთ, რომ არ ხართ რობოტი Google Captcha-ს საშუალებით',
+                    'შეტყობინება წარმატებით გაიგზავნა','თქვენი შეტყობინების გაგზავნისას წარმოიშვა პრობლემა. გთხოვთ სცადოთ მოგვიანებით']
+                break;
+            case "lan":
+                texts = ['The name field must not be empty', 'The e-mail field must not be empty',
+                    'You cannot send empty text', 'Verify you are not a robot with Google Captcha', 'Message sent successfully',
+                'There was an issue sending your message. Please try again later']
+                break;
+            case "язык":
+                texts = ['Поле имени не должно быть пустым', 'Поле электронной почты не должно быть пустым',
+                    'Вы не можете отправлять пустой текст', 'Подтвердите, что вы не робот, с помощью Google Captcha',
+                    'Сообщение успешно отправлено','Возникла проблема с отправкой вашего сообщения. Пожалуйста, повторите попытку позже']
+                break;
+
+            default:
+                break;
+        }
+
+
 
         if (flname == '') {
             submitAllowed.val = false
-            alert('saxelis veli ar unda iyos carieli')
+            alert(texts[0])
         }
 
-        if (email == '') {
+        if (email == '' && submitAllowed.val) {
             submitAllowed.val = false
-            alert('mailis veli ar unda iyos carieli')
+            alert(texts[1])
         }
 
-        if (text == '') {
+        if (text == '' && submitAllowed.val) {
             submitAllowed.val = false
-            alert('teqsti ar unda iyos carieli')
+            alert(texts[2])
+        }
+
+        if (!googleCaptcha.length > 0 && submitAllowed.val) {
+            submitAllowed.val = false
+            alert(texts[3])
         }
 
         if (submitAllowed.val) {
-            $(".mail_message").css({opacity: 1, "z-index": 1000});
+            $(".mail_message").css({ opacity: 1, "z-index": 1000 });
             $.ajax({
                 url: "../mail",
                 type: "post",
@@ -794,11 +823,17 @@ $(window).on("load", function () {
 
                 },
                 success: function (data) {
-                    $(".sender_name>input").val('')
-                    $(".sender_mail>input").val('')
-                    $(".textarea_and_submit>textarea").val('')
-                    alert(data)
-                    $(".mail_message").css({opacity: 0, "z-index": -1000});
+                    if (data == 'good') {
+                        alert(texts[4])
+                        $(".sender_name>input").val('')
+                        $(".sender_mail>input").val('')
+                        $(".textarea_and_submit>textarea").val('')
+                        $(".mail_message").css({ opacity: 0, "z-index": -1000 });                        
+                    } else {
+                        alert(texts[5])
+                        $(".mail_message").css({ opacity: 0, "z-index": -1000 }); 
+                    }
+
                 }
             })
         }
