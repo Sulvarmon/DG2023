@@ -29,9 +29,10 @@ include "../header.php";
 include "../reusable/side-phone.php";
 include "../reusable/side-contacts.php";
 
-// require "../vendor/autoload.php";
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// $dotenv->load();
+require "../vendor/autoload.php";
+$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv->load();
+
 
 ?>
 
@@ -68,18 +69,21 @@ include "../reusable/side-contacts.php";
                             </div>
                         </div>
                         <div class="textarea_and_submit dfcjcas gap2 mt2">
-                            <textarea class="p2 border br1 <?php echo $languageArray['font-family'][1] ?>" rows="10" cols="20" name="text" placeholder=<?php echo $languageArray['contacts page'][8] ?>></textarea>
-                            <div name="mailBtn" class="fubmit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
+                            <textarea class="p2 border br1 <?php echo $languageArray['font-family'][1] ?>" name="text" placeholder=<?php echo $languageArray['contacts page'][8] ?>></textarea>
+                            <div class="dfcjlas gap2 w5">
+                                <div class="g-recaptcha mt3" data-sitekey="<?php echo $_ENV['SITEKEY'] ?>"></div>
+                                <div name="mailBtn" class="fubmit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="g-recaptcha mt3" data-sitekey="6LcafeEpAAAAABZN8BKaJveXKORb3cMbR_OOP6wi"></div>
+
                 </form>
-                
+
             </div>
         </div>
         <div class="contact_cont_item o0 to1 map_cont p2 dfjcac">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1467.08397232512!2d41.69163!3d42.165871!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sge!4v1713263073032!5m2!1sen!2sge" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2934.157417028751!2d41.689499184256206!3d42.16609798746906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDLCsDA5JzU4LjAiTiA0McKwNDEnMjguMyJF!5e1!3m2!1sen!2sge!4v1716137383137!5m2!1sen!2sge" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     </div>
 
     <div class="mail_message">
