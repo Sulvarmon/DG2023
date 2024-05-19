@@ -29,6 +29,10 @@ include "../header.php";
 include "../reusable/side-phone.php";
 include "../reusable/side-contacts.php";
 
+// require "../vendor/autoload.php";
+// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+// $dotenv->load();
+
 ?>
 
 <div>
@@ -68,7 +72,7 @@ include "../reusable/side-contacts.php";
                             <div name="mailBtn" class="fubmit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
                         </div>
                     </div>
-                    <div class="g-recaptcha mt3" data-sitekey="6LfO998pAAAAAIYf5HFgbe-1mk4Rl83TGx1mnV_5"></div>
+                    <div class="g-recaptcha mt3" data-sitekey="6LcafeEpAAAAABZN8BKaJveXKORb3cMbR_OOP6wi"></div>
                 </form>
                 
             </div>

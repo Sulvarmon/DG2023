@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -16,6 +17,22 @@ if (!isset($_POST['mailBtn'])) {
 $flname = $_POST['flname'];
 $email = $_POST['email'];
 $text = $_POST['text'];
+$recaptcha = $_POST['gRecaptchaResponse'];
+
+//test captcha
+if ($recaptcha == '') {
+    echo 'not good';
+    exit;
+}
+
+$secret = $_ENV['SERVERKEY'];
+$var = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $recaptcha);
+$array = json_decode($var, true);
+
+if(!$array['success']){
+    echo 'not good';
+    exit;
+}
 
 $mail = new PHPMailer(true);
 
@@ -28,13 +45,13 @@ try {
     $mail->Password = $_ENV['MAILPASSWORD']; // Get password from environment variable
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-    
+
     // Recipients
     $mail->setFrom($email, $flname); // Replace with your email
     $mail->addAddress($_ENV['MAIL']);
     $mail->addReplyTo($email, $flname); // Sender's email and name
-    
-    
+
+
     // Content
     $mail->isHTML(true);
     $mail->Subject = 'My subject';
@@ -46,4 +63,3 @@ try {
     // error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
     echo 'not good';
 }
-?>

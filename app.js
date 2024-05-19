@@ -766,22 +766,25 @@ $(window).on("load", function () {
         var text = $(".textarea_and_submit>textarea").val().trim();
         var googleCaptcha = grecaptcha.getResponse();
         var texts = [];
-console.log($(".lan>div:eq(0)>div:eq(0)").text().trim())
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        
         switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
             case "ენა":
                 texts = ['სახელის ველი არ უნდა იყოს ცარიელი', 'ელ.ფოსტის ველი არ უნდა იყოს ცარიელი',
                     'თქვენ არ შეგიძლიათ ცარიელი ტექსტის გაგზავნა', 'დაადასტურეთ, რომ არ ხართ რობოტი Google Captcha-ს საშუალებით',
-                    'შეტყობინება წარმატებით გაიგზავნა','თქვენი შეტყობინების გაგზავნისას წარმოიშვა პრობლემა. გთხოვთ სცადოთ მოგვიანებით']
+                    'შეტყობინება წარმატებით გაიგზავნა', 'თქვენი შეტყობინების გაგზავნისას წარმოიშვა პრობლემა. გთხოვთ სცადოთ მოგვიანებით',
+                'არასწორი ელ. ფოსტა. გთხოვთ შეიყვანოთ სწორი ელ. ფოსტის მისამართი']
                 break;
             case "lan":
                 texts = ['The name field must not be empty', 'The e-mail field must not be empty',
                     'You cannot send empty text', 'Verify you are not a robot with Google Captcha', 'Message sent successfully',
-                'There was an issue sending your message. Please try again later']
+                    'There was an issue sending your message. Please try again later','Invalid email. Please enter a valid email address']
                 break;
             case "язык":
                 texts = ['Поле имени не должно быть пустым', 'Поле электронной почты не должно быть пустым',
                     'Вы не можете отправлять пустой текст', 'Подтвердите, что вы не робот, с помощью Google Captcha',
-                    'Сообщение успешно отправлено','Возникла проблема с отправкой вашего сообщения. Пожалуйста, повторите попытку позже']
+                    'Сообщение успешно отправлено', 'Возникла проблема с отправкой вашего сообщения. Пожалуйста, повторите попытку позже',
+                'Неверный адрес электронной почты. Пожалуйста, введите действительный адрес электронной почты']
                 break;
 
             default:
@@ -798,6 +801,11 @@ console.log($(".lan>div:eq(0)>div:eq(0)").text().trim())
         if (email == '' && submitAllowed.val) {
             submitAllowed.val = false
             alert(texts[1])
+        }
+
+        if (!emailPattern.test(email) && submitAllowed.val) {
+            submitAllowed.val = false
+            alert(texts[6])
         }
 
         if (text == '' && submitAllowed.val) {
@@ -820,7 +828,7 @@ console.log($(".lan>div:eq(0)>div:eq(0)").text().trim())
                     flname: flname,
                     email: email,
                     text: text,
-
+                    gRecaptchaResponse: googleCaptcha
                 },
                 success: function (data) {
                     if (data == 'good') {
@@ -828,10 +836,10 @@ console.log($(".lan>div:eq(0)>div:eq(0)").text().trim())
                         $(".sender_name>input").val('')
                         $(".sender_mail>input").val('')
                         $(".textarea_and_submit>textarea").val('')
-                        $(".mail_message").css({ opacity: 0, "z-index": -1000 });                        
+                        $(".mail_message").css({ opacity: 0, "z-index": -1000 });
                     } else {
                         alert(texts[5])
-                        $(".mail_message").css({ opacity: 0, "z-index": -1000 }); 
+                        $(".mail_message").css({ opacity: 0, "z-index": -1000 });
                     }
 
                 }
