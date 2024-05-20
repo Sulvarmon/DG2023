@@ -3,11 +3,12 @@ session_start();
 
 # საწყისი ენა არის ქართული
 if (!isset($_SESSION['languageArray'])) {
-    $_SESSION['languageArray'] = include "./lan-geo.php";
+    $_SESSION['languageArray'] = include $defaultLanguage;
     $languageArray = $_SESSION['languageArray'];
 } else {
     $languageArray = $_SESSION['languageArray'];
 }
+
 ?>
 
 <div class="<?php echo $languageArray['font-family'][0] ?>" id="language"></div>

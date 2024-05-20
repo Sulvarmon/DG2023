@@ -8,16 +8,25 @@ if (isset($_POST['lanBtn'])) {
         case 'eng':
         case 'анг':
             $_SESSION['languageArray'] = include "./lan-eng.php";
+            if ($_SESSION['allowCookie']) {
+                setcookie('language', 'eng', time() + (10 * 365 * 24 * 60 * 60), '/');
+            }
             break;
         case 'რუს':
-        case 'rus':
         case 'рус':
-            $_SESSION['languageArray'] = include "./lan-ru.php";
+        case 'rus':
+            $_SESSION['languageArray'] = include "./lan-rus.php";
+            if ($_SESSION['allowCookie']) {
+                setcookie('language', 'rus', time() + (10 * 365 * 24 * 60 * 60), '/');
+            }
             break;
         case 'ქარ':
         case 'geo':
         case 'гру':
             $_SESSION['languageArray'] = include "./lan-geo.php";
+            if ($_SESSION['allowCookie']) {
+                setcookie('language', 'geo', time() + (10 * 365 * 24 * 60 * 60), '/');
+            }
             break;
         default:
             break;

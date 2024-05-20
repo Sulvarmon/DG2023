@@ -2,8 +2,6 @@
 
 $title = "მთავარი გვერდი";
 $icon = "./img/logo.png";
-$langLink1 = "./en/index-en";
-$langLink2 = "./ru/index-ru";
 $css = "./styles.css";
 $js = "./app.js";
 $home = "./home";
@@ -15,8 +13,31 @@ $civilIndustrialProjects = "./pages/sectors/civil-industrial-projects";
 $projects = "./pages/projectsPg";
 $news = "./pages/news";
 $contact = "./pages/contact";
-$fb = "https://www.facebook.com/";
 $language = "./language";
+
+
+session_start();
+$_SESSION['allowCookie'] = false;
+if (isset($_COOKIE['language'])) {
+    switch ($_COOKIE['language']) {
+        case 'geo':
+            $defaultLanguage = './lan-geo.php';
+            break;
+        case 'eng':
+            $defaultLanguage = './lan-eng.php';
+            break;
+        case 'rus':
+            $defaultLanguage = './lan-rus.php';
+            break;
+        default:
+            break;
+    }    
+} else { 
+    $defaultLanguage = './lan-geo.php';
+}
+session_unset();
+session_destroy();
+
 
 #ფაილის გზის დასახელების ბოლო სიტყვის გაგება .php მდე
 $path = __FILE__;

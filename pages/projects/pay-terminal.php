@@ -3,8 +3,6 @@
 $title = "გადახდის ტერმინალი";
 $icon = "../../img/logo.png";
 $icon = "../../img/logo.png";
-$langLink1 = "./en/index-en";
-$langLink2 = "./ru/index-ru";
 $css = "../../styles.css";
 $js = "../../app.js";
 $home = "../../home";
@@ -16,8 +14,25 @@ $civilIndustrialProjects = "../sectors/civil-industrial-projects";
 $projects = "../projectsPg";
 $news = "../news";
 $contact = "../contact";
-$fb = "https://www.facebook.com/";
 $language = "../../language";
+
+if (isset($_COOKIE['language'])) {
+    switch ($_COOKIE['language']) {
+        case 'geo':
+            $defaultLanguage = '../../lan-geo.php';
+            break;
+        case 'eng':
+            $defaultLanguage = '../../lan-eng.php';
+            break;
+        case 'rus':
+            $defaultLanguage = '../../lan-rus.php';
+            break;
+        default:
+            break;
+    }    
+} else {
+    $defaultLanguage = '../../lan-geo.php';
+}
 
 #ფაილის გზის დასახელების ბოლო სიტყვის გაგება .php მდე
 $path = __FILE__;

@@ -1,6 +1,6 @@
 <div class="side_contacts_cont_wrapper dn">
     <div class="side_contacts_cont dfcjcas gap2 p2">
-        <a href=<?php echo $fb ?> target="_blank" class="side_contacts_facebook dfjcac gap1">
+        <a href="https://www.facebook.com/" target="_blank" class="side_contacts_facebook dfjcac gap1">
             <i class="fa-brands fa-facebook-f"></i>
             <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['fb'] ?></div>
         </a>
