@@ -90,7 +90,7 @@ include "../../reusable/side-contacts.php";
 
             for ($i = 0; $i < 3; $i++) {
                 echo '<div class="cip_section p2 ">';
-                echo '<div class="cip_section_img_cont pr"><div class="cip_section_dark_cover pa"></div><img class="pa ofcnt" src='.$cipImgs[$i].' alt=""></div>';
+                echo '<div class="cip_section_img_cont pr"><img class="pa ofcnt" src='.$cipImgs[$i].' alt=""></div>';
                 echo '<div class="cip_section_text_cont">';
                 echo '<div class="dfjlac gap1"><i class="fa-solid fa-location-dot"></i><span class="'. $languageArray['font-family'][1] .'"><b>' . $cipTitles[$i] . '</b></span></div>';
                 echo '<div><span class="'. $languageArray['font-family'][1] .'">' . $cipTexts[$i] . '</span></div>';

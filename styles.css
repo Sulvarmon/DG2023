@@ -1699,13 +1699,6 @@ textarea {
     }
 }
 
-.cip_section_dark_cover {
-    background-color: #000;
-    z-index: 10;
-    opacity: 0.7;
-    transition: opacity 1s;
-}
-
 .cip_section i {
     color: var(--blue);
     font-size: 14px;

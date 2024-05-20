@@ -488,7 +488,6 @@ $(window).on("load", function () {
             break;
         case "სამოქალაქო და ინდუსტრიული პროექტები":
             opacityAnimation(".cip_text", "cip_text li")
-            opacityAnimation(".cip_section_wrapper", "cip_section_dark_cover", 0)
             break;
         case "კონტაქტი":
             opacityAnimation(".contact_cont", "contact_cont_item")
@@ -659,7 +658,7 @@ $(window).on("load", function () {
 
 
 
-    function expandImage(element, hasTag = true) {
+    function expandImage(element, hasImgTag = true) {
 
         $(element).css({ cursor: "zoom-in" })
         $(element).click(function () {
@@ -668,7 +667,7 @@ $(window).on("load", function () {
 
 
 
-            if (hasTag) {
+            if (hasImgTag) {
                 var imageSrc = `url(${$(this).attr('src')})`;
                 $.each($("body").find(element), function (i, e) {
                     numberIfImages += 1;
@@ -746,14 +745,12 @@ $(window).on("load", function () {
         });
     }
 
-
-
     expandImage(".projects_page_cont img")
     expandImage(".home_pg_about_section_img_wrapper", false)
     expandImage(".about_img_cont", false)
     expandImage(".marine_works_img ", false)
     expandImage(".building_materials_main_img", false)
-    expandImage(".cip_section_img_cont")
+    expandImage(".cip_section_img_cont>img")
     expandImage(".team_photo", false)
     expandImage(".team_member_img")
 
