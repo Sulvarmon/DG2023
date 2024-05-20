@@ -35,7 +35,7 @@ return [
     'small menu about' => ["home", "about"],
     'small menu team' => ["home", "team"],
     'small menu berth-7' => ["home", "projects", "berth-7"],
-    'small menu berth-15' => ["home", "projects", "ნავმისადგომი-15"],
+    'small menu berth-15' => ["home", "projects", "berth-15"],
     'small menu container-terminal' => ["home", "projects", "container terminal"],
     'small menu lego-blocks' => ["home", "projects", "Rehabilitation of the 7th berth, Poti"],
     'small menu pay-terminal' => ["home", "projects", "pay terminal"],
@@ -151,7 +151,11 @@ return [
         ],
     ],
     'search' => ['placeholder' => 'search', 'title' =>'start typing'],
-    
+    'cookie' => [
+        1 => 'This website uses cookies to ensure you get the best experience on our website.',
+        2 => 'Allow',
+        3 => 'Reject',
+    ],
 
 
 
