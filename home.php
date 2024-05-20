@@ -15,9 +15,10 @@ $news = "./pages/news";
 $contact = "./pages/contact";
 $language = "./language";
 
+// setcookie('language', 'eng', time() - (10 * 365 * 24 * 60 * 60), '/');
+// setcookie('language', 'rus', time() - (10 * 365 * 24 * 60 * 60), '/');
+// setcookie('language', 'geo', time() - (10 * 365 * 24 * 60 * 60), '/');
 
-session_start();
-$_SESSION['allowCookie'] = false;
 if (isset($_COOKIE['language'])) {
     switch ($_COOKIE['language']) {
         case 'geo':
@@ -31,13 +32,10 @@ if (isset($_COOKIE['language'])) {
             break;
         default:
             break;
-    }    
-} else { 
+    }
+} else {
     $defaultLanguage = './lan-geo.php';
 }
-session_unset();
-session_destroy();
-
 
 #ფაილის გზის დასახელების ბოლო სიტყვის გაგება .php მდე
 $path = __FILE__;

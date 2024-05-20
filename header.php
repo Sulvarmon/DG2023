@@ -151,3 +151,19 @@ if (!isset($_SESSION['languageArray'])) {
         <ul class="searched_links dfcjcas gap2 mt3"></ul>
     </div>
 </div>
+
+
+<?php
+echo $_SESSION['allowCookie'];
+if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
+    echo '<div class="cookie_cont br2 p2 wfc">';
+    echo '<div class="dfcjcac gap2">';
+    echo '<span class="cw">This website uses cookies to ensure you get the best experience on our website.</span>';
+    echo '<div class="dfjcac gap2">';
+    echo '<div class="allow_cookie cw br3 pl3 pr3 pt1 pb1 cp usn">Allow</div>';
+    echo '<div class="reject_cookie cw br3 pl3 pr3 pt1 pb1 cp usn">reject</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+}
+?>

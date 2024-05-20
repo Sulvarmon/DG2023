@@ -1984,3 +1984,37 @@ textarea {
         transform: scale(1);
     }
 }
+
+.cookie_cont {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: cookie 2s ease-out 2s forwards;
+    transition: all 1s;
+    z-index: 1000;
+}
+
+@keyframes cookie {
+    from {
+        bottom: -50px;
+    }
+
+    to {
+        bottom: 20px;
+    }
+}
+
+
+.cookie_cont>div>div>div {
+    border: 1px solid #fff;
+    transition: all 0.3s;
+}
+
+.cookie_cont>div>div>div:hover {
+    color: var(--menuColor);
+    border: 1px solid var(--menuColor);
+}

@@ -21,6 +21,7 @@ $(window).on("load", function () {
         distance2: ['../projects/berth-7', '../projects/berth-15', '../projects/container-terminal', '../projects/lego-blocks', '../projects/pay-terminal', '../projects/poti-apartment',],
         distance0: ['./berth-7', './berth-15', './container-terminal', './lego-blocks', './pay-terminal', './poti-apartment',],
     }
+    var searchPath = { val: '' };
     //ცვლადების დასასრული
 
     //ფუნქციები       
@@ -138,6 +139,26 @@ $(window).on("load", function () {
         $(".prev_proj").attr("href", prevHref) // წინა ლინკის განსაზღვრა
         $(".projects_thumbnail>a").removeClass("disabled_thumbnail").addClass("active_thumbnail") // ფრჩხილების რესეტი
         $(`.projects_thumbnail>a:eq(${index}), .projects_thumbnail>a:eq(${bottomIndex})`).removeClass("active_thumbnail").addClass("disabled_thumbnail") // უმოქმედო ფრჩხილების განსაზღვრა
+    }
+
+    function findFilePaths(variableName,fileName){
+        for (let i = 0; i < allPages.length; i++) {
+            if ($("title").text() == allPages[i]) {
+                switch (i) {
+                    case 0:
+                        variableName.val = `./${fileName}`
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        variableName.val = `../${fileName}`
+                        break;
+                    default:
+                        variableName.val = `../../${fileName}`
+                        break;
+                }
+            }
+        }
     }
 
     // ფუნქციების დასასრული
@@ -569,40 +590,18 @@ $(window).on("load", function () {
         e.stopPropagation();
     })
 
-    var searchUrl = { val: '' };
-
-
-    for (let i = 0; i < allPages.length; i++) {
-        if ($("title").text() == allPages[i]) {
-            switch (i) {
-                case 0:
-                    searchUrl.val = 'search'
-                    break;
-                case 1:
-                case 2:
-                case 3:
-                    searchUrl.val = '../search'
-                    break;
-                default:
-                    searchUrl.val = '../../search'
-                    break;
-            }
-        }
-    }
-
     $('.search_input').keydown(function (e) {
         if (e.keyCode === 13) {
             e.preventDefault();
         }
     })
-
-
-
+    
     $(".search_input").keyup(function () { //ძებნა
         var inputValue = $(".search_input").val().toLowerCase().replace(/[-,.!:'"\/\d\s]/g, ''); // საძებნი ტექსტი
         if (inputValue != "") { // თუ ვერლი ცარიელი არაა
+            findFilePaths(searchPath,'search')
             $.ajax({
-                url: searchUrl.val, // ძებნის ფაილთან დაკავშირება
+                url: searchPath.val, // ძებნის ფაილთან დაკავშირება
                 type: "post",
                 data: {
                     searchSubmitBtn: true,
@@ -847,6 +846,56 @@ $(window).on("load", function () {
         }
 
     })
+
+
+    var cookiFilePath = {val: ''}
+
+$(".allow_cookie").click(function(e){
+    e.preventDefault();
+    $(".cookie_cont").css({opacity: "0", "z-index": "-1000"})
+    findFilePaths(cookiFilePath,'cookie');
+    $.ajax({
+        url: cookiFilePath.val,
+        type: 'post',
+        data: {
+            cookieBtn: true,
+            allow: true,
+        },
+        success: function(data){
+            console.log(data)
+        }
+    })
+})
+
+$(".reject_cookie").click(function(e){
+    e.preventDefault();
+    $(".cookie_cont").css({opacity: "0", "z-index": "-1000"})
+    findFilePaths(cookiFilePath,'cookie');
+    $.ajax({
+        url: cookiFilePath.val,
+        type: 'post',
+        data: {
+            cookieBtn: true,
+            allow: false,
+        },
+        success: function(data){
+            console.log(data)
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 })
 
