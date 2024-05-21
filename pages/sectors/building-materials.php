@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "სამშენებლო მასალები";
 $icon = "../../img/logo.png";
 $css = "../../styles.css";

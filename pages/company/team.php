@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "ჩვენი გუნდი";
 $icon = "../../img/logo.png";
 $css = "../../styles.css";
@@ -64,7 +64,7 @@ $stuffPosition = $languageArray['team positions'][1];
     <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['our team'] ?></div>
     <div class="container team_cont_wrapper p3 bg1">
         <div class="team_photo o0 to1"></div>
-        <div class="team_cont">
+        <div class="team_cont mt3">
             <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][0] ?></p>
             <br>
             <p>

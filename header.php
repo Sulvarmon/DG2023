@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 # საწყისი ენა არის ქართული
 if (!isset($_SESSION['languageArray'])) {

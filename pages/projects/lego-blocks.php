@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "ლეგო-ბლოკები";
 $icon = "../../img/logo.png";
 $css = "../../styles.css";

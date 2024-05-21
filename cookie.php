@@ -1,11 +1,9 @@
 <?php
-
+session_start();
 if (!isset($_POST['cookieBtn'])) {
     exit;
     header("Location: ./home");
 }
-
-session_start();
 
 $allow = $_POST['allow'];
 $language = $_SESSION['languageArray']['language'];

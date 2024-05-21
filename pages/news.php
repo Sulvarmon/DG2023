@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "სიახლეები";
 $icon = "../img/logo.png";
 $css = "../styles.css";

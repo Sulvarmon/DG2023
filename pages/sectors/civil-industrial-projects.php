@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "სამოქალაქო და ინდუსტრიული პროექტები";
 $icon = "../../img/logo.png";
 $css = "../../styles.css";

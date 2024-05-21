@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "ნავმისადგომი-15";
 $icon = "../../img/logo.png";
 $css = "../../styles.css";

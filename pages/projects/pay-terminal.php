@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "გადახდის ტერმინალი";
 $icon = "../../img/logo.png";
 $icon = "../../img/logo.png";
