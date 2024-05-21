@@ -153,7 +153,8 @@ if (!isset($_SESSION['languageArray'])) {
 
 
 <?php
-echo $_SESSION['allowCookie'];
+
+
 if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
     echo '<div class="cookie_cont br2 p2 wfc">';
     echo '<div class="dfcjcac gap2">';
