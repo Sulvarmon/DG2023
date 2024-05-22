@@ -1,9 +1,5 @@
 <?php
 
-// if (!defined("noAccess")) {
-//     die("No Access");
-// }
-
 define("conn", true);
 include("conn.php");
 

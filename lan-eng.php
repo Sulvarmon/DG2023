@@ -152,10 +152,11 @@ return [
     ],
     'search' => ['placeholder' => 'search', 'title' =>'start typing'],
     'cookie' => [
-        1 => 'This website uses cookies to ensure you get the best experience on our website.',
+        1 => 'This website uses cookies <i class="fa-solid fa-cookie-bite fa-xl"></i> to ensure you get the best experience on our website.',
         2 => 'Allow',
         3 => 'Reject',
     ],
+    'unfinished website' => "The site is under construction. The information on the site does not correspond to the company's activities",
 
 
 

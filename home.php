@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $title = "მთავარი გვერდი";
 $icon = "./img/logo.png";
 $css = "./styles.css";
