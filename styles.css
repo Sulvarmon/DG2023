@@ -249,7 +249,7 @@ img {
 }
 
 .fs1 {
-    font-size: var(--fontSize1);
+    font-size: var(--fontSize1)!important;
 }
 
 .fs2 {
@@ -1982,7 +1982,7 @@ textarea {
 
 .cookie_cont {
     position: fixed;
-    bottom: -100px;
+    bottom: -200px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1990,13 +1990,13 @@ textarea {
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.8);
     animation: cookie 2s ease-out 2s forwards;
-    transition: all 1s;
+    transition: all 1s ease-out;
     z-index: 1000;
 }
 
 @keyframes cookie {
     from {
-        bottom: -50px;
+        bottom: -200px;
     }
 
     to {
