@@ -249,7 +249,7 @@ img {
 }
 
 .fs1 {
-    font-size: var(--fontSize1)!important;
+    font-size: var(--fontSize1) !important;
 }
 
 .fs2 {
@@ -1327,7 +1327,7 @@ textarea {
 .carousel_slide_cont {
     overflow: hidden;
     width: 100%;
-    height: 450px;
+    height: 550px;
     margin: 0 auto;
 }
 
@@ -1470,24 +1470,97 @@ textarea {
     right: 0;
     bottom: 80px;
     margin: auto;
-    /* უმჯობესია სიგანე დაყენდეს თითიეულ კარუსელში გამოყენებული სლაიდების უსჯ-ს ჯერადი */
+    /* უმჯობესია სიგანე დაყენდეს თითიეულ კარუსელში გამოყენებული სლაიდების უსჯ-ს ჯერადის დამატებული 2 პიქსელი  */
+    /* 2 პიქსელი იმიტომ რომ ჯავასკრიპტ ფუნცქცია parseFloat() იპარავს 2 პიქსელს :( */
     /* მაგალითად: თუ გამოყენებულია 2 კარუსელი, პირველის სლაიდების რაოდენობაა 7 და მეორეს 5, სასურველია 
-    სიგანე დაყენდეს  უსჯ(7,5)*n, სადაც n ნატურალური რიცხვია */
-    width: 125px;
-    height: 10px;
+    სიგანე დაყენდეს  უსჯ(7,5)*n + 2, სადაც n ნატურალური რიცხვია */
     overflow: hidden;
-    border-radius: 5px;
+    width: 152px;
+    height: 40px;
+    border-radius: 50%;
     border: 1px solid #000;
-    background-color: #fff;
+    background-color: var(--bg1);
+    transition: height 0.1s;
 }
+
+.eye_blink {
+    animation: eye_blink 0.2s forwards;
+}
+
+.eye_double_blink {
+    animation: eye_double_blink 0.6s forwards;
+}
+
+@keyframes eye_blink {
+    0% {
+        height: 40px;
+        transform: translateY(0);
+        transform-origin: 0;
+    }
+
+    50% {
+        height: 0px;
+        transform: translateY(-10px);
+        transform-origin: 20px 0;
+    }
+
+    100% {
+        height: 40px;
+        transform: translateY(0);
+        transform-origin: 0 0;
+    }
+}
+
+@keyframes eye_double_blink {
+    0% {
+        height: 40px;
+        transform: translateY(0);
+        transform-origin: 0;
+    }
+
+    25% {
+        height: 0px;
+        transform: translateY(-10px);
+        transform-origin: 20px 0;
+    }
+
+    50% {
+        height: 40px;
+        transform: translateY(0);
+        transform-origin: 0;
+    }
+
+    75% {
+        height: 0px;
+        transform: translateY(-10px);
+        transform-origin: 20px 0;
+    }
+
+    100% {
+        height: 40px;
+        transform: translateY(0);
+        transform-origin: 0 0;
+    }
+}
+
 
 .carousel_thumbnail {
     position: absolute;
     top: 0;
+    bottom: 0;
+    margin: auto;
     background-color: var(--red);
-    height: 100%;
-    border-radius: 5px;
+    height: 110%;
+    border: 2px solid #000;
+    border-radius: 50%;
     transition: all 0.3s;
+}
+
+.eye_pupil {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--blue);
 }
 
 /* end */
@@ -2015,13 +2088,13 @@ textarea {
     border: 1px solid var(--menuColor);
 }
 
-.unfinished_website{
+.unfinished_website {
     position: fixed;
     top: 200px;
     left: 0;
     z-index: 2000;
     color: grey;
     width: 18%;
-    font-size: 12px!important;
+    font-size: 12px !important;
     text-shadow: 1px 1px 5px grey;
 }

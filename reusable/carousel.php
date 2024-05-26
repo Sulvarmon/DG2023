@@ -1,6 +1,5 @@
-<?php #კარუსელი ჯერჯერობით მუშაობს მხოლოდ კენტ რაოდენობა სლაიდებზე: ცენტრი ჭირდება.
+<?php
 ?>
-
 <div class="carousel_cont container pr <?php echo $carouselSize?>">
     <div class="carousel_arrow carousel_arrow_left usn"><i class="fa-solid fa-chevron-left"></i></div>
     <div class="carousel_invisable_arrow carousel_invisable_arrow_left usn"></div>
@@ -17,8 +16,8 @@
         ?>
     </div>
     <div class="carousel_thumbnails_cont usn pen pr">
-        <div class="carousel_thumbnail carousel_thumbnail1"></div>
-        <div class="carousel_thumbnail carousel_thumbnail2"></div>
+        <div class="carousel_thumbnail carousel_thumbnail1 dfjcac"><div class="eye_pupil"></div></div>
+        <div class="carousel_thumbnail carousel_thumbnail2 dfjcac"><div class="eye_pupil"></div></div>
     </div>
 
     <div class="carousel_arrow carousel_arrow_right usn"><i class="fa-solid fa-chevron-right"></i></div>

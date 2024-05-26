@@ -141,7 +141,7 @@ $(window).on("load", function () {
         $(`.projects_thumbnail>a:eq(${index}), .projects_thumbnail>a:eq(${bottomIndex})`).removeClass("active_thumbnail").addClass("disabled_thumbnail") // უმოქმედო ფრჩხილების განსაზღვრა
     }
 
-    function findFilePaths(variableName,fileName){
+    function findFilePaths(variableName, fileName) {
         for (let i = 0; i < allPages.length; i++) {
             if ($("title").text() == allPages[i]) {
                 switch (i) {
@@ -187,201 +187,204 @@ $(window).on("load", function () {
 
 
     // carousel
+    let carouselSlidesNumber = $(".carousel_slide").length;
+    let carouselWidth = Math.round(parseFloat($(".carousel_slide_cont").width()));
+    let firstClick = { left: false, right: true }
+    let allowClick = { val: true }
+    let thumbnailContainerWidth = parseInt($(".carousel_thumbnails_cont").width());
+    let thumbnailWidth = thumbnailContainerWidth / carouselSlidesNumber;
+    let thumbnailLefts = { left1: 0, left2: -thumbnailWidth }
+    let movingSubnail = { val: 1 }
+    let eyeBlinkinIterval;
+    let eyeBlinkTimeout;
+    let eyeDoubleBlinkTimeout;
 
-    var carouselSlidesNumber = $(".carousel_slide").length;
-    var carouselWidth = $(".carousel_slide_cont").width();
-    var carouselHalfItemsNumber = Math.floor(carouselSlidesNumber / 2);
-    var carouselSlidecounter = { value: carouselHalfItemsNumber, currentSlide: 0 }
-    var carouseClickDisabled = { value: false }
-    var carouseLastClick = { value: "", giveInitialValue: true }
-    var thumbnailContainerWidth = parseInt($(".carousel_thumbnails_cont").width());
-    var thumbnailWidth = thumbnailContainerWidth / carouselSlidesNumber;
-    var thumbnailLefts = { left1: 0, left2: -thumbnailWidth }
-    var movingThumbnail = { one: true, two: false }
-    var carouselBtnAnimationDisabled = { value: false }
+    function eyeBlinkTimeoutFnc() {
+        $(".carousel_thumbnails_cont").removeClass("eye_blink")
+        $(".carousel_thumbnails_cont").removeClass("eye_double_blink")
+        eyeBlinkTimeout = setTimeout(() => {
+            $(".carousel_thumbnails_cont").addClass("eye_blink")
+        }, 2000);
+        eyeDoubleBlinkTimeout = setTimeout(() => {
+            $(".carousel_thumbnails_cont").addClass("eye_double_blink")
+        }, 4000);
+        eyeBlinkinIterval = setInterval(() => {
+            $(".carousel_thumbnails_cont").removeClass("eye_blink")
+            $(".carousel_thumbnails_cont").removeClass("eye_double_blink")
+            eyeBlinkTimeout = setTimeout(() => {
+                $(".carousel_thumbnails_cont").addClass("eye_blink")
+            }, 2000);
+            eyeDoubleBlinkTimeout = setTimeout(() => {
+                $(".carousel_thumbnails_cont").addClass("eye_double_blink")
+            }, 4000);
+        }, 8000);
 
-
-    $(".carousel_thumbnail").css("width", `${thumbnailWidth}px`) // set width of thumbnail
-    $(".carousel_thumbnail1").css("left", `${thumbnailLefts.left1}px`) // set left of thumbnail1
-    $(".carousel_thumbnail2").css("left", `${thumbnailLefts.left2}px`) // set left of thumbnail2
-
-    setTimeout(() => { //after some time add transition to slides
-        $(".carousel_slide").css("transition", "left 0.3s ease-in-out")
-    }, 300);
-
-    for (var i = 0; i < carouselSlidesNumber; i++) { //define initial left values of carousel_slide element 
-        var left = `${i * carouselWidth - carouselHalfItemsNumber * carouselWidth}px`;//
-        $(`.carousel_slide:eq(${i})`).css({ left: left })
     }
 
-    $(".carousel_arrow_right,.carousel_invisable_arrow_right").click(function () {  //carousel right arrow clicks           
-        if (!carouseClickDisabled.value) {
-            carouselSlidecounter.currentSlide += 1; // increase couneter currentSlide value
-            if (carouselSlidecounter.currentSlide == carouselSlidesNumber) { //reach right edge
-                if (movingThumbnail.one) { // if first thmb is currently moving
-                    thumbnailLefts.left1 += thumbnailWidth
-                    //slide first thmb, then hide and travel it to the left side and then show it
-                    $(".carousel_thumbnail1").css({ left: `${thumbnailLefts.left1}px` }).delay(300).hide(0, function () {
-                        $(this).css({ left: `${-thumbnailWidth}px` }).show(0);
-                    });
-                    thumbnailLefts.left1 = -thumbnailWidth // reset variable for setting left prop of first thmb
-                    movingThumbnail.one = false; // stop first thmb movement
-                    movingThumbnail.two = true; //start second thmb movement
-                } else { //if second thmb is currently moving
-                    //this case is the same as first thmb movement case
-                    thumbnailLefts.left2 += thumbnailWidth
-                    $(".carousel_thumbnail2").css({ left: `${thumbnailLefts.left2}px` }).delay(300).hide(0, function () {
-                        $(this).css({ left: `${-thumbnailWidth}px` }).show(0);
-                    });
-                    thumbnailLefts.left2 = -thumbnailWidth
-                    movingThumbnail.one = true
-                    movingThumbnail.two = false
+    for (let i = 0; i < carouselSlidesNumber; i++) { // define initial left values of carousel_slide element 
+        let newLeft = `${(i - carouselSlidesNumber + 2) * carouselWidth}px`;//
+        $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
+    }
+
+    $(".carousel_thumbnail").css("width", `${thumbnailWidth}px`) // სუბნეილების სიგანის დაყენება
+    $(".carousel_thumbnail1").css("left", `${thumbnailLefts.left1}px`) // პირველი სუბნაილის "მარცხენა" თვისების დაყენება
+    $(".carousel_thumbnail2").css("left", `${thumbnailLefts.left2}px`) // მეორე სუბნაილის "მარცხენა" თვისების დაყენება
+
+    setTimeout(() => { // გარკვეული დროის შემდეგ ტრანზიციის თვისების დადება
+        $(".carousel_slide").css("transition", "left 0.3s")
+    }, 300);
+
+    $(".carousel_arrow_right, .carousel_invisable_arrow_right").click(function () {
+        // კარუსელის სლაიდების მუშაობის კოდი
+        if (allowClick.val) {
+            allowClick.val = false; // გასრიალების ანიმაციას უნდა დალოდება
+            if (!firstClick.right) { // თუ არ არის კარუსელი გადაწყობილი 
+                for (let i = 0; i < carouselSlidesNumber; i++) {
+                    let left = Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left")))
+                    // კარუსელის გადაწყობა ისე რომ მარჯვნივ იყოს მხოლოდ ერთი ელემენტი, დანარჩენი მარცხნივ
+                    if (left > 2 * carouselWidth) {
+                        // გადასროლა :
+                        // მაგ.: თუ მაქვს 1 2 3 4 5 |6| 7 სლაიდები და ხილულ არეშია 6 , მაშინ 1 2 3 გადაისროლება მარჯვნივ
+                        // ხოლო დანარჩენი გასრიალდება და მექნება: 4 |5| 6 7 1 2 3
+                        $(`.carousel_slide:eq(${i})`).hide(0).css({ left: left - carouselWidth * (carouselSlidesNumber + 1) }).show(0)
+                        continue
+                    }
+                    let newLeft = `${Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left"))) - carouselWidth}px`;//
+                    $(`.carousel_slide:eq(${i})`).css({ left: newLeft }) // გასრიალება
                 }
-                carouselSlidecounter.currentSlide = 0; //reset couneter currentSlide value
+                firstClick.right = true
+                firstClick.left = false
+            } else { // თუ კარუსელი გადაწყობილია: მაგ: 1 2 3 4 |5| 6 ხილულ არეშია 5
+                for (let i = 0; i < carouselSlidesNumber; i++) {
+                    let left = Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left")))
+                    if (left == -((carouselSlidesNumber - 2) * carouselWidth)) { // მარცხენა უკიდურესი ელემენტის გადასროლა უკიდურეს მარჯვნივ
+                        $(`.carousel_slide:eq(${i})`).hide(0).css({ left: carouselWidth }).show(0)
+
+                        continue
+
+                    }
+                    let newLeft = `${Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left"))) - carouselWidth}px`;
+                    $(`.carousel_slide:eq(${i})`).css({ left: newLeft }) // გასრიალება
+                }
             }
+            setTimeout(() => {
+                allowClick.val = true
+            }, 350);
 
-            $(".carousel_thumbnail").css({ backgroundColor: "#b63a3a" }) //red color for thmbs
+            // კარუსელის ისრის ეფექები
+            $(".carousel_arrow_right i").css({ transform: 'rotate(0deg)' })
 
-            if (movingThumbnail.one) {
-                thumbnailLefts.left1 += thumbnailWidth
-                $(".carousel_thumbnail1").css({ left: `${thumbnailLefts.left1}px` })// slide first thmb ro the right
-            } else {
-                thumbnailLefts.left2 += thumbnailWidth
-                $(".carousel_thumbnail2").css({ left: `${thumbnailLefts.left2}px` }) // slide second thmb ro the right
-            }
-
-            if (carouseLastClick.giveInitialValue) { //detect first click
-                carouseLastClick.value = "right"; //before first click carouseLastClick.value is empty string(there is no last click done yet)
-                carouseLastClick.giveInitialValue = false
-            }
-
-            if (carouseLastClick.value == "left") {
-                //if left clicking counter value is x then when changed to right it should be x + carouselSlidesNumber
-                carouselSlidecounter.value += carouselSlidesNumber; //change counter value to the value right click wants
-                carouseLastClick.value = "right";
-            }
-
-            carouseClickDisabled.value = true; //prevent multiple fast clicks 
-
-            for (var i = 0; i < carouselSlidesNumber; i++) { //slide carousel items to the left
-                var left = parseInt($(`.carousel_slide:eq(${i})`).css("left"));
-                var newLeft = `${left - carouselWidth}px`
-                $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
-            }
-
-            if (carouselSlidecounter.value == carouselSlidesNumber + carouselHalfItemsNumber) {
-                carouselSlidecounter.value = carouselHalfItemsNumber; //reset counter
-            }
-
-            var widthOfOneSlide = $(".carousel_slide").width();
-            var LastElToLeftIndex = carouselSlidecounter.value - carouselHalfItemsNumber;
-            var leftProptOfLastElToLeft = parseInt($(`.carousel_slide:eq(${LastElToLeftIndex})`).css("left"));
-            var newLeftProptOfLastElToLeft = (leftProptOfLastElToLeft + widthOfOneSlide * (carouselSlidesNumber - 1));
-            //jump the last element to the left from the current slide to the right end of the slide container
-            $(`.carousel_slide:eq(${LastElToLeftIndex})`).hide(0).css({ left: newLeftProptOfLastElToLeft }).show(0)
-
-            // arrows animation effect
             $(".carousel_arrow_right").css({ "background-color": "#b63a3a", "padding-left": "20px" });
             setTimeout(function () {
                 $(".carousel_arrow_right").css({ "backgroundColor": "rgba(0, 0, 0, .5)", "padding-left": "0px" });
             }, 300);
 
-            setTimeout(() => {
-                carouseClickDisabled.value = false;//enabling clicks after some time
-            }, 400);
-            carouselSlidecounter.value += 1; // increase couneter value    
+            // კარუსელის სუბნეილების მუშაობის კოდი   
+            $(".carousel_thumbnail").css({ backgroundColor: "#b63a3a" }) // წითელი ფერის მიცემა
+            $(".eye_pupil").css({ backgroundColor: "#3039b6" }) // თვალის გუგა ლურჯი
 
-            $(".carousel_arrow_right i").css({ transform: 'rotate(0deg)' })
+            if (movingSubnail.val == 1) {
+                $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
+                    movingSubnail.val = 2
+                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
+                    setTimeout(() => {
+                        $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                    }, 350);
+                }
+                $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
+            } else {
+                $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
+                    movingSubnail.val = 1
+                    $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
+                    setTimeout(() => {
+                        $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                    }, 350);
+                }
+                $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
+            }
+            clearTimeout(eyeBlinkTimeout)
+            clearTimeout(eyeDoubleBlinkTimeout)
+            clearTimeout(eyeBlinkinIterval)
+            eyeBlinkTimeoutFnc()
         }
     }).mouseenter(function () {
         if ($(window).width() >= 1024) {
             $(".carousel_arrow_right i").css({ transform: 'rotate(0deg)' })
         }
-
     }).mouseleave(function () {
         $(".carousel_arrow_right i").css({ transform: 'rotate(90deg)' })
     })
 
-    $(".carousel_arrow_left,.carousel_invisable_arrow_left").click(function () {  //carousel left arrow clicks                   
-        if (!carouseClickDisabled.value) {
-            carouselSlidecounter.currentSlide -= 1; // increase couneter currentSlide value
-            if (carouselSlidecounter.currentSlide == -1) {//reach left edge
-                if (movingThumbnail.one) {// if first thmb is currently moving
-                    thumbnailLefts.left1 -= thumbnailWidth
-                    $(".carousel_thumbnail1").css({ left: `${thumbnailLefts.left1}px` })//slide first thmb to the left
-                    //hide and travel instantly second thmb to the right, then slide normally to the left
-                    $(".carousel_thumbnail2").hide(0).css({ left: `${thumbnailContainerWidth}px` }).show(0, function () {
-                        $(this).css({ left: `${thumbnailContainerWidth - thumbnailWidth}px` })
-                    });
-
-                    thumbnailLefts.left2 = thumbnailContainerWidth // reset variable for setting left prop of second thmb
-                    movingThumbnail.one = false; // stop first thmb movement
-                    movingThumbnail.two = true; //start second thmb movement
-                } else {//if second thmb is currently moving
-                    //this case is the same as first thmb movement case
-                    thumbnailLefts.left2 -= thumbnailWidth
-                    $(".carousel_thumbnail2").css({ left: `${thumbnailLefts.left2}px` })
-                    $(".carousel_thumbnail1").hide(0).css({ left: `${thumbnailContainerWidth}px` }).show(0, function () {
-                        $(this).css({ left: `${thumbnailContainerWidth - thumbnailWidth}px` })
-                    });
-
-                    thumbnailLefts.left1 = thumbnailContainerWidth
-                    movingThumbnail.one = true
-                    movingThumbnail.two = false
+    $(".carousel_arrow_left, .carousel_invisable_arrow_left").click(function () {
+        if (allowClick.val) {
+            allowClick.val = false; // გასრიალების ანიმაციას უნდა დალოდება
+            if (!firstClick.left) {// თუ არ არის კარუსელი გადაწყობილი 
+                for (let i = 0; i < carouselSlidesNumber; i++) {
+                    let left = Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left")))
+                    if (left < -2 * carouselWidth) {
+                        $(`.carousel_slide:eq(${i})`).hide(0).css({ left: left + carouselWidth * (carouselSlidesNumber + 1) }).show(0)
+                        continue
+                    }
+                    let newLeft = `${Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left"))) + carouselWidth}px`;//
+                    $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
                 }
-                carouselSlidecounter.currentSlide = carouselSlidesNumber - 1; //reset couneter currentSlide value
-            }
-
-            $(".carousel_thumbnail").css({ backgroundColor: "#3039b6" }) //blue color for thmbs
-
-            if (movingThumbnail.one) {
-                thumbnailLefts.left1 -= thumbnailWidth
-                $(".carousel_thumbnail1").css({ left: `${thumbnailLefts.left1}px` }) // slide first thmb ro the left
+                firstClick.left = true
+                firstClick.right = false
             } else {
-                thumbnailLefts.left2 -= thumbnailWidth
-                $(".carousel_thumbnail2").css({ left: `${thumbnailLefts.left2}px` }) // slide first thmb ro the left
+                for (let i = 0; i < carouselSlidesNumber; i++) {
+                    let left = Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left")))
+                    if (left == ((carouselSlidesNumber - 2) * carouselWidth)) {
+                        $(`.carousel_slide:eq(${i})`).hide(0).css({ left: -carouselWidth }).show(0)
+                        continue
+                    }
+                    let newLeft = `${Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left"))) + carouselWidth}px`;//
+                    $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
+                }
             }
+            setTimeout(() => {
+                allowClick.val = true
+            }, 350);
 
-            if (carouseLastClick.giveInitialValue) {// detect first click
-                carouseLastClick.value = "left"; //before first click carouseLastClick.value is empty string(there is no last click done yet)
-                carouseLastClick.giveInitialValue = false
-            }
-            if (carouseLastClick.value == "right") {
-                //if right clicking counter value is x then when changed to left it should be x - carouselSlidesNumber
-                carouselSlidecounter.value -= carouselSlidesNumber; //change counter value to the value left click wants
-                carouseLastClick.value = "left";
-            }
-            carouseClickDisabled.value = true; //preventing multiple fast clicks 
-            for (var i = 0; i < carouselSlidesNumber; i++) { //slide carousel items to the right
-                var left = parseInt($(`.carousel_slide:eq(${i})`).css("left"));
-                var newLeft = `${left + carouselWidth}px`
-                $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
-            }
+            // კარუსელის ისრების ეფექტები
+            $(".carousel_arrow_left i").css({ transform: 'rotate(0deg)' })
 
-            if (carouselSlidecounter.value == - carouselSlidesNumber + carouselHalfItemsNumber) {
-                carouselSlidecounter.value = carouselHalfItemsNumber; //reset counter
-            }
-
-            var widthOfOneSlide = $(".carousel_slide").width();
-            var LastElToRighttIndex = carouselSlidecounter.value + carouselHalfItemsNumber;
-            var leftProptOfLastElToRight = parseInt($(`.carousel_slide:eq(${LastElToRighttIndex})`).css("left"));
-            var newLeftProptOfLastElToRight = leftProptOfLastElToRight - widthOfOneSlide * (carouselSlidesNumber - 1);
-            //jump the last element to the right from the current slide to the left end of the slide container
-            $(`.carousel_slide:eq(${LastElToRighttIndex})`).hide(0).css({ left: newLeftProptOfLastElToRight }).show(0)
-
-            // arrows animation effect
             $(".carousel_arrow_left").css({ "backgroundColor": "#3039b6", "padding-right": "20px" });
             setTimeout(function () {
                 $(".carousel_arrow_left").css({ "backgroundColor": "rgba(0, 0, 0, .5)", "padding-right": "0px" });
             }, 300);
 
+            // კარუსელის სუბნეილების მუშაობის კოდი
+            $(".carousel_thumbnail").css({ backgroundColor: "#3039b6" }) // ლურჯი ფერის მიცემა
+            $(".eye_pupil").css({ backgroundColor: "#b63a3a" }) // თვალის გუგა წითელი
 
-            setTimeout(() => {
-                carouseClickDisabled.value = false;//enabling clicks after some time
-            }, 400);
-            carouselSlidecounter.value -= 1; // decrease couneter value   
+            if (movingSubnail.val == 1) {
+                $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) <= 0) {
+                    movingSubnail.val = 2
+                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
+                    setTimeout(() => {
+                        $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                    }, 350);
+                }
+                $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
+            } else {
+                $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) <= 0) {
+                    movingSubnail.val = 1
+                    $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
+                    setTimeout(() => {
+                        $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                    }, 350);
+                }
+                $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
+            }
 
-            $(".carousel_arrow_left i").css({ transform: 'rotate(0deg)' })
+            clearTimeout(eyeBlinkTimeout)
+            clearTimeout(eyeDoubleBlinkTimeout)
+            clearTimeout(eyeBlinkinIterval)
+            eyeBlinkTimeoutFnc()
         }
     }).mouseenter(function () {
         if ($(window).width() >= 1024) {
@@ -390,7 +393,6 @@ $(window).on("load", function () {
     }).mouseleave(function () {
         $(".carousel_arrow_left i").css({ transform: 'rotate(-90deg)' })
     })
-
     // end
 
     $(".home_page_image_img:eq(0)").css({ opacity: 1 })
@@ -594,11 +596,11 @@ $(window).on("load", function () {
             e.preventDefault();
         }
     })
-    
+
     $(".search_input").keyup(function () { //ძებნა
         var inputValue = $(".search_input").val().toLowerCase().replace(/[-,.!:'"\/\d\s]/g, ''); // საძებნი ტექსტი
         if (inputValue != "") { // თუ ვერლი ცარიელი არაა
-            findFilePaths(searchPath,'search')
+            findFilePaths(searchPath, 'search')
             $.ajax({
                 url: searchPath.val, // ძებნის ფაილთან დაკავშირება
                 type: "post",
@@ -692,7 +694,6 @@ $(window).on("load", function () {
                 }, 500);
             }
 
-            // კარუსელი
             if (numberIfImages > 1) {
                 $(".expand_img").append("<i class='expand_arr_right fa-solid fa-circle-chevron-right'></i><i class='expand_arr_left fa-solid fa-circle-chevron-left'></i>");
                 var carouselIndex = { val: 0 }
@@ -763,24 +764,24 @@ $(window).on("load", function () {
         var googleCaptcha = grecaptcha.getResponse();
         var texts = [];
         var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        
+
         switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
             case "ენა":
                 texts = ['სახელის ველი არ უნდა იყოს ცარიელი', 'ელ.ფოსტის ველი არ უნდა იყოს ცარიელი',
                     'თქვენ არ შეგიძლიათ ცარიელი ტექსტის გაგზავნა', 'დაადასტურეთ, რომ არ ხართ რობოტი Google Captcha-ს საშუალებით',
                     'შეტყობინება წარმატებით გაიგზავნა', 'თქვენი შეტყობინების გაგზავნისას წარმოიშვა პრობლემა. გთხოვთ სცადოთ მოგვიანებით',
-                'არასწორი ელ. ფოსტა. გთხოვთ შეიყვანოთ სწორი ელ. ფოსტის მისამართი']
+                    'არასწორი ელ. ფოსტა. გთხოვთ შეიყვანოთ სწორი ელ. ფოსტის მისამართი']
                 break;
             case "lan":
                 texts = ['The name field must not be empty', 'The e-mail field must not be empty',
                     'You cannot send empty text', 'Verify you are not a robot with Google Captcha', 'Message sent successfully',
-                    'There was an issue sending your message. Please try again later','Invalid email. Please enter a valid email address']
+                    'There was an issue sending your message. Please try again later', 'Invalid email. Please enter a valid email address']
                 break;
             case "язык":
                 texts = ['Поле имени не должно быть пустым', 'Поле электронной почты не должно быть пустым',
                     'Вы не можете отправлять пустой текст', 'Подтвердите, что вы не робот, с помощью Google Captcha',
                     'Сообщение успешно отправлено', 'Возникла проблема с отправкой вашего сообщения. Пожалуйста, повторите попытку позже',
-                'Неверный адрес электронной почты. Пожалуйста, введите действительный адрес электронной почты']
+                    'Неверный адрес электронной почты. Пожалуйста, введите действительный адрес электронной почты']
                 break;
 
             default:
@@ -845,41 +846,41 @@ $(window).on("load", function () {
     })
 
 
-    var cookiFilePath = {val: ''}
+    var cookiFilePath = { val: '' }
 
-$(".allow_cookie").click(function(e){
-    e.preventDefault();
-    $(".cookie_cont").css({opacity: "0", "z-index": "-1000"})
-    findFilePaths(cookiFilePath,'cookie');
-    $.ajax({
-        url: cookiFilePath.val,
-        type: 'post',
-        data: {
-            cookieBtn: true,
-            allow: true,
-        },
-        success: function(data){
-            console.log(data)
-        }
+    $(".allow_cookie").click(function (e) {
+        e.preventDefault();
+        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })
+        findFilePaths(cookiFilePath, 'cookie');
+        $.ajax({
+            url: cookiFilePath.val,
+            type: 'post',
+            data: {
+                cookieBtn: true,
+                allow: true,
+            },
+            success: function (data) {
+                console.log(data)
+            }
+        })
     })
-})
 
-$(".reject_cookie").click(function(e){
-    e.preventDefault();
-    $(".cookie_cont").css({opacity: "0", "z-index": "-1000"})
-    findFilePaths(cookiFilePath,'cookie');
-    $.ajax({
-        url: cookiFilePath.val,
-        type: 'post',
-        data: {
-            cookieBtn: true,
-            allow: false,
-        },
-        success: function(data){
-            console.log(data)
-        }
+    $(".reject_cookie").click(function (e) {
+        e.preventDefault();
+        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })
+        findFilePaths(cookiFilePath, 'cookie');
+        $.ajax({
+            url: cookiFilePath.val,
+            type: 'post',
+            data: {
+                cookieBtn: true,
+                allow: false,
+            },
+            success: function (data) {
+                console.log(data)
+            }
+        })
     })
-})
 
 
 
@@ -892,7 +893,7 @@ $(".reject_cookie").click(function(e){
 
 
 
-    
+
 
 })
 
