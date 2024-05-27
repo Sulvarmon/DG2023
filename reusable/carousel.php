@@ -16,8 +16,8 @@
         ?>
     </div>
     <div class="carousel_thumbnails_cont usn pen pr">
-        <div class="carousel_thumbnail carousel_thumbnail1 dfjcac"><div class="eye_pupil"></div></div>
-        <div class="carousel_thumbnail carousel_thumbnail2 dfjcac"><div class="eye_pupil"></div></div>
+        <div class="carousel_thumbnail carousel_thumbnail1 dfjcac"></div>
+        <div class="carousel_thumbnail carousel_thumbnail2 dfjcac"></div>
     </div>
 
     <div class="carousel_arrow carousel_arrow_right usn"><i class="fa-solid fa-chevron-right"></i></div>

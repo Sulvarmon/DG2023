@@ -195,30 +195,10 @@ $(window).on("load", function () {
     let thumbnailWidth = thumbnailContainerWidth / carouselSlidesNumber;
     let thumbnailLefts = { left1: 0, left2: -thumbnailWidth }
     let movingSubnail = { val: 1 }
-    let eyeBlinkinIterval;
-    let eyeBlinkTimeout;
-    let eyeDoubleBlinkTimeout;
 
-    function eyeBlinkTimeoutFnc() {
-        $(".carousel_thumbnails_cont").removeClass("eye_blink")
-        $(".carousel_thumbnails_cont").removeClass("eye_double_blink")
-        eyeBlinkTimeout = setTimeout(() => {
-            $(".carousel_thumbnails_cont").addClass("eye_blink")
-        }, 2000);
-        eyeDoubleBlinkTimeout = setTimeout(() => {
-            $(".carousel_thumbnails_cont").addClass("eye_double_blink")
-        }, 4000);
-        eyeBlinkinIterval = setInterval(() => {
-            $(".carousel_thumbnails_cont").removeClass("eye_blink")
-            $(".carousel_thumbnails_cont").removeClass("eye_double_blink")
-            eyeBlinkTimeout = setTimeout(() => {
-                $(".carousel_thumbnails_cont").addClass("eye_blink")
-            }, 2000);
-            eyeDoubleBlinkTimeout = setTimeout(() => {
-                $(".carousel_thumbnails_cont").addClass("eye_double_blink")
-            }, 4000);
-        }, 8000);
-
+    function animatedThumbnail(thumbnail){
+        $(".carousel_thumbnail").removeClass("carousel_thumbnail_animation")
+        $(thumbnail).addClass("carousel_thumbnail_animation")
     }
 
     for (let i = 0; i < carouselSlidesNumber; i++) { // define initial left values of carousel_slide element 
@@ -226,9 +206,11 @@ $(window).on("load", function () {
         $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
     }
 
-    $(".carousel_thumbnail").css("width", `${thumbnailWidth}px`) // სუბნეილების სიგანის დაყენება
-    $(".carousel_thumbnail1").css("left", `${thumbnailLefts.left1}px`) // პირველი სუბნაილის "მარცხენა" თვისების დაყენება
-    $(".carousel_thumbnail2").css("left", `${thumbnailLefts.left2}px`) // მეორე სუბნაილის "მარცხენა" თვისების დაყენება
+    $(".carousel_thumbnail").css("width", `${thumbnailWidth}px`) // ფრჩხილიების სიგანის დაყენება
+    $(".carousel_thumbnail1").css("left", `${thumbnailLefts.left1}px`) // პირველი ფრჩხილის "მარცხენა" თვისების დაყენება
+    $(".carousel_thumbnail2").css("left", `${thumbnailLefts.left2}px`) // მეორე ფრჩხილის "მარცხენა" თვისების დაყენება
+    animatedThumbnail(".carousel_thumbnail1") // პირველად ანიმირებულია პირველი ფრჩხილი
+
 
     setTimeout(() => { // გარკვეული დროის შემდეგ ტრანზიციის თვისების დადება
         $(".carousel_slide").css("transition", "left 0.3s")
@@ -259,9 +241,7 @@ $(window).on("load", function () {
                     let left = Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left")))
                     if (left == -((carouselSlidesNumber - 2) * carouselWidth)) { // მარცხენა უკიდურესი ელემენტის გადასროლა უკიდურეს მარჯვნივ
                         $(`.carousel_slide:eq(${i})`).hide(0).css({ left: carouselWidth }).show(0)
-
                         continue
-
                     }
                     let newLeft = `${Math.round(parseFloat($(`.carousel_slide:eq(${i})`).css("left"))) - carouselWidth}px`;
                     $(`.carousel_slide:eq(${i})`).css({ left: newLeft }) // გასრიალება
@@ -280,34 +260,33 @@ $(window).on("load", function () {
             }, 300);
 
             // კარუსელის სუბნეილების მუშაობის კოდი   
-            $(".carousel_thumbnail").css({ backgroundColor: "#b63a3a" }) // წითელი ფერის მიცემა
-            $(".eye_pupil").css({ backgroundColor: "#3039b6" }) // თვალის გუგა ლურჯი
+            $(".carousel_thumbnail").css({ backgroundColor: "#b63a3a" }) // წითელი ფერის მიცემა            
 
-            if (movingSubnail.val == 1) {
-                $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0)
-                if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
-                    movingSubnail.val = 2
-                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
-                    setTimeout(() => {
-                        $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0)
-                    }, 350);
-                }
-                $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
-            } else {
-                $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0)
-                if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
-                    movingSubnail.val = 1
+            if (movingSubnail.val == 1) {                 
+                $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0, function(){
+                    if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
+                        animatedThumbnail(".carousel_thumbnail2")
+                        movingSubnail.val = 2
+                        $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
+                        setTimeout(() => {
+                            $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                        }, 350);
+                    }
                     $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
-                    setTimeout(() => {
-                        $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0)
-                    }, 350);
-                }
-                $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
+                })                                  
+            } else {                
+                $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0, function(){
+                    if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
+                        animatedThumbnail(".carousel_thumbnail1") 
+                        movingSubnail.val = 1
+                        $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
+                        setTimeout(() => {
+                            $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0)
+                        }, 350);
+                    }
+                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
+                })                               
             }
-            clearTimeout(eyeBlinkTimeout)
-            clearTimeout(eyeDoubleBlinkTimeout)
-            clearTimeout(eyeBlinkinIterval)
-            eyeBlinkTimeoutFnc()
         }
     }).mouseenter(function () {
         if ($(window).width() >= 1024) {
@@ -356,35 +335,35 @@ $(window).on("load", function () {
             }, 300);
 
             // კარუსელის სუბნეილების მუშაობის კოდი
-            $(".carousel_thumbnail").css({ backgroundColor: "#3039b6" }) // ლურჯი ფერის მიცემა
-            $(".eye_pupil").css({ backgroundColor: "#b63a3a" }) // თვალის გუგა წითელი
+            $(".carousel_thumbnail").css({ backgroundColor: "#3039b6" }) // ლურჯი ფერის მიცემა            
 
-            if (movingSubnail.val == 1) {
-                $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
-                if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) <= 0) {
-                    movingSubnail.val = 2
-                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
-                    setTimeout(() => {
-                        $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
-                    }, 350);
-                }
-                $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
-            } else {
-                $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
-                if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) <= 0) {
-                    movingSubnail.val = 1
+            if (movingSubnail.val == 1) {                             
+                $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0,function(){
+                    if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) <= 0) {
+                        animatedThumbnail(".carousel_thumbnail2") 
+                        movingSubnail.val = 2
+                        $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
+                        setTimeout(() => {
+                            $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                        }, 350);
+                    }                     
                     $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
-                    setTimeout(() => {
-                        $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
-                    }, 350);
-                }
-                $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
+                })   
+                                             
+            } else {                
+                $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0, function(){
+                    if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) <= 0) {
+                        animatedThumbnail(".carousel_thumbnail1")  
+                        movingSubnail.val = 1
+                        $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
+                        setTimeout(() => {
+                            $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
+                        }, 350);
+                    }  
+                    $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
+                })  
+                            
             }
-
-            clearTimeout(eyeBlinkTimeout)
-            clearTimeout(eyeDoubleBlinkTimeout)
-            clearTimeout(eyeBlinkinIterval)
-            eyeBlinkTimeoutFnc()
         }
     }).mouseenter(function () {
         if ($(window).width() >= 1024) {

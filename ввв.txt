@@ -1,4 +1,0 @@
-<?php echo $languageArray['font-family'][0] ?>
-
-<?php echo $languageArray['gd2023'] ?>
-
