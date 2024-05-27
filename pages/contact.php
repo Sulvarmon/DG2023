@@ -87,7 +87,7 @@ $dotenv->load();
                             <textarea class="p2 border br1 <?php echo $languageArray['font-family'][1] ?>" name="text" placeholder=<?php echo $languageArray['contacts page'][8] ?>></textarea>
                             <div class="dfcjlas gap2 w5">
                                 <div class="g-recaptcha mt3" data-sitekey="<?php echo $_ENV['SITEKEY'] ?>"></div>
-                                <div name="mailBtn" class="fubmit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
+                                <div name="mailBtn" class="submit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
                             </div>
                         </div>
                     </div>

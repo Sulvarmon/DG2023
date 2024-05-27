@@ -4,24 +4,24 @@ $(window).on("load", function () {
 
     // ცვლადები
 
-    var langSlider = { value: true };
-    var smallAbout = { value: true };
-    var smallSector = { value: true };
-    var slideTimer;
-    var manPgOpacityCarouselCurrentCounter = { value: 1 }
-    var projectsPagesTitles = ["ფოთი აპარტამენტი", "ნავმისადგომი-7", "ნავმისადგომი-15",
+    let langSlider = { value: true };
+    let smallAbout = { value: true };
+    let smallSector = { value: true };
+    let slideTimer;
+    let manPgOpacityCarouselCurrentCounter = { value: 1 }
+    let projectsPagesTitles = ["ფოთი აპარტამენტი", "ნავმისადგომი-7", "ნავმისადგომი-15",
         "საკონტეინერო ტერმინალი", "ლეგო-ბლოკები", "გადახდის ტერმინალი"]  //ყველა პროექტის სათაურის ჩამონათვალი    
-    var allPages = ['მთავარი გვერდი', 'პროექტები', 'სიახლეები', 'კონტაქტი', 'ჩვენს შესახებ',
+    let allPages = ['მთავარი გვერდი', 'პროექტები', 'სიახლეები', 'კონტაქტი', 'ჩვენს შესახებ',
         'ჩვენი გუნდი', 'ნავმისადგომი-7', 'ნავმისადგომი-15', 'საკონტეინერო ტერმინალი', 'ლეგო-ბლოკები', 'გადახდის ტერმინალი',
         'ფოთი აპარტამენტი', 'სამშენებლო მასალები', 'სამოქალაქო და ინდუსტრიული პროექტები', 'საზღვაო სამუშაოები',
     ]
-    var projectPathsFromAllLocation = {
+    let projectPathsFromAllLocation = {
         distance3: ['./pages/projects/berth-7', './pages/projects/berth-15', './pages/projects/container-terminal', './pages/projects/lego-blocks', './pages/projects/pay-terminal', './pages/projects/poti-apartment',],
         distance1: ['./projects/berth-7', './projects/berth-15', './projects/container-terminal', './projects/lego-blocks', './projects/pay-terminal', './projects/poti-apartment',],
         distance2: ['../projects/berth-7', '../projects/berth-15', '../projects/container-terminal', '../projects/lego-blocks', '../projects/pay-terminal', '../projects/poti-apartment',],
         distance0: ['./berth-7', './berth-15', './container-terminal', './lego-blocks', './pay-terminal', './poti-apartment',],
     }
-    var searchPath = { val: '' };
+    let searchPath = { val: '' };
     //ცვლადების დასასრული
 
     //ფუნქციები       
@@ -43,10 +43,10 @@ $(window).on("load", function () {
     }
 
     function elementIsInViewport(element) { // ადგენს ელემენტი არის თუ არა მხედველობის არეში და აბრუნებს ჭ ან მ მნიშვნელობებს.
-        var windowTop = $(window).scrollTop(); // ეკრანის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან
-        var windowBottom = windowTop + $(window).height(); // ეკრანის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
-        var elemTop = $(element).offset().top;// ელემენტის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან 
-        var elemBottom = elemTop + $(element).height();// ელემენტის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
+        let windowTop = $(window).scrollTop(); // ეკრანის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან
+        let windowBottom = windowTop + $(window).height(); // ეკრანის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
+        let elemTop = $(element).offset().top;// ელემენტის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან 
+        let elemBottom = elemTop + $(element).height();// ელემენტის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
 
         /**თუ ელემენტის თავი მოთავსებულია ეკრანის თავსა და ბოლოს შორის ან
          * ელემენტის ბოლო მოთავსებულია ეკრანის თავსა და ბოლოს შორის
@@ -133,8 +133,8 @@ $(window).on("load", function () {
     // შემდეგი და წინა პროექრტების ჩვენება
 
     function nextPrevProj(nextHref, prevHref, index) { //პარამეტრები: მომდევნო ლინკი, წინა ლინკი და გვერდის ნომრის აღმნიშვნელი ცვლადი
-        var numberOfThumbs = $(".projects_thumbnail>a").length; // ერთ გვერდზე არსებული ფრჩხილების სრული რაოოდენობა
-        var bottomIndex = index + numberOfThumbs / 2; // ეს ინდექსი საჭიროა ქვედა ფრჩხილების რიგში უმოქმედო ფრჩხილის დასადგენად
+        let numberOfThumbs = $(".projects_thumbnail>a").length; // ერთ გვერდზე არსებული ფრჩხილების სრული რაოოდენობა
+        let bottomIndex = index + numberOfThumbs / 2; // ეს ინდექსი საჭიროა ქვედა ფრჩხილების რიგში უმოქმედო ფრჩხილის დასადგენად
         $(".next_proj").attr("href", nextHref) // მომდევნო ლინკის განსაზღვრა
         $(".prev_proj").attr("href", prevHref) // წინა ლინკის განსაზღვრა
         $(".projects_thumbnail>a").removeClass("disabled_thumbnail").addClass("active_thumbnail") // ფრჩხილების რესეტი
@@ -422,7 +422,7 @@ $(window).on("load", function () {
 
     //end
 
-    var footerAnimationDone = { value: false }
+    let footerAnimationDone = { value: false }
 
     $(window).scroll(function () {
         if (!footerAnimationDone.value) {
@@ -505,10 +505,10 @@ $(window).on("load", function () {
     inputFieldFocusMode(".sender_mail input")
     inputFieldFocusMode(".textarea_and_submit textarea")
 
-    var lastScrollTop = 0;
+    let lastScrollTop = 0;
 
     $(window).scroll(function () {
-        var scrollTop = $(this).scrollTop();
+        let scrollTop = $(this).scrollTop();
         if (scrollTop > lastScrollTop) {
             $("header, .header_cont").css({ height: "50px" })
             $(".logo").css({ transform: "scale(0.55)" })
@@ -577,7 +577,7 @@ $(window).on("load", function () {
     })
 
     $(".search_input").keyup(function () { //ძებნა
-        var inputValue = $(".search_input").val().toLowerCase().replace(/[-,.!:'"\/\d\s]/g, ''); // საძებნი ტექსტი
+        let inputValue = $(".search_input").val().toLowerCase().replace(/[-,.!:'"\/\d\s]/g, ''); // საძებნი ტექსტი
         if (inputValue != "") { // თუ ვერლი ცარიელი არაა
             findFilePaths(searchPath, 'search')
             $.ajax({
@@ -590,9 +590,9 @@ $(window).on("load", function () {
                 success: function (data) { // მონაცემებს შეადგენს ყველა პროექტის დასახელება ყველა ენაზე. ენების თანმიმდევრობაა:
                     //ქართული, ინგლისური, რუსული
                     $(".searched_links").empty() // რესეტი მოძებნილი პროექტების კონტეინერის
-                    var foundArr = []; // მოძებნილი პროექტების მასივი
-                    var Allhrefs = []; // ყველა პროექტის ლინკის განაზღვრა იმისდა მიხედვით თუ რომელ გვერდზე ვარ
-                    var searchedlementsHrefs = []; // მხოლოდ მოძებნილი ფროექტების ლინკები
+                    let foundArr = []; // მოძებნილი პროექტების მასივი
+                    let Allhrefs = []; // ყველა პროექტის ლინკის განაზღვრა იმისდა მიხედვით თუ რომელ გვერდზე ვარ
+                    let searchedlementsHrefs = []; // მხოლოდ მოძებნილი ფროექტების ლინკები
                     for (let i = 0; i < allPages.length; i++) {// ყველა ლინკის განსაზღვრა
                         if ($("title").text() == allPages[i]) {
                             switch (i) {
@@ -625,11 +625,31 @@ $(window).on("load", function () {
                             searchedlementsHrefs.push(Allhrefs[indexMod6]) // მოძებნილი ლინკები
                         }
                     })
-
+                    let noResult;
+                    let font
+                    switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
+                        case "ენა":
+                            noResult = 'შედეგები არ მოიძებნა. სცადეთ სხვა საძიებო ტერმინი'
+                            font = '_ffc'
+                            break;
+                        case "lan":
+                            noResult = 'No results found. Try a different search term'
+                            font = '_eng_ru_c'
+                            break;
+                        case "язык":
+                            noResult = 'Результатов не найдено. Попробуйте другой поисковый запрос'
+                            font = '_eng_ru_c'
+                            break;
+            
+                        default:
+                            break;
+                    }
                     $.each(foundArr, function (index, element) {
-                        $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="searched">${element}</li></a>`);
-                        $(".searched").addClass($("#language").attr("class"));
+                        $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="${font}">${element}</li></a>`);
                     })
+                    if (searchedlementsHrefs.length == 0) {
+                        $(".searched_links").append(`<div class="cw ${font}">${noResult}</div>`);                    
+                    }
                 }
             })
         } else {
@@ -640,22 +660,22 @@ $(window).on("load", function () {
 
 
     function expandImage(element, hasImgTag = true) {
-
+        let imageSrc
         $(element).css({ cursor: "zoom-in" })
         $(element).click(function () {
-            var numberIfImages = 0;
-            var imagesSrcArray = []
+            let numberIfImages = 0;
+            let imagesSrcArray = []
 
 
 
             if (hasImgTag) {
-                var imageSrc = `url(${$(this).attr('src')})`;
+                imageSrc = `url(${$(this).attr('src')})`;
                 $.each($("body").find(element), function (i, e) {
                     numberIfImages += 1;
                     imagesSrcArray.push(`url(${$(e).attr('src')})`)
                 })
             } else {
-                var imageSrc = $(this).css('background-image');
+                imageSrc = $(this).css('background-image');
                 $.each($("body").find(element), function (i, e) {
                     numberIfImages += 1;
                     imagesSrcArray.push($(e).css("background-image"))
@@ -675,7 +695,7 @@ $(window).on("load", function () {
 
             if (numberIfImages > 1) {
                 $(".expand_img").append("<i class='expand_arr_right fa-solid fa-circle-chevron-right'></i><i class='expand_arr_left fa-solid fa-circle-chevron-left'></i>");
-                var carouselIndex = { val: 0 }
+                let carouselIndex = { val: 0 }
 
                 $.each(imagesSrcArray, function (index, element) {
                     if (element == imageSrc) {
@@ -734,15 +754,15 @@ $(window).on("load", function () {
     expandImage(".team_photo", false)
     expandImage(".team_member_img")
 
-    $(".fubmit_mail_btn").click(function (e) {
+    $(".submit_mail_btn").click(function (e) {
         e.preventDefault();
-        var submitAllowed = { val: true };
-        var flname = $(".sender_name>input").val().trim();
-        var email = $(".sender_mail>input").val().trim();
-        var text = $(".textarea_and_submit>textarea").val().trim();
-        var googleCaptcha = grecaptcha.getResponse();
-        var texts = [];
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        let submitAllowed = { val: true };
+        let flname = $(".sender_name>input").val().trim();
+        let email = $(".sender_mail>input").val().trim();
+        let text = $(".textarea_and_submit>textarea").val().trim();
+        let googleCaptcha = grecaptcha.getResponse();
+        let texts = [];
+        let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
         switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
             case "ენა":
@@ -825,7 +845,7 @@ $(window).on("load", function () {
     })
 
 
-    var cookiFilePath = { val: '' }
+    let cookiFilePath = { val: '' }
 
     $(".allow_cookie").click(function (e) {
         e.preventDefault();
@@ -870,9 +890,4 @@ $(window).on("load", function () {
 
 
 
-
-
-
-
 })
-

@@ -9,8 +9,6 @@ if (!isset($_SESSION['languageArray'])) {
 }
 ?>
 
-<div class="<?php echo $languageArray['font-family'][0] ?>" id="language"></div>
-
 <div class="unfinished_website <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['unfinished website'] ?></div>
 
 <header>
