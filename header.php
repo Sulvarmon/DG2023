@@ -124,7 +124,7 @@ if (!isset($_SESSION['languageArray'])) {
                         </form>
                         <form class="usn p1" action=<?php echo $language ?> method="post">
                             <button class="dfjcac gap1 cp menu_hover" type="submit" name="lanBtn">
-                                <span class=<?php echo $languageArray['font-family'][0] ?>><?php echo $languageArray['language2'] ?></span>
+                                <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
                                 <div class="lan_flag <?php echo $languageArray['language2 flag']?>"></div>
                             </button>
                             <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
