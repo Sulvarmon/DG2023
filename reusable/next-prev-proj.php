@@ -26,7 +26,7 @@
 
         echo '<div class="dfjcac gap5">';
         echo '<a href="#" class="prev_proj dfjcac gap1 menu_hover"><i class="fa-solid fa-angles-left"></i><span class="fs1 '.$languageArray['font-family'][0].'">'.$languageArray['project page']['previous'].'</span></a>';
-        echo '<a href="#" class="next_proj dfjcac gap1 menu_hover"><span class="tar fs1'.$languageArray['font-family'][0].'">'.$languageArray['project page']['next'].'</span><i class="fa-solid fa-angles-right"></i></a>';
+        echo '<a href="#" class="next_proj dfjcac gap1 menu_hover"><span class="tar fs1 '.$languageArray['font-family'][0].'">'.$languageArray['project page']['next'].'</span><i class="fa-solid fa-angles-right"></i></a>';
         echo '</div>';
     }
 
