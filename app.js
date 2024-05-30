@@ -815,7 +815,7 @@ $(window).on("load", function () {
         }
 
         if (submitAllowed.val) {
-            $(".mail_message").css({ opacity: 1, "z-index": 1000 });
+            $(".mail_message").css({ opacity: 1, "z-index": 1000 });            
             $.ajax({
                 url: "../mail",
                 type: "post",
@@ -857,9 +857,6 @@ $(window).on("load", function () {
             data: {
                 cookieBtn: true,
                 allow: true,
-            },
-            success: function (data) {
-                console.log(data)
             }
         })
     })
@@ -874,9 +871,6 @@ $(window).on("load", function () {
             data: {
                 cookieBtn: true,
                 allow: false,
-            },
-            success: function (data) {
-                console.log(data)
             }
         })
     })
@@ -888,8 +882,8 @@ $(window).on("load", function () {
         let whiteTheme = function () {
             $(".theme_dot_inner_dark").show(0)
             $(".theme_dot_inner_white").hide(0)
-            $(this).css({ "pointer-events": "none", "cursor": "default" })
-            $(".theme_dot:eq(1)").css({ "pointer-events": "auto", "cursor": "pointer" })
+            $(".theme_dot").css({ "pointer-events": "none", "cursor": "default" })
+            $(".theme_dot:eq(1),.theme_dot:eq(3)").css({ "pointer-events": "auto", "cursor": "pointer" })
             $(`${changeClasses}`).removeClass("theme_dark").addClass("theme_white")
             $(".icon_view").removeClass("border_white").addClass("border_dark")
             $(".cookie_cont").css({ "background-color": "rgba(255, 255, 255, 0.8)" })
@@ -900,8 +894,8 @@ $(window).on("load", function () {
         let darkTheme = function () {
             $(".theme_dot_inner_dark").hide(0)
             $(".theme_dot_inner_white").show(0)
-            $(this).css({ "pointer-events": "none", "cursor": "default" })
-            $(".theme_dot:eq(0)").css({ "pointer-events": "auto", "cursor": "pointer" })
+            $(".theme_dot").css({ "pointer-events": "none", "cursor": "default" })
+            $(".theme_dot:eq(0),.theme_dot:eq(2)").css({ "pointer-events": "auto", "cursor": "pointer" })
             $(`${changeClasses}`).removeClass("theme_white").addClass("theme_dark")
             $(".icon_view").removeClass("border_dark").addClass("border_white")
             $(".cookie_cont").css({ "background-color": "rgba(0, 0, 0, 0.8)" })
@@ -930,14 +924,12 @@ $(window).on("load", function () {
 
         if ($(".detect_theme").attr('id') == 'theme_white') {
             whiteTheme()
-            console.log(1)
         } else {
             darkTheme()
-            console.log(2)
         }
 
 
-        $(".theme_dot:eq(0)").click(function () { //white theme
+        $(".theme_dot:eq(0),.theme_dot:eq(2)").click(function () { //white theme
             $.ajax({
                 url: `${changeThemeUrl}`,
                 type: 'post',
@@ -949,7 +941,7 @@ $(window).on("load", function () {
             whiteTheme()
         })
 
-        $(".theme_dot:eq(1)").click(function () { //dark theme
+        $(".theme_dot:eq(1),.theme_dot:eq(3)").click(function () { //dark theme
             $.ajax({
                 url: `${changeThemeUrl}`,
                 type: 'post',

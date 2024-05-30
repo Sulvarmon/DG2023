@@ -112,7 +112,7 @@ if(isset($_SESSION['theme'])){
     </div>
 
     <div class="mail_message">
-        <div class="dfjcac"><span class="cw  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][11] ?></span></div>
+        <div class="dfjcac"><div class="cw <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][11] ?></div></div>
     </div>
 
 </div>

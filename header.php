@@ -78,6 +78,20 @@ if (!isset($_SESSION['languageArray'])) {
                     </div>
                 </div>
 
+                <div class="line"></div>
+                <div class="db_menu_texts db_menu_theme m1 usn theme dfcjcas gap2">
+                    <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][1] . " " . $languageArray['theme'][2] ?></span>
+                    <div class="dfjlac gap2">
+                        <div class="theme_dot dfjcac pen">
+                            <div class="theme_dot_inner_dark"></div>
+                        </div>
+                        <div class="theme_dot dfjcac cp">
+                            <div class="theme_dot_inner_white"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+
             </div>
         </div>
         <!-- დიდი ეკრანის მენიუ -->
@@ -107,14 +121,18 @@ if (!isset($_SESSION['languageArray'])) {
         </div>
         <div class="lan_and_search_wrapper dfjcac gap4">
             <div class="search_icon_cont icon_view icon_hover cp usn"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="theme_cont">
+            <div class="theme_cont dn">
                 <div class="dfcjcac gap1 p1">
-                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?> "><?php echo $languageArray['theme'][1]?></div>
+                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?> "><?php echo $languageArray['theme'][1] ?></div>
                     <div class="dfjcac gap1">
-                        <div class="theme_dot dfjcac pen"><div class="theme_dot_inner_dark"></div></div>
-                        <div class="theme_dot dfjcac cp"><div class="theme_dot_inner_white"></div></div>
+                        <div class="theme_dot dfjcac pen">
+                            <div class="theme_dot_inner_dark"></div>
+                        </div>
+                        <div class="theme_dot dfjcac cp">
+                            <div class="theme_dot_inner_white"></div>
+                        </div>
                     </div>
-                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][2]?></div>
+                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][2] ?></div>
                 </div>
             </div>
             <div class="lan dn">
@@ -151,7 +169,7 @@ if (!isset($_SESSION['languageArray'])) {
     <div class="container p4 br2">
         <div class="pr dfcjcac gap4 pt4 pb4">
             <div class="close_search p2 cp"><i class="fa-solid fa-xmark fa-xl cw"></i></div>
-            <div class="cw  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['search']['title'] ?></div>
+            <div class="cw <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['search']['title'] ?></div>
             <form class="w3">
                 <input type="search" name="dummyNameForChromeIssueError" class="search_input w5 <?php echo $languageArray['font-family'][0] ?> p2 br3" placeholder="<?php echo $languageArray['search']['placeholder'] ?>...">
             </form>
