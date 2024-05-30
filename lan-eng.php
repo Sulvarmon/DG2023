@@ -157,7 +157,7 @@ return [
         3 => 'Reject',
     ],
     'unfinished website' => "The site is under construction. The information on the site does not correspond to the company's activities",
-
+    'theme' => [1 => 'choose', 2=>'theme'],
 
 
 

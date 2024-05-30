@@ -73,7 +73,7 @@ $carouselSliesNumber = 5;
 
 <div class="home_page_image pr">
     <div class="container">
-        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['gd2023'] ?></div>
+        <div class=" <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['gd2023'] ?></div>
     </div>
     <img class="home_page_image_img usn pen" src="./img/mainImg.jpg" alt="home page image">
     <img class="home_page_image_img usn pen" src="./img/opcar2.jpg" alt="home page image">
@@ -83,22 +83,22 @@ $carouselSliesNumber = 5;
 
 <div class="container bg1 br1 p2 mt3">
 
-    <div class="title_of_sections <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></div>
+    <div class="title_of_sections  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></div>
     <?php include "./reusable/grid.php" ?>
 
-    <div class="title_of_sections <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['important projects'] ?></div>
+    <div class="title_of_sections  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['important projects'] ?></div>
     <?php include "./reusable/carousel.php" ?>
 
     <div class="main_pg_line"></div>
 
-    <div class="title_of_sections <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['about company'] ?></div>
+    <div class="title_of_sections  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['about company'] ?></div>
     <div class="home_pg_about_section_cont p2">
 
         <div class="home_pg_about_section_img_wrapper"></div>
         <br>
         <div class="home_pg_about_section_text_btn dfcjcac gap3 mt2">
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about company text'] ?></p>
-            <a href="./pages/company/about" class="main_btn <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['fully'] ?></a>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about company text'] ?></p>
+            <a href="./pages/company/about" class="main_btn  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['fully'] ?></a>
         </div>
 
     </div>

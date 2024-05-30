@@ -59,10 +59,10 @@ $projectsTexts1 = $languageArray['news page']['dot texts'];
     include "../reusable/smallMenu.php";
     ?>
 
-<div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></div>
+<div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></div>
 <div class="container news_cont p3 bg1">
     <hr>
-    <div class="title_of_subsections mb5 <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][0] ?></div>
+    <div class="title_of_subsections mb5  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][0] ?></div>
     <?php
     $projectsTexts2 = $languageArray['news page']['under dot texts'][0];
     $projectsMainText = $languageArray['news page']['main texts'][0];
@@ -71,7 +71,7 @@ $projectsTexts1 = $languageArray['news page']['dot texts'];
     ?>
 
     <hr>
-    <div class="title_of_subsections mb5 <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][1] ?></div>
+    <div class="title_of_subsections mb5  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][1] ?></div>
     <?php
     $projectsTexts2 = $languageArray['news page']['under dot texts'][1];
     $projectsMainText = $languageArray['news page']['main texts']["1"];
@@ -80,7 +80,7 @@ $projectsTexts1 = $languageArray['news page']['dot texts'];
     ?>
 
     <hr>
-    <div class="title_of_subsections mb5 <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][2] ?></div>
+    <div class="title_of_subsections mb5  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news page']['titles'][2] ?></div>
     <?php
     $projectsTexts2 = $languageArray['news page']['under dot texts'][2];
     $projectsMainText = $languageArray['news page']['main texts'][2];

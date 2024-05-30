@@ -1,5 +1,5 @@
+"use strict"
 $(window).on("load", function () {
-
     $("body").fadeIn(1000)
 
     // ცვლადები
@@ -196,7 +196,7 @@ $(window).on("load", function () {
     let thumbnailLefts = { left1: 0, left2: -thumbnailWidth }
     let movingSubnail = { val: 1 }
 
-    function animatedThumbnail(thumbnail){
+    function animatedThumbnail(thumbnail) {
         $(".carousel_thumbnail").removeClass("carousel_thumbnail_animation")
         $(thumbnail).addClass("carousel_thumbnail_animation")
     }
@@ -262,8 +262,8 @@ $(window).on("load", function () {
             // კარუსელის სუბნეილების მუშაობის კოდი   
             $(".carousel_thumbnail").css({ backgroundColor: "#b63a3a" }) // წითელი ფერის მიცემა            
 
-            if (movingSubnail.val == 1) {                 
-                $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0, function(){
+            if (movingSubnail.val == 1) {
+                $(".carousel_thumbnail2").hide(0).css({ "left": - thumbnailWidth }).show(0, function () {
                     if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
                         animatedThumbnail(".carousel_thumbnail2")
                         movingSubnail.val = 2
@@ -273,11 +273,11 @@ $(window).on("load", function () {
                         }, 350);
                     }
                     $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
-                })                                  
-            } else {                
-                $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0, function(){
+                })
+            } else {
+                $(".carousel_thumbnail1").hide(0).css({ "left": - thumbnailWidth }).show(0, function () {
                     if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) >= thumbnailContainerWidth - thumbnailWidth) {
-                        animatedThumbnail(".carousel_thumbnail1") 
+                        animatedThumbnail(".carousel_thumbnail1")
                         movingSubnail.val = 1
                         $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) + thumbnailWidth}px` })
                         setTimeout(() => {
@@ -285,7 +285,7 @@ $(window).on("load", function () {
                         }, 350);
                     }
                     $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) + thumbnailWidth}px` })
-                })                               
+                })
             }
         }
     }).mouseenter(function () {
@@ -337,32 +337,32 @@ $(window).on("load", function () {
             // კარუსელის სუბნეილების მუშაობის კოდი
             $(".carousel_thumbnail").css({ backgroundColor: "#3039b6" }) // ლურჯი ფერის მიცემა            
 
-            if (movingSubnail.val == 1) {                             
-                $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0,function(){
+            if (movingSubnail.val == 1) {
+                $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0, function () {
                     if (Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) <= 0) {
-                        animatedThumbnail(".carousel_thumbnail2") 
+                        animatedThumbnail(".carousel_thumbnail2")
                         movingSubnail.val = 2
                         $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
                         setTimeout(() => {
                             $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
                         }, 350);
-                    }                     
+                    }
                     $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
-                })   
-                                             
-            } else {                
-                $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0, function(){
+                })
+
+            } else {
+                $(".carousel_thumbnail1").hide(0).css({ "left": thumbnailContainerWidth }).show(0, function () {
                     if (Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) <= 0) {
-                        animatedThumbnail(".carousel_thumbnail1")  
+                        animatedThumbnail(".carousel_thumbnail1")
                         movingSubnail.val = 1
                         $(".carousel_thumbnail1").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail1").css("left"))) - thumbnailWidth}px` })
                         setTimeout(() => {
                             $(".carousel_thumbnail2").hide(0).css({ "left": thumbnailContainerWidth }).show(0)
                         }, 350);
-                    }  
+                    }
                     $(".carousel_thumbnail2").css({ 'left': `${Math.round(parseFloat($(".carousel_thumbnail2").css("left"))) - thumbnailWidth}px` })
-                })  
-                            
+                })
+
             }
         }
     }).mouseenter(function () {
@@ -389,11 +389,11 @@ $(window).on("load", function () {
 
     // გრიდს სჭირდება ფუნქცია elementIsInViewport ანიმაციებისთვის.
     // elementIsInViewport განსაზღვრულია ფაილის დასაწყისში, რადგან სხვა ფუნქციებიც იყენებენ მას
-
     if ($("title").text() == "მთავარი გვერდი" || $("title").text() == "პროექტები") {// თუ იმყოფები გვერდებზე, რომლებიც იყენებენ გრიდს
         // გრიდის ელემენტების ანიმაციის ფუნქციის განსაზღვრა დიდი ზომის ეკრანებისთვის
+        let gridAnimation
         if ($(window).width() >= 1024) {
-            function gridAnimation() {
+            gridAnimation = function () {
                 if (elementIsInViewport(".grid_cont")) {// გრიდის კონტეინერის გამოჩენის შემდეგ...
                     for (let i = 0; i < $(".grid_item").length; i++) {// რამდენი ელემენტის აქვს გრიდს ...
                         setTimeout(() => {//ყოველ ნახევარი წუთის შუალედით, ერთმანეთის მიყოლებით, გამოაჩინე ელემენტები
@@ -403,7 +403,7 @@ $(window).on("load", function () {
                 }
             }
         } else { // გრიდის ელემენტების ანიმაციის ფუნქციის განსაზღვრა პატარა ზომის ეკრანებისთვის
-            function gridAnimation() {
+            gridAnimation = function () {
                 for (let i = 0; i < $(`.grid_item`).length; i++) {// რამდენი ელემენტის აქვს გრიდს ...
                     if (elementIsInViewport(`.grid_item:eq(${i})`)) { // თუ მხედველობის არეში გამოჩნდება გრიდის ელემენტი
                         // დაიწყე ანიმაცია მხოლოდ ამ ელემენტზე
@@ -621,7 +621,7 @@ $(window).on("load", function () {
                     $.each(data, function (index, element) {
                         if (element.replace(/[\s]/g, '').toLowerCase().indexOf(inputValue) != -1) {
                             foundArr.push(element);
-                            indexMod6 = index % 6;
+                            let indexMod6 = index % 6;
                             searchedlementsHrefs.push(Allhrefs[indexMod6]) // მოძებნილი ლინკები
                         }
                     })
@@ -629,18 +629,18 @@ $(window).on("load", function () {
                     let font
                     switch ($(".lan>div:eq(0)>div:eq(0)").text().trim()) {
                         case "ენა":
-                            noResult = 'შედეგები არ მოიძებნა. სცადეთ სხვა საძიებო ტერმინი'
+                            noResult = 'შედეგები არ მოიძებნა'
                             font = '_ffc'
                             break;
                         case "lan":
-                            noResult = 'No results found. Try a different search term'
+                            noResult = 'No results found'
                             font = '_eng_ru_c'
                             break;
                         case "язык":
-                            noResult = 'Результатов не найдено. Попробуйте другой поисковый запрос'
+                            noResult = 'Результатов не найдено'
                             font = '_eng_ru_c'
                             break;
-            
+
                         default:
                             break;
                     }
@@ -648,7 +648,7 @@ $(window).on("load", function () {
                         $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="${font}">${element}</li></a>`);
                     })
                     if (searchedlementsHrefs.length == 0) {
-                        $(".searched_links").append(`<div class="cw ${font}">${noResult}</div>`);                    
+                        $(".searched_links").append(`<div class="cw ${font}">${noResult}</div>`);
                     }
                 }
             })
@@ -881,9 +881,29 @@ $(window).on("load", function () {
         })
     })
 
+    let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view']
 
+    $(".theme_dot:eq(0)").click(function () { //white theme    
+        $(".theme_dot_inner_dark").show(0)
+        $(".theme_dot_inner_white").hide(0)
+        $(this).css({"pointer-events": "none","cursor": "default"})
+        $(".theme_dot:eq(1)").css({"pointer-events":"auto","cursor": "pointer"})
+        $(`${changeClasses}`).removeClass("theme_dark").addClass("theme_white")
+        $(".icon_view").removeClass("border_white").addClass("border_dark")  
+        $(':root').css('--bgColor', '#e6e3e0');
+        $(':root').css('--bg1', '#f0ebe9');
+    })
 
-
+    $(".theme_dot:eq(1)").click(function () { //dark theme
+        $(".theme_dot_inner_dark").hide(0)
+        $(".theme_dot_inner_white").show(0)
+        $(this).css({"pointer-events": "none","cursor": "default"})
+        $(".theme_dot:eq(0)").css({"pointer-events":"auto","cursor": "pointer"})
+        $(`${changeClasses}`).removeClass("theme_white").addClass("theme_dark")
+        $(".icon_view").removeClass("border_dark").addClass("border_white")
+        $(':root').css('--bgColor', '#252525');
+        $(':root').css('--bg1', '#2e2b2a');
+    })
 
 
 

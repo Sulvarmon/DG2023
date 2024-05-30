@@ -53,28 +53,28 @@ include "../../reusable/side-contacts.php";
     $titles = $languageArray['small menu about'];
     include "../../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['about us'] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['about us'] ?></div>
     <div class="about_cont container p3 bg1">
         <div class="about_img_cont o0 to1"></div>
         <div class="about_cont_text mt4">
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about us texts'][0] ?></p>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about us texts'][0] ?></p>
             <br>
             <ul class="pl4">
                 <?php
                 $listItems1 =  $languageArray['about us texts'][1];
                 for ($i = 0; $i < 4; $i++) {
-                    echo '<li class="o0"><span class="'.$languageArray['font-family'][1].'">' . $listItems1[$i] . '</span></li>';
+                    echo '<li class="o0"><span class=" '.$languageArray['font-family'][1].'">' . $listItems1[$i] . '</span></li>';
                 }
                 ?>
             </ul>
             <br>
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about us texts'][2] ?></p>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about us texts'][2] ?></p>
             <br>
             <ul class="pl4">
                 <?php
                 $listItems2 =  $languageArray['about us texts'][3];
                 for ($i = 0; $i < 3; $i++) {
-                    echo '<li class="o0"><span class="'.$languageArray['font-family'][1].'">' . $listItems2[$i] . '</span></li>';
+                    echo '<li class="o0"><span class=" '.$languageArray['font-family'][1].'">' . $listItems2[$i] . '</span></li>';
                 }
                 ?>
             </ul>

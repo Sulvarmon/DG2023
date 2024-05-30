@@ -54,20 +54,20 @@ include "../../reusable/side-contacts.php";
     $titles = $languageArray['small menu building-materials'];
     include "../../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][0] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][0] ?></div>
     <div class="container bg1 p2">
         <div class="building_materials_main_img_texts_wrapper dfjaac fww gap1">
             <div class="building_materials_main_img o0 to1"></div>
             <div>
-                <p class="<?php echo $languageArray['font-family'][1] ?>">
+                <p class=" <?php echo $languageArray['font-family'][1] ?>">
                     <?php echo $languageArray['sectors']['building materials']['texts'][1] ?>
                 </p>
                 <br>
-                <p class="<?php echo $languageArray['font-family'][1] ?>">
+                <p class=" <?php echo $languageArray['font-family'][1] ?>">
                     <?php echo $languageArray['sectors']['building materials']['texts'][2] ?>
                 </p>
                 <br>
-                <p class="<?php echo $languageArray['font-family'][1] ?>">
+                <p class=" echo $languageArray['font-family'][1] ?>">
                     <?php echo $languageArray['sectors']['building materials']['texts'][3] ?>
                 </p>
 

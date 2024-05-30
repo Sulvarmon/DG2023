@@ -59,7 +59,7 @@ $projectsMainText = $languageArray['project page']['main texts'][2];
     $titles = $languageArray['small menu container-terminal'];
     include "../../reusable/smallMenu.php";
     ?>
-<div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['project page']['titles'][2] ?></div>
+<div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['project page']['titles'][2] ?></div>
 <div class="container p3 bg1">
     <?php
     $reversed = false;

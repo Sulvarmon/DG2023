@@ -55,7 +55,7 @@ include "../reusable/side-contacts.php";
     include "../reusable/smallMenu.php";
     ?>
 
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['projects'] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['projects'] ?></div>
     <div class="bg1 p2 container">
 
         <?php

@@ -53,7 +53,7 @@ include "../../reusable/side-contacts.php";
     $titles = $languageArray['small menu marine-works'];
     include "../../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][2] ?></div>
+    <div class="title_of_page dfjcac  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][2] ?></div>
 
     <div class="container bg1 p2">
         <div class="marine_works_imgs_wrapper">
@@ -67,16 +67,16 @@ include "../../reusable/side-contacts.php";
 
         <div class="marine_works_text_wrapper mt5">
             <hr class="mb5">
-            <p class="mb3 <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][1] ?></p>
+            <p class="mb3  <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][1] ?></p>
             <ul class="pl5">
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][2] ?></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][3] ?></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][4] ?></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][5] ?></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][6] ?></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][7] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][2] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][3] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][4] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][5] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][6] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][7] ?></span></li>
             </ul>
-            <p class="mt3 <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][8] ?></p>
+            <p class="mt3 $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['marine works']['texts'][8] ?></p>
         </div>
 
     </div>

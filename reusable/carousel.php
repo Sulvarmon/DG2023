@@ -8,9 +8,9 @@
         for ($i = 0; $i < $carouselSliesNumber; $i++) {
             echo "<div class='carousel_slide'>";
             echo "<div><img class='pa ofcvr' src='$carouselImg[$i]' alt=''></div>";
-            echo "<div class='carousel_title tac  ".$languageArray['font-family'][0]."'>$carouselTitle[$i]</div>";
-            echo "<div class='carousel_text tac ".$languageArray['font-family'][1]."'>$carouselText[$i]</div>";
-            echo "<a href='$carouselHrefs[$i]' class='carousel_btn main_btn ".$languageArray['font-family'][0]."'>".$languageArray['fully']."</a>";
+            echo "<div class='carousel_title tac   ".$languageArray['font-family'][0]."'>$carouselTitle[$i]</div>";
+            echo "<div class='carousel_text tac  ".$languageArray['font-family'][1]."'>$carouselText[$i]</div>";
+            echo "<a href='$carouselHrefs[$i]' class='carousel_btn main_btn  ".$languageArray['font-family'][0]."'>".$languageArray['fully']."</a>";
             echo "</div>";
         }
         ?>

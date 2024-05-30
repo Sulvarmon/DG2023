@@ -59,35 +59,35 @@ $dotenv->load();
     $titles =  $languageArray['small menu contacts'];
     include "../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></div>
     <div class="contact_cont container p2 bg1">
         <div class="dfjcac gap3 fww p5">
             <div class="contact_cont_item o0 to1 dfcjcas gap3">
-                <div class="ls1 tac <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][1] ?></div>
-                <div class="dfjlac gap2"><i class="icon_view usn fa-solid fa-phone-volume"></i><span class="contacts_icons <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][2] ?></span></div>
-                <div class="dfjlac gap2"><i class="icon_view fa-solid fa-location-dot"></i><span class="contacts_icons <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][3] ?></span></div>
-                <div class="dfjlac gap2"><i class="icon_view fa-solid fa-envelope"></i><span class="contacts_icons <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][4] ?></span></div>
-                <a href="https://www.facebook.com/" target="_blank" class="dfjcac gap2"><i class="contacts_fb icon_view fa-brands fa-facebook-f"></i><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][10] ?></span></a>
+                <div class="ls1 tac  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][1] ?></div>
+                <div class="dfjlac gap2"><i class="icon_view usn fa-solid fa-phone-volume"></i><span class="contacts_icons  <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][2] ?></span></div>
+                <div class="dfjlac gap2"><i class="icon_view fa-solid fa-location-dot"></i><span class="contacts_icons  <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][3] ?></span></div>
+                <div class="dfjlac gap2"><i class="icon_view fa-solid fa-envelope"></i><span class="contacts_icons  <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][4] ?></span></div>
+                <a href="https://www.facebook.com/" target="_blank" class="dfjcac gap2"><i class="contacts_fb icon_view fa-brands fa-facebook-f"></i><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][10] ?></span></a>
             </div>
             <div class="contact_cont_item o0 to1">
-                <div class="tac mb4 ls5 <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][7] ?></div>
+                <div class="tac mb4 ls5  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][7] ?></div>
                 <form class="dfcjcae">
                     <div class="dfjlac fww gap5 p2">
                         <div class="sender_name_and_mail_cont">
                             <div class="sender_name dfcjcas gap1">
-                                <span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][5] ?></span>
+                                <span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][5] ?></span>
                                 <input class="p2 border br4" type="text" name="flname" autocomplete="on">
                             </div>
                             <div class="sender_mail dfcjcas gap1">
-                                <span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][6] ?></span>
+                                <span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['contacts page'][6] ?></span>
                                 <input class="p2 border br4" type="email" name="email" autocomplete="on">
                             </div>
                         </div>
                         <div class="textarea_and_submit dfcjcas gap2 mt2">
-                            <textarea class="p2 border br1 <?php echo $languageArray['font-family'][1] ?>" name="text" placeholder=<?php echo $languageArray['contacts page'][8] ?>></textarea>
+                            <textarea class="p2 border br1  <?php echo $languageArray['font-family'][1] ?>" name="text" placeholder=<?php echo $languageArray['contacts page'][8] ?>></textarea>
                             <div class="dfcjlas gap2 w5">
                                 <div class="g-recaptcha mt3" data-sitekey="<?php echo $_ENV['SITEKEY'] ?>"></div>
-                                <div name="mailBtn" class="submit_mail_btn main_btn cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
+                                <div name="mailBtn" class="submit_mail_btn main_btn cp  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][9] ?></div>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ $dotenv->load();
     </div>
 
     <div class="mail_message">
-        <div class="dfjcac"><span class="cw <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][11] ?></span></div>
+        <div class="dfjcac"><span class="cw  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts page'][11] ?></span></div>
     </div>
 
 </div>

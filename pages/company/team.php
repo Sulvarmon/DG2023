@@ -61,30 +61,30 @@ $stuffPosition = $languageArray['team positions'][1];
     $titles = $languageArray['small menu team'];
     include "../../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['our team'] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['our team'] ?></div>
     <div class="container team_cont_wrapper p3 bg1">
         <div class="team_photo o0 to1"></div>
         <div class="team_cont mt3">
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][0] ?></p>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][0] ?></p>
             <br>
             <p>
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][1] ?></p>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][1] ?></p>
             </p>
             <br>
             <p>
-            <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][2] ?></p>
+            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['team texts'][2] ?></p>
             </p>
         </div>
-        <div class="title_of_sections <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team titles'][0] ?></div>
+        <div class="title_of_sections  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team titles'][0] ?></div>
         <hr class="mb5">
         <div class="team_member_cont dfcjcac gap2 ma">
             <ul class="pl4">
-                <li class="team_member_name"><span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team members'][0] ?></span></li>
-                <li class="team_member_position <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team positions'][0] ?></li>
+                <li class="team_member_name"><span class=" <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team members'][0] ?></span></li>
+                <li class="team_member_position  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team positions'][0] ?></li>
             </ul>
             <img class="team_member_img o0 t01" width="200" height="200" src="../../img/director.jpg" alt="">
         </div>
-        <div class="title_of_sections <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team titles'][1] ?></div>
+        <div class="title_of_sections  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['team titles'][1] ?></div>
         <hr class="mb5">
         <div class="supervision">
             <?php

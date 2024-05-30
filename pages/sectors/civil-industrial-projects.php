@@ -53,19 +53,19 @@ include "../../reusable/side-contacts.php";
     $titles = $languageArray['small menu civil-industrial-projects'];
     include "../../reusable/smallMenu.php";
     ?>
-    <div class="title_of_page dfjcac container <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][1] ?></div>
+    <div class="title_of_page dfjcac container  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors']['titles'][1] ?></div>
     <div class="container bg1 p2">
         <div class="cip_first_img p2 mb3">
             <div class="pr oh"><img class="pa ofcvr" src="../../img/cip_xobi2.jpg" alt=""></div>
             <ul class="pl4">
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><b><?php echo $languageArray['sectors']['civil and industrial projects']['texts'][1] ?></b></span></li>
-                <li><span class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['civil and industrial projects']['texts'][2] ?></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><b><?php echo $languageArray['sectors']['civil and industrial projects']['texts'][1] ?></b></span></li>
+                <li><span class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['sectors']['civil and industrial projects']['texts'][2] ?></span></li>
             </ul>
         </div>
 
 
         <div class="cip_text">
-            <p class="mb2 <?php echo $languageArray['font-family'][1] ?>">
+            <p class="mb2 php echo $languageArray['font-family'][1] ?>">
             <?php echo $languageArray['sectors']['civil and industrial projects']['texts'][3] ?>
             </p>
             <ul class="pl4">
