@@ -44,6 +44,16 @@ include "../../header.php";
 include "../../reusable/side-phone.php";
 include "../../reusable/side-contacts.php";
 
+if(isset($_SESSION['theme'])){
+    if ($_SESSION['theme'] == 'white') {
+        echo '<div class="dn detect_theme" id="theme_white"></div>';
+    }else{
+        echo '<div class="dn detect_theme" id="theme_dark"></div>';  
+    }
+}else{
+    echo '<div class="dn detect_theme" id="theme_white"></div>';
+}
+
 ?>
 
 
@@ -67,7 +77,7 @@ include "../../reusable/side-contacts.php";
                     <?php echo $languageArray['sectors']['building materials']['texts'][2] ?>
                 </p>
                 <br>
-                <p class=" echo $languageArray['font-family'][1] ?>">
+                <p class=" <?php echo $languageArray['font-family'][1] ?>">
                     <?php echo $languageArray['sectors']['building materials']['texts'][3] ?>
                 </p>
 

@@ -1,7 +1,7 @@
 <footer>
     <div class="footer_cont pr">
         <div class="footer_phone"><i class="theme fa-sharp fa-solid fa-phone-volume"></i>
-            <div class="<?php echo $languageArray['font-family'][0] ?>">595 00 86 65</div>
+            <div class="theme <?php echo $languageArray['font-family'][0] ?>">595 00 86 65</div>
         </div>
         <div class="dfjcac gap4">
             <a href="https://www.facebook.com/" target="_blank" class="socials_fb"><i class="icon_view icon_hover fa-brands fa-facebook-f"></i></a>

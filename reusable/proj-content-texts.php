@@ -9,4 +9,4 @@ echo '<div class="projects_page_cont">';
     }
     echo '</div>';
 echo '</div>';
-echo '<div class=" '.$languageArray['font-family'][1].' mt3">'.$projectsMainText.'</div>';
+echo '<div class=" theme '.$languageArray['font-family'][1].' mt3">'.$projectsMainText.'</div>';

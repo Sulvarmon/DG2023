@@ -46,6 +46,17 @@ $lastWord = trim(end($words));
 include "head.php";
 include "header.php"; // სესის ცვლადები მოქმედებს ჰედერის შემდეგ: ჰედერში არის სესია გახსნილი
 
+
+if(isset($_SESSION['theme'])){
+    if ($_SESSION['theme'] == 'white') {
+        echo '<div class="dn detect_theme" id="theme_white"></div>';
+    }else{
+        echo '<div class="dn detect_theme" id="theme_dark"></div>';  
+    }
+}else{
+    echo '<div class="dn detect_theme" id="theme_white"></div>';
+}
+
 $languageArray = $_SESSION['languageArray']; # უნდა იყოს აქ ჰედერის შემოტანის შემდეგ, რადგან ჰედერში იწყება სესია
 
 #grid variables
@@ -97,7 +108,7 @@ $carouselSliesNumber = 5;
         <div class="home_pg_about_section_img_wrapper"></div>
         <br>
         <div class="home_pg_about_section_text_btn dfcjcac gap3 mt2">
-            <p class=" <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about company text'] ?></p>
+            <p class=" theme <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['about company text'] ?></p>
             <a href="./pages/company/about" class="main_btn  <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['fully'] ?></a>
         </div>
 

@@ -28,28 +28,38 @@ if (isset($_COOKIE['language'])) {
             break;
         default:
             break;
-    }    
+    }
 } else {
     $defaultLanguage = '../../lan-geo.php';
 }
 
 #ფაილის გზის დასახელების ბოლო სიტყვის გაგება .php მდე
 $path = __FILE__;
-$filename = basename($path, ".php"); 
-$words = explode("\\", $filename); 
-$lastWord = trim(end($words)); 
+$filename = basename($path, ".php");
+$words = explode("\\", $filename);
+$lastWord = trim(end($words));
 
 include "../../head.php";
 include "../../header.php";
 include "../../reusable/side-phone.php";
 include "../../reusable/side-contacts.php";
 
+if (isset($_SESSION['theme'])) {
+    if ($_SESSION['theme'] == 'white') {
+        echo '<div class="dn detect_theme" id="theme_white"></div>';
+    } else {
+        echo '<div class="dn detect_theme" id="theme_dark"></div>';
+    }
+} else {
+    echo '<div class="dn detect_theme" id="theme_white"></div>';
+}
+
 ?>
 
 <div>
-<?php 
+    <?php
     $numberOfDeepnes = 1;
-    $hrefs = array("../../home","./civil-industrial-projects");
+    $hrefs = array("../../home", "./civil-industrial-projects");
     $titles = $languageArray['small menu civil-industrial-projects'];
     include "../../reusable/smallMenu.php";
     ?>
@@ -65,8 +75,8 @@ include "../../reusable/side-contacts.php";
 
 
         <div class="cip_text">
-            <p class="mb2 php echo $languageArray['font-family'][1] ?>">
-            <?php echo $languageArray['sectors']['civil and industrial projects']['texts'][3] ?>
+            <p class="mb2 php <?php echo $languageArray['font-family'][1] ?>">
+                <?php echo $languageArray['sectors']['civil and industrial projects']['texts'][3] ?>
             </p>
             <ul class="pl4">
                 <?php
@@ -74,7 +84,7 @@ include "../../reusable/side-contacts.php";
                 $cipArray = $languageArray['sectors']['civil and industrial projects']['texts'][4];
 
                 for ($i = 0; $i < 5; $i++) {
-                    echo '<li><span class="'. $languageArray['font-family'][1] .'">' . $cipArray[$i] . '</span></li>';
+                    echo '<li><span class="' . $languageArray['font-family'][1] . '">' . $cipArray[$i] . '</span></li>';
                 }
                 ?>
             </ul>
@@ -90,10 +100,10 @@ include "../../reusable/side-contacts.php";
 
             for ($i = 0; $i < 3; $i++) {
                 echo '<div class="cip_section p2 ">';
-                echo '<div class="cip_section_img_cont pr"><img class="pa ofcnt" src='.$cipImgs[$i].' alt=""></div>';
+                echo '<div class="cip_section_img_cont pr"><img class="pa ofcnt" src=' . $cipImgs[$i] . ' alt=""></div>';
                 echo '<div class="cip_section_text_cont">';
-                echo '<div class="dfjlac gap1"><i class="fa-solid fa-location-dot"></i><span class="'. $languageArray['font-family'][1] .'"><b>' . $cipTitles[$i] . '</b></span></div>';
-                echo '<div><span class="'. $languageArray['font-family'][1] .'">' . $cipTexts[$i] . '</span></div>';
+                echo '<div class="dfjlac gap1"><i class="fa-solid fa-location-dot"></i><span class="' . $languageArray['font-family'][1] . '"><b>' . $cipTitles[$i] . '</b></span></div>';
+                echo '<div><span class="' . $languageArray['font-family'][1] . '">' . $cipTexts[$i] . '</span></div>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -112,6 +122,6 @@ include "../../foot.php";
 ?>
 
 <?php
- define("visits", true);
- include "../../visits-update.php";
+define("visits", true);
+include "../../visits-update.php";
 ?>

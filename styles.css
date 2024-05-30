@@ -22,9 +22,7 @@
     --width1250: 1200px;
     /* color */
     --bgColor: #e6e3e0;
-    /* --bgColor: #252525; */
     --bg1: #f0ebe9;
-    /* --bg1: #2e2b2a; */
     --blue: #3039b6;
     --red: #b63a3a;
     --menuColor: #a18939;
@@ -2021,6 +2019,7 @@ textarea {
     }
 }
 
+
 .cookie_cont {
     position: fixed;
     bottom: -200px;
@@ -2029,9 +2028,9 @@ textarea {
     margin: 0 auto;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     animation: cookie 2s ease-out 2s forwards;
-    transition: all 1s ease-out;
+    transition: bottom 1s ease-out;
     z-index: 1000;
 }
 
@@ -2077,6 +2076,7 @@ textarea {
     width: 15px;
     height: 15px;
     border-radius: 50%;    
+    box-shadow: 0px 0px 2px 2px var(--blue);
 }
 
 .theme_text{

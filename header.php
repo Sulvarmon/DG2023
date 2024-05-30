@@ -168,10 +168,10 @@ if (!isset($_SESSION['languageArray'])) {
 if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
     echo '<div class="cookie_cont br2 p2 wfc">';
     echo '<div class="dfcjcac gap2">';
-    echo '<span class="cw  ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][1] . '</span>';
+    echo '<span class="' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][1] . '</span>';
     echo '<div class="dfjcac gap2">';
-    echo '<div class="allow_cookie cw br3 pl3 pr3 pt1 pb1 cp usn  ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][2] . '</div>';
-    echo '<div class="reject_cookie cw br3 pl3 pr3 pt1 pb1 cp usn  ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][3] . '</div>';
+    echo '<div class="allow_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][2] . '</div>';
+    echo '<div class="reject_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][3] . '</div>';
     echo '</div>';
     echo '</div>';
     echo '</div>';

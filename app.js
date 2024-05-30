@@ -881,29 +881,87 @@ $(window).on("load", function () {
         })
     })
 
-    let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view']
+    { // theme
+        let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.grid_title,.grid_text,p,li']
+        let changeThemeUrl
 
-    $(".theme_dot:eq(0)").click(function () { //white theme    
-        $(".theme_dot_inner_dark").show(0)
-        $(".theme_dot_inner_white").hide(0)
-        $(this).css({"pointer-events": "none","cursor": "default"})
-        $(".theme_dot:eq(1)").css({"pointer-events":"auto","cursor": "pointer"})
-        $(`${changeClasses}`).removeClass("theme_dark").addClass("theme_white")
-        $(".icon_view").removeClass("border_white").addClass("border_dark")  
-        $(':root').css('--bgColor', '#e6e3e0');
-        $(':root').css('--bg1', '#f0ebe9');
-    })
+        let whiteTheme = function () {
+            $(".theme_dot_inner_dark").show(0)
+            $(".theme_dot_inner_white").hide(0)
+            $(this).css({ "pointer-events": "none", "cursor": "default" })
+            $(".theme_dot:eq(1)").css({ "pointer-events": "auto", "cursor": "pointer" })
+            $(`${changeClasses}`).removeClass("theme_dark").addClass("theme_white")
+            $(".icon_view").removeClass("border_white").addClass("border_dark")
+            $(".cookie_cont").css({ "background-color": "rgba(255, 255, 255, 0.8)" })
+            $(':root').css('--bgColor', '#e6e3e0');
+            $(':root').css('--bg1', '#f0ebe9');
+        }
 
-    $(".theme_dot:eq(1)").click(function () { //dark theme
-        $(".theme_dot_inner_dark").hide(0)
-        $(".theme_dot_inner_white").show(0)
-        $(this).css({"pointer-events": "none","cursor": "default"})
-        $(".theme_dot:eq(0)").css({"pointer-events":"auto","cursor": "pointer"})
-        $(`${changeClasses}`).removeClass("theme_white").addClass("theme_dark")
-        $(".icon_view").removeClass("border_dark").addClass("border_white")
-        $(':root').css('--bgColor', '#252525');
-        $(':root').css('--bg1', '#2e2b2a');
-    })
+        let darkTheme = function () {
+            $(".theme_dot_inner_dark").hide(0)
+            $(".theme_dot_inner_white").show(0)
+            $(this).css({ "pointer-events": "none", "cursor": "default" })
+            $(".theme_dot:eq(0)").css({ "pointer-events": "auto", "cursor": "pointer" })
+            $(`${changeClasses}`).removeClass("theme_white").addClass("theme_dark")
+            $(".icon_view").removeClass("border_dark").addClass("border_white")
+            $(".cookie_cont").css({ "background-color": "rgba(0, 0, 0, 0.8)" })
+            $(':root').css('--bgColor', '#343232');
+            $(':root').css('--bg1', '#2e2b2a');
+        }
+
+        for (let i = 0; i < allPages.length; i++) {
+            if ($("title").text() == allPages[i]) {
+                switch (i) {
+                    case 0:
+                        changeThemeUrl = `changeTheme`
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        changeThemeUrl = `../changeTheme`
+                        break;
+                    default:
+                        changeThemeUrl = `../../changeTheme`
+                        break;
+                }
+            }
+        }
+
+
+        if ($(".detect_theme").attr('id') == 'theme_white') {
+            whiteTheme()
+            console.log(1)
+        } else {
+            darkTheme()
+            console.log(2)
+        }
+
+
+        $(".theme_dot:eq(0)").click(function () { //white theme
+            $.ajax({
+                url: `${changeThemeUrl}`,
+                type: 'post',
+                data: {
+                    changeThemeBtn: true,
+                    theme: 'white',
+                }
+            })
+            whiteTheme()
+        })
+
+        $(".theme_dot:eq(1)").click(function () { //dark theme
+            $.ajax({
+                url: `${changeThemeUrl}`,
+                type: 'post',
+                data: {
+                    changeThemeBtn: true,
+                    theme: 'dark',
+                }
+            })
+            darkTheme()
+        })
+    }
+
 
 
 

@@ -52,6 +52,16 @@ $stuffNames = $languageArray['team members'][1];
 $stuffPosition = $languageArray['team positions'][1];
 #end
 
+if(isset($_SESSION['theme'])){
+    if ($_SESSION['theme'] == 'white') {
+        echo '<div class="dn detect_theme" id="theme_white"></div>';
+    }else{
+        echo '<div class="dn detect_theme" id="theme_dark"></div>';  
+    }
+}else{
+    echo '<div class="dn detect_theme" id="theme_white"></div>';
+}
+
 ?>
 
 <div>
