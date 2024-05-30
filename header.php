@@ -15,47 +15,47 @@ if (!isset($_SESSION['languageArray'])) {
     <div class="header_cont container dfjbac pt1 pb1">
         <a href=<?php echo $home; ?> class="logo usn"></a>
         <div class="sm_menu_icon usn">
-            <i class="sm_menu_icon_item sm_menu_icon_m fa-solid fa-bars"></i>
-            <i class="sm_menu_icon_item sm_menu_icon_c fa-solid fa-xmark"></i>
+            <i class="theme sm_menu_icon_item sm_menu_icon_m fa-solid fa-bars"></i>
+            <i class="theme sm_menu_icon_item sm_menu_icon_c fa-solid fa-xmark"></i>
         </div>
         <!-- მცირე ეკრანის მენიუ -->
         <div class="db_menu p4 bg1">
             <div class="dfcjcas">
 
                 <div class="db_menu_about dfcjcas m1 usn pr">
-                    <div class="dfjcac db_small_menu_about"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['company'] ?></span><i class="ml1 fa-solid fa-angle-down"></i></div>
+                    <div class="dfjcac db_small_menu_about"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['company'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
                     <div class="db_menu_expand_about dn">
                         <ul class="dfcjcas gap1 ml3 mt3">
-                            <li><a class="<?php echo $languageArray['font-family'][0] ?>" href=<?php echo $about ?>><?php echo $languageArray['about us'] ?></a></li>
-                            <li><a class="<?php echo $languageArray['font-family'][0] ?>" href=<?php echo $team ?>><?php echo $languageArray['our team'] ?></a></li>
+                            <li><a class="theme <?php echo $languageArray['font-family'][0] ?>" href=<?php echo $about ?>><?php echo $languageArray['about us'] ?></a></li>
+                            <li><a class="theme <?php echo $languageArray['font-family'][0] ?>" href=<?php echo $team ?>><?php echo $languageArray['our team'] ?></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="line"></div>
-                <a href=<?php echo $projects; ?> class="db_menu_texts db_menu_projects m1 usn <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['projects'] ?></a>
+                <a href=<?php echo $projects; ?> class="db_menu_texts db_menu_projects m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['projects'] ?></a>
                 <div class="line"></div>
-                <a href=<?php echo $news; ?> class="db_menu_texts db_menu_news m1 usn <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></a>
+                <a href=<?php echo $news; ?> class="db_menu_texts db_menu_news m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></a>
                 <div class="line"></div>
 
                 <div class="db_menu_sector dfcjcas m1 usn pr">
-                    <div class="dfjcac db_small_menu_sector"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors title'] ?></span><i class="ml1 fa-solid fa-angle-down"></i></div>
+                    <div class="dfjcac db_small_menu_sector"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors title'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
                     <div class="db_menu_expand_sector dn">
                         <ul class="dfcjcas gap1 ml3 mt3">
-                            <li><a class="<?php echo $languageArray['font-family'][0] ?>" href=<?php echo $marineWorks ?>><?php echo $languageArray['marine works'] ?></a></li>
-                            <li><a class="<?php echo $languageArray['font-family'][0] ?>" href=<?php echo $buildingMaterials ?>><?php echo $languageArray['building materials'] ?></a></li>
-                            <li><a class="<?php echo $languageArray['font-family'][0] ?>" href=<?php echo $civilIndustrialProjects ?>><?php echo $languageArray['civil and industrial projects'] ?></a></li>
+                            <li><a class="theme <?php echo $languageArray['font-family'][0] ?>" href=<?php echo $marineWorks ?>><?php echo $languageArray['marine works'] ?></a></li>
+                            <li><a class="theme <?php echo $languageArray['font-family'][0] ?>" href=<?php echo $buildingMaterials ?>><?php echo $languageArray['building materials'] ?></a></li>
+                            <li><a class="theme <?php echo $languageArray['font-family'][0] ?>" href=<?php echo $civilIndustrialProjects ?>><?php echo $languageArray['civil and industrial projects'] ?></a></li>
                         </ul>
 
                     </div>
                 </div>
 
                 <div class="line"></div>
-                <a href=<?php echo $contact; ?> class="db_menu_texts db_menu_contact m1 usn <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></a>
+                <a href=<?php echo $contact; ?> class="db_menu_texts db_menu_contact m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></a>
                 <div class="line"></div>
 
                 <div class="db_menu_lan m1 usn">
-                    <div class="dfjlac"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></span><i class="ml1 fa-solid fa-angle-down"></i></div>
+                    <div class="dfjlac"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
                     <div class="dn">
                         <div class="dfcjcac">
                             <form class="usn mt1" action=<?php echo $language ?> method="post">
@@ -107,7 +107,7 @@ if (!isset($_SESSION['languageArray'])) {
         </div>
         <div class="lan_and_search_wrapper dfjcac gap4">
             <div class="search_icon_cont icon_view icon_hover cp usn"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="theme_cont dn">
+            <div class="theme_cont">
                 <div class="dfcjcac gap1 p1">
                     <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?> "><?php echo $languageArray['theme'][1]?></div>
                     <div class="dfjcac gap1">

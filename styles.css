@@ -2066,11 +2066,11 @@ textarea {
     text-shadow: 1px 1px 5px grey;
 }
 
-@media(min-width:1024px){
+/* @media(min-width:1024px){
     .theme_cont{
         display: block;
     }
-}
+} */
 
 .theme_dot{
     width: 15px;
