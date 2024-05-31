@@ -954,7 +954,25 @@ $(window).on("load", function () {
         })
     }
 
+    { // learn cookie
+        $(".learn_cookie").click(function(){
+            $(".learn_cookie_cont").show(0)
+        })
 
+        $(".learn_cookie_cont>i").click(function(e){
+            e.stopPropagation()
+            $(".learn_cookie_cont").hide(0)
+        })
+
+        $(".learn_cookie_cont").click(function(){
+            $(".learn_cookie_cont>i").click()
+        })
+
+        $(".learn_cookie_content").click(function(e){
+            e.stopPropagation()
+        })
+
+    }
 
 
 

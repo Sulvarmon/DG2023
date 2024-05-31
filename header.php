@@ -178,7 +178,23 @@ if (!isset($_SESSION['languageArray'])) {
     </div>
 </div>
 
-
+<div class="learn_cookie_cont dn">
+    <i class="expand_close fa-solid fa-xmark"></i>
+    <div class="learn_cookie_content p2 dfcjlac gap2">
+        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][0] ?></b></div>
+        <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][0] ?></p>
+        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][1] ?></b></div>
+        <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][1] ?></p>
+        <ul>
+            <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][2] ?></li>
+            <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][3] ?></li>
+        </ul>
+        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][2] ?></b></div>
+                
+        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][3] ?></b></div>
+        <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][4] ?></p>
+    </div>
+</div>
 
 <?php
 
@@ -187,9 +203,10 @@ if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
     echo '<div class="cookie_cont br2 p2 wfc">';
     echo '<div class="dfcjcac gap2">';
     echo '<span class="' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][1] . '</span>';
-    echo '<div class="dfjcac gap2">';
+    echo '<div class="dfjcac gap2 fww">';
     echo '<div class="allow_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][2] . '</div>';
     echo '<div class="reject_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][3] . '</div>';
+    echo '<div class="learn_cookie br3 pl3 pr3 pt1 pb1 cp usn theme '. $languageArray['font-family'][1] . '">' . $languageArray['cookie'][4] . '</div>';
     echo '</div>';
     echo '</div>';
     echo '</div>';
