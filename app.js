@@ -876,7 +876,7 @@ $(window).on("load", function () {
     })
 
     { // theme
-        let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.grid_title,.grid_text,p,li']
+        let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.title_of_subsections,.grid_title,.grid_text,p,li']
         let changeThemeUrl
 
         let whiteTheme = function () {

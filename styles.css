@@ -2046,7 +2046,7 @@ textarea {
 
 
 .cookie_cont>div>div>div {
-    border: 1px solid #fff;
+    border: 1px solid var(--blue);
     transition: all 0.3s;
 }
 
@@ -2115,3 +2115,6 @@ textarea {
     color: #fff;
 }
 
+.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.title_of_subsections,.grid_title,.grid_text,p,li{
+    transition: color 1s;
+}
