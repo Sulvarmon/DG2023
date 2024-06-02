@@ -156,7 +156,7 @@ return [
         1 => 'Этот веб-сайт использует файлы cookie <i class="fa-solid fa-cookie-bite fa-xl"></i>, чтобы обеспечить вам максимально эффективное использование нашего веб-сайта.',
         2 => 'позволять',
         3 => 'Отклонять',
-        4 => 'настройки',
+        4 => 'о файлах cookie',
         5 => "<b>About Cookies</b><br><br>Our website uses cookies to improve your browsing experience. Cookies are small pieces of data that a website stores on your device, like your computer or phone.  They allow the website to 'remember' your actions and preferences (such as login, language, and theme) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.<b>How We Use Cookies</b><br><br>We use two types of cookies on our website:<br><br>"
 
     ],

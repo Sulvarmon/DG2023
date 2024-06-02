@@ -156,7 +156,7 @@ return [
         1 => 'ეს ვებსაიტი იყენებს cookie <i class="fa-solid fa-cookie-bite fa-xl"></i> ფაილებს, რათა უზრუნველვყოთ, რომ მიიღოთ საუკეთესო გამოცდილება ჩვენს ვებსაიტზე.',
         2 => 'დაიშვას',
         3 => 'არ დაიშვას',
-        4 => 'პარამეტრები',
+        4 => 'cookies შესახებ',
         5 => "<b>About Cookies</b><br><br>Our website uses cookies to improve your browsing experience. Cookies are small pieces of data that a website stores on your device, like your computer or phone.  They allow the website to 'remember' your actions and preferences (such as login, language, and theme) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.<b>How We Use Cookies</b><br><br>We use two types of cookies on our website:<br><br>"
 
     ],

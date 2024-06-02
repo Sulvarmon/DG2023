@@ -7,6 +7,8 @@ $(window).on("load", function () {
     let langSlider = { value: true };
     let smallAbout = { value: true };
     let smallSector = { value: true };
+    let language = { value: true };
+    let settings = { value: true };
     let slideTimer;
     let manPgOpacityCarouselCurrentCounter = { value: 1 }
     let projectsPagesTitles = ["ფოთი აპარტამენტი", "ნავმისადგომი-7", "ნავმისადგომი-15",
@@ -28,16 +30,25 @@ $(window).on("load", function () {
 
 
     //  კლიკზე ჩამოშლა მობილურის მენიუს
-    function expandMenu(clickedEl, variable, expandEl, rotateArrow) {
-        $(`${clickedEl}`).click(function () { //კლიკი ელემენტზე
-            if (variable.value) { // თუ კლიკი ნებადართულია, ანუ თუ მენიუ აკეცილია
-                $(`${expandEl}`).slideDown(300) //ჩამოშლა მენიუს
-                $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' }) // მენიუს ისრის ანიმაცია
-                variable.value = false // მცდარი ნიშნაავს რომ მენიუ ჩამოშლილ მდგომარეობაშია
-            } else { // თუ მენიუ ჩამოშლილია
-                $(`${expandEl}`).slideUp(300) // მენიუს აკეცვა
-                $(`${rotateArrow}`).css({ transform: 'rotate(-90deg)' }) // მენიუს ისრის ანიმაცია
-                variable.value = true // ჭეშმარიტი ნიშნავს რომ მენიუ აკეცილ მდგომარეობაშია
+    function expandMenu(clickedEl, variable, expandEl, rotateArrow, isGear=false) {
+        $(`${clickedEl}`).click(function () {            
+            if (variable.value) { 
+                $(`${expandEl}`).stop().slideDown(300) 
+                if (isGear) {
+                    $(`${rotateArrow}`).css({ transform: 'rotate(360deg)' })
+                }else{
+                    $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' })
+                }
+                variable.value = false 
+            } else { 
+                $(`${expandEl}`).stop().slideUp(300) 
+                if (isGear) {
+                    $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' })
+                }else{
+                    $(`${rotateArrow}`).css({ transform: 'rotate(-90deg)' }) 
+                }
+               
+                variable.value = true 
             }
         })
     }
@@ -165,12 +176,16 @@ $(window).on("load", function () {
 
     menuSlides(".lg_menu_company", ".company_db_cont", ".lg_menu_company_arr")
     menuSlides(".lg_menu_sector", ".sector_db_cont", ".lg_menu_sector_arr")
-    menuSlides(".lan>div:eq(0)", ".lan>div:eq(1)", ".lan>div:eq(0)>i")
 
     expandMenu(".db_small_menu_about", smallAbout, ".db_menu_expand_about", ".db_menu_about>div:eq(0)>i")
     expandMenu(".db_small_menu_sector", smallSector, ".db_menu_expand_sector", ".db_menu_sector>div:eq(0)>i")
     expandMenu(".db_menu_lan>div:eq(0)", langSlider, ".db_menu_lan>div:eq(1)", ".db_menu_lan>div:eq(0)>i")
+    expandMenu(".lan>div:eq(0)", language, ".lan_expand_cont", ".lan>div:eq(0)>i")
+    expandMenu(".settings", settings, ".l_db_settings", ".settings_gear", true)
 
+    $(".l_db_settings").click(function(e){
+        e.stopPropagation()
+    })
 
     $(".search_icon_cont").click(function () {
         $(".search_cont").css("display", "block");
@@ -512,8 +527,9 @@ $(window).on("load", function () {
         if (scrollTop > lastScrollTop) {
             $("header, .header_cont").css({ height: "50px" })
             $(".logo").css({ transform: "scale(0.55)" })
-            $(".db_menu").css({ top: "50px" })
-            $(".lg_menu_expand_cont").css({ top: "40px" })
+            $(".db_menu").css({ top: "49px" })
+            $(".lg_menu_expand_cont").css({ top: "39px" })
+            $(".l_db_settings").css({ top: "34px" })
 
             if ($(this).scrollTop() > 100) {
                 $(".scrollTop").show(0)
@@ -524,6 +540,7 @@ $(window).on("load", function () {
             $(".logo").css({ transform: "scale(1)" })
             $(".db_menu").css({ top: "85px" })
             $(".lg_menu_expand_cont").css({ top: "50px" })
+            $(".l_db_settings").css({ top: "50px" })
 
             if ($(this).scrollTop() < 100) {
                 $(".scrollTop").hide(0)

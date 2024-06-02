@@ -155,17 +155,19 @@ return [
         1 => 'This website uses cookies <i class="fa-solid fa-cookie-bite fa-xl"></i> to ensure you get the best experience on our website.',
         2 => 'Allow',
         3 => 'Reject',
-        4 => 'settings',
+        4 => 'about cookies',
         'cookie texts' => [
             'titles' => ['About Cookies', 'How We Use Cookies', 'Your Control Over Cookies', 'More Information'],
             'texts' => [
                 "Our website uses cookies to improve your browsing experience. Cookies are small pieces of data that a website stores on your device, like your computer or phone.  They allow the website to 'remember' your actions and preferences (such as login, language, and theme) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.",
                 'We use two types of cookies on our website:',
                 '<b>Cookies for language preference :</b> these cookies help us remember your language preference',
-                "<b>Cookies for theme preference :</b> These cookies allow us to remember your preferred website theme (e.g., light or dark mode) so you don't have to reset it every time you visit.",
-                "For more general information about cookies, you can visit <a target='_blank' href='https://allaboutcookies.org/'><b>All About Cookies</b></a>"
-            ]
+                "<b>Cookies for theme preference :</b> These cookies allow us to remember your preferred website theme (e.g., light or dark mode) so you don't have to reset it every time you visit.",                
+                "For more general information about cookies, you can visit <a target='_blank' href='https://allaboutcookies.org/'><b>All About Cookies</b></a>",
+                "you can set cookies in settings",
+            ],            
         ],
+        'types' => [1 => 'language Cookies :', 2 => 'theme Cookies :'],
     ],
     'unfinished website' => "The site is under construction. The information on the site does not correspond to the company's activities",
     'theme' => [1 => 'choose', 2 => 'theme'],

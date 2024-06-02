@@ -20,7 +20,7 @@ if (!isset($_SESSION['languageArray'])) {
         </div>
         <!-- მცირე ეკრანის მენიუ -->
         <div class="db_menu p4 bg1">
-            <div class="dfcjcas">
+            <div class="dfcjcas pb4">
 
                 <div class="db_menu_about dfcjcas m1 usn pr">
                     <div class="dfjcac db_small_menu_about"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['company'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
@@ -119,48 +119,60 @@ if (!isset($_SESSION['languageArray'])) {
 
             <a href=<?php echo $contact; ?> class="lg_menu_item lg_menu_contact m1 usn p1 menu_hover <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></a>
         </div>
-        <div class="lan_and_search_wrapper dfjcac gap4">
+        <div class="dfjcac gap4">
             <div class="search_icon_cont icon_view icon_hover cp usn"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="theme_cont dn">
-                <div class="dfcjcac gap1 p1">
-                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?> "><?php echo $languageArray['theme'][1] ?></div>
-                    <div class="dfjcac gap1">
-                        <div class="theme_dot dfjcac pen">
-                            <div class="theme_dot_inner_dark"></div>
+
+            <div class="settings pr theme dn">
+                <div><i class="settings_gear fa-solid fa-gear fa-xl cp"></i></div>
+                <div class="l_db_settings p4 dn">
+                    <div class="dfcjcac gap2">
+                        <div class="theme_cont dn">
+                            <div class="dfcjcac gap1 p1">
+                                <div class="theme_text theme usn <?php echo $languageArray['font-family'][0] ?> "><?php echo $languageArray['theme'][1] ?></div>
+                                <div class="dfjcac gap1">
+                                    <div class="theme_dot dfjcac pen">
+                                        <div class="theme_dot_inner_dark"></div>
+                                    </div>
+                                    <div class="theme_dot dfjcac cp">
+                                        <div class="theme_dot_inner_white"></div>
+                                    </div>
+                                </div>
+                                <div class="theme_text theme usn <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][2] ?></div>
+                            </div>
                         </div>
-                        <div class="theme_dot dfjcac cp">
-                            <div class="theme_dot_inner_white"></div>
+                        <hr class="w5">
+                        <div class="lan dn">                            
+                            <div class="usn cp p1 dfjcac">
+                                <div class="dfjcac tac theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></div>
+                                <i class="ml1 fa-solid theme fa-angle-down ml1"></i>
+                            </div>
+                            <div class="lan_expand_cont dn">
+                                <div class="dfcjcac bgm">
+                                    <form class="usn p1" action=<?php echo $language ?> method="post">
+                                        <button class="dfjcac gap1 cd "type="submit" name="lanBtn">
+                                            <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
+                                            <div class="lan_flag <?php echo $languageArray['language1 flag'] ?>"></div>
+                                        </button>
+                                        <input class="dn" type="text" value=<?php echo $languageArray['language1'] ?> name="language">
+                                        <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
+                                    </form>
+                                    <form class="usn p1" action=<?php echo $language ?> method="post">
+                                        <button class="dfjcac gap1 cd "type="submit" name="lanBtn">
+                                            <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
+                                            <div class="lan_flag <?php echo $languageArray['language2 flag'] ?>"></div>
+                                        </button>
+                                        <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
+                                        <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="theme_text theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][2] ?></div>
                 </div>
             </div>
-            <div class="lan dn">
-                <div class="usn p1 dfjcac">
-                    <div class="dfjcac tac theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></div>
-                    <i class="ml1 fa-solid theme fa-angle-down ml1"></i>
-                </div>
-                <div class="lg_menu_expand_cont dn">
-                    <div class="dfcjcac bgm">
-                        <form class="usn p1" action=<?php echo $language ?> method="post">
-                            <button class="dfjcac gap1 cp menu_hover" type="submit" name="lanBtn">
-                                <span class=" <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
-                                <div class="lan_flag <?php echo $languageArray['language1 flag'] ?>"></div>
-                            </button>
-                            <input class="dn" type="text" value=<?php echo $languageArray['language1'] ?> name="language">
-                            <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
-                        </form>
-                        <form class="usn p1" action=<?php echo $language ?> method="post">
-                            <button class="dfjcac gap1 cp menu_hover" type="submit" name="lanBtn">
-                                <span class=" <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
-                                <div class="lan_flag <?php echo $languageArray['language2 flag'] ?>"></div>
-                            </button>
-                            <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
-                            <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
-                        </form>
-                    </div>
-                </div>
-            </div>
+
+
+
         </div>
     </div>
 </header>
@@ -181,17 +193,17 @@ if (!isset($_SESSION['languageArray'])) {
 <div class="learn_cookie_cont dn">
     <i class="expand_close fa-solid fa-xmark"></i>
     <div class="learn_cookie_content p2 dfcjlac gap2">
-        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][0] ?></b></div>
+        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][0] ?></b><i class="fa-solid fa-cookie-bite fa-xl ml2"></i></div>
         <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][0] ?></p>
-        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][1] ?></b></div>
+        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][1] ?></b></div>
         <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][1] ?></p>
         <ul>
             <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][2] ?></li>
             <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][3] ?></li>
         </ul>
-        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][2] ?></b></div>
-                
-        <div class="theme <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][3] ?></b></div>
+        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][2] ?></b></div>
+        <div class="theme tac <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][5] ?></div>
+        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][3] ?></b></div>
         <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][4] ?></p>
     </div>
 </div>
@@ -206,7 +218,7 @@ if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
     echo '<div class="dfjcac gap2 fww">';
     echo '<div class="allow_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][2] . '</div>';
     echo '<div class="reject_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][3] . '</div>';
-    echo '<div class="learn_cookie br3 pl3 pr3 pt1 pb1 cp usn theme '. $languageArray['font-family'][1] . '">' . $languageArray['cookie'][4] . '</div>';
+    echo '<div class="learn_cookie br3 pl3 pr3 pt1 pb1 cp usn theme ' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][4] . '</div>';
     echo '</div>';
     echo '</div>';
     echo '</div>';
