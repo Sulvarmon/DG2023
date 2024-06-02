@@ -32,11 +32,11 @@ if (!isset($_SESSION['languageArray'])) {
                     </div>
                 </div>
 
-                <div class="line"></div>
+                <hr class="w5">
                 <a href=<?php echo $projects; ?> class="db_menu_texts db_menu_projects m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['projects'] ?></a>
-                <div class="line"></div>
+                <hr class="w5">
                 <a href=<?php echo $news; ?> class="db_menu_texts db_menu_news m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['news'] ?></a>
-                <div class="line"></div>
+                <hr class="w5">
 
                 <div class="db_menu_sector dfcjcas m1 usn pr">
                     <div class="dfjcac db_small_menu_sector"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['sectors title'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
@@ -50,9 +50,9 @@ if (!isset($_SESSION['languageArray'])) {
                     </div>
                 </div>
 
-                <div class="line"></div>
+                <hr class="w5">
                 <a href=<?php echo $contact; ?> class="db_menu_texts db_menu_contact m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></a>
-                <div class="line"></div>
+                <hr class="w5">
 
                 <div class="db_menu_lan m1 usn">
                     <div class="dfjlac"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['languageArray'])) {
                     </div>
                 </div>
 
-                <div class="line"></div>
+                <hr class="w5">
                 <div class="db_menu_texts db_menu_theme m1 usn theme dfcjcas gap2">
                     <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][1] . " " . $languageArray['theme'][2] ?></span>
                     <div class="dfjlac gap2">
@@ -90,7 +90,7 @@ if (!isset($_SESSION['languageArray'])) {
                         </div>
                     </div>
                 </div>
-                <div class="line"></div>
+                <hr class="w5">
 
             </div>
         </div>
@@ -141,15 +141,15 @@ if (!isset($_SESSION['languageArray'])) {
                             </div>
                         </div>
                         <hr class="w5">
-                        <div class="lan dn">                            
+                        <div class="lan dn">
                             <div class="usn cp p1 dfjcac">
                                 <div class="dfjcac tac theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></div>
                                 <i class="ml1 fa-solid theme fa-angle-down ml1"></i>
                             </div>
                             <div class="lan_expand_cont dn">
-                                <div class="dfcjcac bgm">
+                                <div class="dfjcac bgm fww">
                                     <form class="usn p1" action=<?php echo $language ?> method="post">
-                                        <button class="dfjcac gap1 cd "type="submit" name="lanBtn">
+                                        <button class="dfjcac gap1 cd " type="submit" name="lanBtn">
                                             <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
                                             <div class="lan_flag <?php echo $languageArray['language1 flag'] ?>"></div>
                                         </button>
@@ -157,7 +157,7 @@ if (!isset($_SESSION['languageArray'])) {
                                         <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
                                     </form>
                                     <form class="usn p1" action=<?php echo $language ?> method="post">
-                                        <button class="dfjcac gap1 cd "type="submit" name="lanBtn">
+                                        <button class="dfjcac gap1 cd " type="submit" name="lanBtn">
                                             <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
                                             <div class="lan_flag <?php echo $languageArray['language2 flag'] ?>"></div>
                                         </button>
@@ -167,12 +167,23 @@ if (!isset($_SESSION['languageArray'])) {
                                 </div>
                             </div>
                         </div>
+                        <hr class="w5">
+                        <div class="cookie_settings dfcjcac gap1">
+                            <div class="dfjcac gap1 cp"><span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie'][5] ?></span><i class="cookie_arr fa-solid theme fa-angle-down ml1"></i></div>
+                            <div class="cookie_settings_db dn">
+                                <div class="dfcjcas gap1">
+                                    <div class="dfjcac gap1">
+                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][1] ?></div><input type="checkbox">
+                                    </div>
+                                    <div class="dfjcac gap1">
+                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][2] ?></div><input type="checkbox">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </header>

@@ -156,6 +156,7 @@ return [
         2 => 'Allow',
         3 => 'Reject',
         4 => 'about cookies',
+        5 => 'Cookie',
         'cookie texts' => [
             'titles' => ['About Cookies', 'How We Use Cookies', 'Your Control Over Cookies', 'More Information'],
             'texts' => [

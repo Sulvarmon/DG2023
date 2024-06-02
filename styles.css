@@ -525,7 +525,7 @@ img {
 }
 
 .cw {
-    color: #fff;
+    color: #fff!important;
 }
 
 .cb {
@@ -725,14 +725,6 @@ img {
         height: 40px;
     }
 }
-
-.line {
-    height: 1px;
-    width: 90%;
-    background-color: #000;
-    margin-left: 3px;
-}
-
 
 /* classes */
 
@@ -2145,7 +2137,7 @@ textarea {
     margin: auto;
     border: 2px solid silver;
     border-radius: 5px;
-    background-color: rgba(138, 138, 138, 0.7); 
+    background-color: rgba(192, 192, 192, 0.7); 
     box-shadow: 0px 0px 10px 2px var(--blue);
 }
 
@@ -2170,7 +2162,7 @@ textarea {
 
 .l_db_settings{
     position: absolute;
-    width: 150px;
+    width: 300px;
     height: fit-content;
     top: 50px;
     right: 0;
@@ -2187,4 +2179,9 @@ textarea {
     .settings{
         display: block;
     }
+}
+
+.cookie_settings i{
+    transition: transform 0.3s!important;
+    transform: rotate(-90deg);
 }

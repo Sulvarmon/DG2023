@@ -9,6 +9,7 @@ $(window).on("load", function () {
     let smallSector = { value: true };
     let language = { value: true };
     let settings = { value: true };
+    let cookieSettings = { value: true };
     let slideTimer;
     let manPgOpacityCarouselCurrentCounter = { value: 1 }
     let projectsPagesTitles = ["ფოთი აპარტამენტი", "ნავმისადგომი-7", "ნავმისადგომი-15",
@@ -182,8 +183,9 @@ $(window).on("load", function () {
     expandMenu(".db_menu_lan>div:eq(0)", langSlider, ".db_menu_lan>div:eq(1)", ".db_menu_lan>div:eq(0)>i")
     expandMenu(".lan>div:eq(0)", language, ".lan_expand_cont", ".lan>div:eq(0)>i")
     expandMenu(".settings", settings, ".l_db_settings", ".settings_gear", true)
+    expandMenu(".cookie_settings", cookieSettings, ".cookie_settings_db", ".cookie_arr",)
 
-    $(".l_db_settings").click(function(e){
+    $(".l_db_settings, .cookie_settings_db, .search_cont input").click(function(e){
         e.stopPropagation()
     })
 
@@ -193,10 +195,6 @@ $(window).on("load", function () {
 
     $(".search_cont, .close_search").click(function () {
         $(".search_cont").css("display", "none")
-    })
-
-    $(".search_cont input").click(function (e) {
-        e.stopPropagation();
     })
 
 
@@ -663,6 +661,9 @@ $(window).on("load", function () {
                     }
                     $.each(foundArr, function (index, element) {
                         $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="${font}">${element}</li></a>`);
+                        if(index !=foundArr.length-1){
+                            $(".searched_links").append("<hr class='w5'>")
+                        }                        
                     })
                     if (searchedlementsHrefs.length == 0) {
                         $(".searched_links").append(`<div class="cw ${font}">${noResult}</div>`);
