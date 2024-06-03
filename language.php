@@ -13,7 +13,7 @@ switch ($language) {
     case 'eng':
     case 'анг':
         $_SESSION['languageArray'] = include "./lan-eng.php";
-        if (isset($_SESSION['allowCookie']) && $_SESSION['allowCookie'] == true) {
+        if (isset($_COOKIE['language'])) {
             setcookie('language', 'eng', time() + (10 * 365 * 24 * 60 * 60), '/');
         }
         break;
@@ -21,7 +21,7 @@ switch ($language) {
     case 'рус':
     case 'rus':
         $_SESSION['languageArray'] = include "./lan-rus.php";
-        if (isset($_SESSION['allowCookie']) && $_SESSION['allowCookie'] == true) {
+        if (isset($_COOKIE['language'])) {
             setcookie('language', 'rus', time() + (10 * 365 * 24 * 60 * 60), '/');
         }
         break;
@@ -29,7 +29,7 @@ switch ($language) {
     case 'geo':
     case 'гру':
         $_SESSION['languageArray'] = include "./lan-geo.php";
-        if (isset($_SESSION['allowCookie']) && $_SESSION['allowCookie'] == true) {
+        if (isset($_COOKIE['language'])) {
             setcookie('language', 'geo', time() + (10 * 365 * 24 * 60 * 60), '/');
         }
         break;

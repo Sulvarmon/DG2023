@@ -7,6 +7,19 @@ if (!isset($_SESSION['languageArray'])) {
 } else {
     $languageArray = $_SESSION['languageArray'];
 }
+
+if (!isset($_SESSION['theme'])) {
+    $_SESSION['theme']= 'white';
+}
+
+if (!isset($_SESSION['showCookiesDiv']) && !isset($_COOKIE['theme']) && !isset($_COOKIE['theme'])) {
+    $_SESSION['showCookiesDiv'] = true;
+}
+
+if (isset($_COOKIE['theme'])) {
+    $_SESSION['theme']=$_COOKIE['theme'];
+}
+
 ?>
 
 <div class="unfinished_website <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['unfinished website'] ?></div>
@@ -149,16 +162,16 @@ if (!isset($_SESSION['languageArray'])) {
                             <div class="lan_expand_cont dn">
                                 <div class="dfjcac bgm fww">
                                     <form class="usn p1" action=<?php echo $language ?> method="post">
-                                        <button class="dfjcac gap1 cd " type="submit" name="lanBtn">
-                                            <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
+                                        <button class="dfjcac gap1 cp " type="submit" name="lanBtn">
+                                            <span class="menu_hover <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language1'] ?></span>
                                             <div class="lan_flag <?php echo $languageArray['language1 flag'] ?>"></div>
                                         </button>
                                         <input class="dn" type="text" value=<?php echo $languageArray['language1'] ?> name="language">
                                         <input class="dn" type="text" value=<?php echo $lastWord ?> name="lastWord">
                                     </form>
                                     <form class="usn p1" action=<?php echo $language ?> method="post">
-                                        <button class="dfjcac gap1 cd " type="submit" name="lanBtn">
-                                            <span class="menu_hover cp <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
+                                        <button class="dfjcac gap1 cp " type="submit" name="lanBtn">
+                                            <span class="menu_hover <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language2'] ?></span>
                                             <div class="lan_flag <?php echo $languageArray['language2 flag'] ?>"></div>
                                         </button>
                                         <input class="dn" type="text" value=<?php echo $languageArray['language2'] ?> name="language">
@@ -173,10 +186,10 @@ if (!isset($_SESSION['languageArray'])) {
                             <div class="cookie_settings_db dn">
                                 <div class="dfcjcas gap1">
                                     <div class="dfjcac gap1">
-                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][1] ?></div><input type="checkbox">
+                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][1] ?></div><input class="check_cookie lan_checked" type="checkbox">
                                     </div>
                                     <div class="dfjcac gap1">
-                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][2] ?></div><input type="checkbox">
+                                        <div class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][2] ?></div><input class="check_cookie theme_checked" type="checkbox">
                                     </div>
                                 </div>
                             </div>
@@ -204,25 +217,25 @@ if (!isset($_SESSION['languageArray'])) {
 <div class="learn_cookie_cont dn">
     <i class="expand_close fa-solid fa-xmark"></i>
     <div class="learn_cookie_content p2 dfcjlac gap2">
-        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][0] ?></b><i class="fa-solid fa-cookie-bite fa-xl ml2"></i></div>
+        <div class="theme tac"><b class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['cookie texts']['titles'][0] ?></b><i class="fa-solid fa-cookie-bite fa-xl ml2"></i></div>
         <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][0] ?></p>
-        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][1] ?></b></div>
+        <div class="theme tac"><b class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['cookie texts']['titles'][1] ?></b></div>
         <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][1] ?></p>
-        <ul>
+        <ul class="pl3">
             <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][2] ?></li>
             <li class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][3] ?></li>
         </ul>
-        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][2] ?></b></div>
+        <div class="theme tac"><b class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['cookie texts']['titles'][2] ?></b></div>
         <div class="theme tac <?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][5] ?></div>
-        <div class="theme tac <?php echo $languageArray['font-family'][0] ?>"><b><?php echo $languageArray['cookie']['cookie texts']['titles'][3] ?></b></div>
-        <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][4] ?></p>
+        <div class="theme tac"><b class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['cookie texts']['titles'][3] ?></b></div>
+        <p class="<?php echo $languageArray['font-family'][1] ?>"><?php echo $languageArray['cookie']['cookie texts']['texts'][4] ?> <a class="<?php echo $languageArray['font-family'][1] ?>" target='_blank' href='https://allaboutcookies.org/'><?php echo $languageArray['cookie']['cookie texts']['texts'][6] ?></a></p>
     </div>
 </div>
 
 <?php
 
 
-if (!isset($_COOKIE['language']) && !isset($_SESSION['allowCookie'])) {
+if ($_SESSION['showCookiesDiv']) {
     echo '<div class="cookie_cont br2 p2 wfc">';
     echo '<div class="dfcjcac gap2">';
     echo '<span class="' . $languageArray['font-family'][1] . '">' . $languageArray['cookie'][1] . '</span>';

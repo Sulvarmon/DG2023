@@ -31,25 +31,25 @@ $(window).on("load", function () {
 
 
     //  კლიკზე ჩამოშლა მობილურის მენიუს
-    function expandMenu(clickedEl, variable, expandEl, rotateArrow, isGear=false) {
-        $(`${clickedEl}`).click(function () {            
-            if (variable.value) { 
-                $(`${expandEl}`).stop().slideDown(300) 
+    function expandMenu(clickedEl, variable, expandEl, rotateArrow, isGear = false) {
+        $(`${clickedEl}`).click(function () {
+            if (variable.value) {
+                $(`${expandEl}`).stop().slideDown(300)
                 if (isGear) {
                     $(`${rotateArrow}`).css({ transform: 'rotate(360deg)' })
-                }else{
+                } else {
                     $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' })
                 }
-                variable.value = false 
-            } else { 
-                $(`${expandEl}`).stop().slideUp(300) 
+                variable.value = false
+            } else {
+                $(`${expandEl}`).stop().slideUp(300)
                 if (isGear) {
                     $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' })
-                }else{
-                    $(`${rotateArrow}`).css({ transform: 'rotate(-90deg)' }) 
+                } else {
+                    $(`${rotateArrow}`).css({ transform: 'rotate(-90deg)' })
                 }
-               
-                variable.value = true 
+
+                variable.value = true
             }
         })
     }
@@ -185,7 +185,7 @@ $(window).on("load", function () {
     expandMenu(".settings", settings, ".l_db_settings", ".settings_gear", true)
     expandMenu(".cookie_settings", cookieSettings, ".cookie_settings_db", ".cookie_arr",)
 
-    $(".l_db_settings, .cookie_settings_db, .search_cont input").click(function(e){
+    $(".l_db_settings, .cookie_settings_db, .search_cont input").click(function (e) {
         e.stopPropagation()
     })
 
@@ -661,9 +661,9 @@ $(window).on("load", function () {
                     }
                     $.each(foundArr, function (index, element) {
                         $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="${font}">${element}</li></a>`);
-                        if(index !=foundArr.length-1){
+                        if (index != foundArr.length - 1) {
                             $(".searched_links").append("<hr class='w5'>")
-                        }                        
+                        }
                     })
                     if (searchedlementsHrefs.length == 0) {
                         $(".searched_links").append(`<div class="cw ${font}">${noResult}</div>`);
@@ -833,7 +833,7 @@ $(window).on("load", function () {
         }
 
         if (submitAllowed.val) {
-            $(".mail_message").css({ opacity: 1, "z-index": 1000 });            
+            $(".mail_message").css({ opacity: 1, "z-index": 1000 });
             $.ajax({
                 url: "../mail",
                 type: "post",
@@ -862,34 +862,33 @@ $(window).on("load", function () {
 
     })
 
-
-    let cookiFilePath = { val: '' }
-
     $(".allow_cookie").click(function (e) {
+        let allowCookies = { val: '' }
         e.preventDefault();
-        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })
-        findFilePaths(cookiFilePath, 'cookie');
+        $(".check_cookie").prop('checked', true)
+        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })     
+        findFilePaths(allowCookies, 'allow-cookies');   
         $.ajax({
-            url: cookiFilePath.val,
+            url: allowCookies.val,
             type: 'post',
             data: {
-                cookieBtn: true,
-                allow: true,
+                btn: 'clicked',
             }
         })
     })
-
+    
     $(".reject_cookie").click(function (e) {
+        let rejectCookies = { val: '' }
         e.preventDefault();
+        $(".check_cookie").prop('checked', false)
         $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })
-        findFilePaths(cookiFilePath, 'cookie');
+        findFilePaths(rejectCookies, 'reject-cookies');   
         $.ajax({
-            url: cookiFilePath.val,
+            url: rejectCookies.val,
             type: 'post',
             data: {
-                cookieBtn: true,
-                allow: false,
-            }
+                btn: 'clicked',
+            }        
         })
     })
 
@@ -973,20 +972,20 @@ $(window).on("load", function () {
     }
 
     { // learn cookie
-        $(".learn_cookie").click(function(){
+        $(".learn_cookie").click(function () {
             $(".learn_cookie_cont").show(0)
         })
 
-        $(".learn_cookie_cont>i").click(function(e){
+        $(".learn_cookie_cont>i").click(function (e) {
             e.stopPropagation()
             $(".learn_cookie_cont").hide(0)
         })
 
-        $(".learn_cookie_cont").click(function(){
+        $(".learn_cookie_cont").click(function () {
             $(".learn_cookie_cont>i").click()
         })
 
-        $(".learn_cookie_content").click(function(e){
+        $(".learn_cookie_content").click(function (e) {
             e.stopPropagation()
         })
 

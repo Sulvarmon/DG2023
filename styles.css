@@ -2018,7 +2018,7 @@ textarea {
 
 .cookie_cont {
     position: fixed;
-    bottom: -200px;
+    bottom: 20px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -2030,7 +2030,7 @@ textarea {
     z-index: 1000;
 }
 
-@keyframes cookie {
+/* @keyframes cookie {
     from {
         bottom: -200px;
     }
@@ -2038,7 +2038,7 @@ textarea {
     to {
         bottom: 20px;
     }
-}
+} */
 
 
 .cookie_cont>div>div>div {

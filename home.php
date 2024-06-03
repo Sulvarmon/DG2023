@@ -15,9 +15,15 @@ $news = "./pages/news";
 $contact = "./pages/contact";
 $language = "./language";
 
-// setcookie('language', 'eng', time() - (10 * 365 * 24 * 60 * 60), '/');
-// setcookie('language', 'rus', time() - (10 * 365 * 24 * 60 * 60), '/');
-// setcookie('language', 'geo', time() - (10 * 365 * 24 * 60 * 60), '/');
+function unsetCookies(){
+    setcookie('language', 'eng', time() - (10 * 365 * 24 * 60 * 60), '/');
+    setcookie('language', 'rus', time() - (10 * 365 * 24 * 60 * 60), '/');
+    setcookie('language', 'geo', time() - (10 * 365 * 24 * 60 * 60), '/');
+    setcookie('theme', 'whiite', time() - (10 * 365 * 24 * 60 * 60), '/');
+    setcookie('theme', 'dark', time() - (10 * 365 * 24 * 60 * 60), '/');
+}
+
+// unsetCookies();
 
 if (isset($_COOKIE['language'])) {
     switch ($_COOKIE['language']) {

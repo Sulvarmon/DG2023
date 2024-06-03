@@ -157,8 +157,20 @@ return [
         2 => 'позволять',
         3 => 'Отклонять',
         4 => 'о файлах cookie',
-        5 => "<b>About Cookies</b><br><br>Our website uses cookies to improve your browsing experience. Cookies are small pieces of data that a website stores on your device, like your computer or phone.  They allow the website to 'remember' your actions and preferences (such as login, language, and theme) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.<b>How We Use Cookies</b><br><br>We use two types of cookies on our website:<br><br>"
-
+        5 => 'файлы cookie',
+        'cookie texts' => [
+            'titles' => ['о файлах cookie', 'Как мы используем файлы cookie', 'Ваш контроль над файлами cookie', 'Больше информации'],
+            'texts' => [
+                "Наш веб-сайт использует файлы cookie для улучшения вашего просмотра. Файлы cookie — это небольшие фрагменты данных, которые веб-сайт сохраняет на вашем устройстве, например на компьютере или телефоне. Они позволяют веб-сайту «запоминать» ваши действия и предпочтения (такие как логин, язык и тема) в течение определенного периода времени, поэтому вам не придется вводить их повторно каждый раз, когда вы возвращаетесь на сайт или просматриваете его. одну страницу на другую.",
+                'На нашем сайте мы используем два типа файлов cookie:',
+                'Файлы cookie для языковых предпочтений: эти файлы cookie помогают нам запомнить ваши языковые предпочтения.',
+                "Файлы cookie для выбора темы: Эти файлы cookie позволяют нам запомнить предпочитаемую вами тему веб-сайта (например, светлый или темный режим), поэтому вам не придется сбрасывать ее каждый раз при посещении.",                
+                "Для получения более общей информации о файлах cookie вы можете посетить страницу",
+                "вы можете установить файлы cookie в настройках",
+                "Все о файлах cookie",
+            ],            
+        ],
+        'types' => [1 => 'языковые файлы cookie:', 2 => 'файлы cookie темы:'],
     ],
     'unfinished website' => "Сайт находится в стадии разработки. Информация на сайте не соответствует деятельности компании.",
     'theme' => [1 => 'выбрать', 2=>'тему'],
