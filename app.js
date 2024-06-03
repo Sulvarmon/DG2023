@@ -36,7 +36,7 @@ $(window).on("load", function () {
             if (variable.value) {
                 $(`${expandEl}`).stop().slideDown(300)
                 if (isGear) {
-                    $(`${rotateArrow}`).css({ transform: 'rotate(360deg)' })
+                    $(`${rotateArrow}`).css({ transform: 'rotate(-360deg)' })
                 } else {
                     $(`${rotateArrow}`).css({ transform: 'rotate(0deg)' })
                 }
@@ -866,8 +866,8 @@ $(window).on("load", function () {
         let allowCookies = { val: '' }
         e.preventDefault();
         $(".check_cookie").prop('checked', true)
-        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })     
-        findFilePaths(allowCookies, 'allow-cookies');   
+        $(".cookie_cont").hide(0)
+        findFilePaths(allowCookies, 'allow-cookies');
         $.ajax({
             url: allowCookies.val,
             type: 'post',
@@ -876,25 +876,24 @@ $(window).on("load", function () {
             }
         })
     })
-    
+
     $(".reject_cookie").click(function (e) {
         let rejectCookies = { val: '' }
         e.preventDefault();
-        $(".check_cookie").prop('checked', false)
-        $(".cookie_cont").css({ opacity: "0", "z-index": "-1000" })
-        findFilePaths(rejectCookies, 'reject-cookies');   
+        $(".cookie_cont").hide(0)
+        findFilePaths(rejectCookies, 'reject-cookies');
         $.ajax({
             url: rejectCookies.val,
             type: 'post',
             data: {
                 btn: 'clicked',
-            }        
+            }
         })
     })
 
     { // theme
         let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.title_of_subsections,.grid_title,.grid_text,p,li']
-        let changeThemeUrl
+        let changeThemeUrl = { val: "" }
 
         let whiteTheme = function () {
             $(".theme_dot_inner_dark").show(0)
@@ -920,24 +919,7 @@ $(window).on("load", function () {
             $(':root').css('--bg1', '#2e2b2a');
         }
 
-        for (let i = 0; i < allPages.length; i++) {
-            if ($("title").text() == allPages[i]) {
-                switch (i) {
-                    case 0:
-                        changeThemeUrl = `changeTheme`
-                        break;
-                    case 1:
-                    case 2:
-                    case 3:
-                        changeThemeUrl = `../changeTheme`
-                        break;
-                    default:
-                        changeThemeUrl = `../../changeTheme`
-                        break;
-                }
-            }
-        }
-
+        findFilePaths(changeThemeUrl, 'changeTheme')
 
         if ($(".detect_theme").attr('id') == 'theme_white') {
             whiteTheme()
@@ -948,7 +930,7 @@ $(window).on("load", function () {
 
         $(".theme_dot:eq(0),.theme_dot:eq(2)").click(function () { //white theme
             $.ajax({
-                url: `${changeThemeUrl}`,
+                url: changeThemeUrl.val,
                 type: 'post',
                 data: {
                     changeThemeBtn: true,
@@ -960,7 +942,7 @@ $(window).on("load", function () {
 
         $(".theme_dot:eq(1),.theme_dot:eq(3)").click(function () { //dark theme
             $.ajax({
-                url: `${changeThemeUrl}`,
+                url: changeThemeUrl.val,
                 type: 'post',
                 data: {
                     changeThemeBtn: true,
@@ -971,7 +953,7 @@ $(window).on("load", function () {
         })
     }
 
-    { // learn cookie
+    { // cookie
         $(".learn_cookie").click(function () {
             $(".learn_cookie_cont").show(0)
         })
@@ -991,7 +973,54 @@ $(window).on("load", function () {
 
     }
 
+    {
+        if ($(".detect_cookie_lan").attr("id") == 'lan_cookie_allowed') {
+            $(".lan_checked").prop("checked", true)
+        } else {
+            $(".lan_checked").prop("checked", false)
+        }
 
+        if ($(".detect_cookie_theme").attr("id") == 'theme_cookie_allowed') {
+            $(".theme_checked").prop("checked", true)
+        } else {
+            $(".theme_checked").prop("checked", false)
+        }
+
+
+
+        $(".lan_checked").click(function () {
+            let checked = $(this).prop("checked");
+            let filePath = { val: "" }
+
+            $(".cookie_cont").hide(0)
+            findFilePaths(filePath, 'cookie-lan-settings')
+            $.ajax({
+                url: filePath.val,
+                type: 'post',
+                data: {
+                    setLanCookie: true,
+                    checked: checked,
+                }
+            })
+        })
+
+        $(".theme_checked").click(function () {
+            let checked = $(this).prop("checked");
+            let filePath = { val: "" }
+
+            $(".cookie_cont").hide(0)
+            findFilePaths(filePath, 'cookie-theme-settings')
+            $.ajax({
+                url: filePath.val,
+                type: 'post',
+                data: {
+                    setThemeCookie: true,
+                    checked: checked,
+                }
+            })
+        })
+
+    }
 
 
 

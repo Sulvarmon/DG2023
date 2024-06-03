@@ -15,16 +15,6 @@ $news = "./pages/news";
 $contact = "./pages/contact";
 $language = "./language";
 
-function unsetCookies(){
-    setcookie('language', 'eng', time() - (10 * 365 * 24 * 60 * 60), '/');
-    setcookie('language', 'rus', time() - (10 * 365 * 24 * 60 * 60), '/');
-    setcookie('language', 'geo', time() - (10 * 365 * 24 * 60 * 60), '/');
-    setcookie('theme', 'whiite', time() - (10 * 365 * 24 * 60 * 60), '/');
-    setcookie('theme', 'dark', time() - (10 * 365 * 24 * 60 * 60), '/');
-}
-
-// unsetCookies();
-
 if (isset($_COOKIE['language'])) {
     switch ($_COOKIE['language']) {
         case 'geo':
@@ -51,17 +41,7 @@ $lastWord = trim(end($words));
 
 include "head.php";
 include "header.php"; // სესის ცვლადები მოქმედებს ჰედერის შემდეგ: ჰედერში არის სესია გახსნილი
-
-
-if(isset($_SESSION['theme'])){
-    if ($_SESSION['theme'] == 'white') {
-        echo '<div class="dn detect_theme" id="theme_white"></div>';
-    }else{
-        echo '<div class="dn detect_theme" id="theme_dark"></div>';  
-    }
-}else{
-    echo '<div class="dn detect_theme" id="theme_white"></div>';
-}
+include "./reusable/sessions-cookies.php";
 
 $languageArray = $_SESSION['languageArray']; # უნდა იყოს აქ ჰედერის შემოტანის შემდეგ, რადგან ჰედერში იწყება სესია
 

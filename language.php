@@ -14,7 +14,14 @@ switch ($language) {
     case 'анг':
         $_SESSION['languageArray'] = include "./lan-eng.php";
         if (isset($_COOKIE['language'])) {
-            setcookie('language', 'eng', time() + (10 * 365 * 24 * 60 * 60), '/');
+            setcookie('language', 'eng', [
+                'expires' => time() + (10 * 365 * 24 * 60 * 60), 
+                'path' => '/',
+                'domain' => 'localhost',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'None'
+            ]);
         }
         break;
     case 'რუს':
@@ -22,7 +29,14 @@ switch ($language) {
     case 'rus':
         $_SESSION['languageArray'] = include "./lan-rus.php";
         if (isset($_COOKIE['language'])) {
-            setcookie('language', 'rus', time() + (10 * 365 * 24 * 60 * 60), '/');
+            setcookie('language', 'rus', [
+                'expires' => time() + (10 * 365 * 24 * 60 * 60), 
+                'path' => '/',
+                'domain' => 'localhost',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'None'
+            ]);
         }
         break;
     case 'ქარ':
@@ -30,7 +44,14 @@ switch ($language) {
     case 'гру':
         $_SESSION['languageArray'] = include "./lan-geo.php";
         if (isset($_COOKIE['language'])) {
-            setcookie('language', 'geo', time() + (10 * 365 * 24 * 60 * 60), '/');
+            setcookie('language', 'geo', [
+                'expires' => time() + (10 * 365 * 24 * 60 * 60), 
+                'path' => '/',
+                'domain' => 'localhost',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'None'
+            ]);
         }
         break;
     default:

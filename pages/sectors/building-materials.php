@@ -41,6 +41,7 @@ $lastWord = trim(end($words));
 
 include "../../head.php";
 include "../../header.php";
+include "../../reusable/sessions-cookies.php";
 include "../../reusable/side-phone.php";
 include "../../reusable/side-contacts.php";
 

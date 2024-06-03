@@ -1,6 +1,5 @@
 <?php
 
-# საწყისი ენა არის ქართული
 if (!isset($_SESSION['languageArray'])) {
     $_SESSION['languageArray'] = include $defaultLanguage;
     $languageArray = $_SESSION['languageArray'];
@@ -12,7 +11,7 @@ if (!isset($_SESSION['theme'])) {
     $_SESSION['theme']= 'white';
 }
 
-if (!isset($_SESSION['showCookiesDiv']) && !isset($_COOKIE['theme']) && !isset($_COOKIE['theme'])) {
+if (!isset($_SESSION['showCookiesDiv']) && !isset($_COOKIE['language']) && !isset($_COOKIE['theme'])) {
     $_SESSION['showCookiesDiv'] = true;
 }
 
@@ -31,7 +30,7 @@ if (isset($_COOKIE['theme'])) {
             <i class="theme sm_menu_icon_item sm_menu_icon_m fa-solid fa-bars"></i>
             <i class="theme sm_menu_icon_item sm_menu_icon_c fa-solid fa-xmark"></i>
         </div>
-        <!-- მცირე ეკრანის მენიუ -->
+        <!-- sm screen -->
         <div class="db_menu p4 bg1">
             <div class="dfcjcas pb4">
 
@@ -107,7 +106,7 @@ if (isset($_COOKIE['theme'])) {
 
             </div>
         </div>
-        <!-- დიდი ეკრანის მენიუ -->
+        <!-- lg screen -->
         <div class="lg_menu dfjcac gap3">
 
             <div class="lg_menu_company dfjcac m1 usn p1 pr ">
