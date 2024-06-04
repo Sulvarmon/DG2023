@@ -2122,6 +2122,7 @@ textarea {
     left: 0;
     width: 100vw;
     height: 100vh;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 2000;
 }
