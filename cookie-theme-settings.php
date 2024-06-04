@@ -1,8 +1,7 @@
 <?php
 session_start();
 if (!isset($_POST['setThemeCookie'])) {
-    exit;
-    header("Location: ./home");
+    die("No Access");
 }
 
 $checked = $_POST['checked'] == 'true' ? true : false;

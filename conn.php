@@ -1,6 +1,6 @@
 <?php
 if (!defined("conn")) {
-    die("No access");
+    die("No access");    
 }
 
 require __DIR__ . "/vendor/autoload.php";

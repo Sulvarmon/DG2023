@@ -1,8 +1,7 @@
 <?php
 session_start();
 if (!isset($_POST['btn'])) {
-    exit;
-    header("Location: ./home");
+    die("No Access");
 }
 
 $language = $_SESSION['languageArray']['language'];

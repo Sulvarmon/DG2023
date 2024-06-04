@@ -1,4 +1,5 @@
 <?php
+
 return [
     'company' => 'კომპანია',
     'about us' => 'ჩვენს შესახებ',

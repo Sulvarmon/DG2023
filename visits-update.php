@@ -1,12 +1,16 @@
 <?php
 
+if (!defined('visits')) {
+    die("No Access");
+}
+
 define("conn", true);
 include("conn.php");
 
 if (!isset($_SESSION[$lastWord])) { // თითოეულ გვერდზე შემოსვლის დადგენა
     $dbArray = [];
 
-    $sql = "SELECT * FROM total_visits";
+    $sql = "SELECT * FROM pages_visits";
     $query = mysqli_query($conn, $sql);
 
     if (!$query) {
@@ -22,7 +26,7 @@ if (!isset($_SESSION[$lastWord])) { // თითოეულ გვერდზ�
     for ($i = 0; $i < count($dbArray); $i++) {
         if ($dbArray[$i]['page'] == $lastWord) {
             $newValue = $dbArray[$i]['visits'] + 1;
-            $sql = "UPDATE total_visits SET visits = '$newValue' WHERE page = '$lastWord'";
+            $sql = "UPDATE pages_visits SET visits = '$newValue' WHERE page = '$lastWord'";
             mysqli_query($conn, $sql);
         }
     }
@@ -31,7 +35,7 @@ if (!isset($_SESSION[$lastWord])) { // თითოეულ გვერდზ�
 }
 
 
-if (!isset($_SESSION['ipVisists'])) { // საიტზე შემოსვლის დადგენა გვერდებისგან დამოუკიდებლად
+if (!isset($_SESSION['ipVisists'])) { 
     // get the real IP address of the visitor
 
     // Check for shared internet/ISP IP

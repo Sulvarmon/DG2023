@@ -8,7 +8,7 @@ if (!isset($_SESSION['languageArray'])) {
 }
 
 if (!isset($_SESSION['theme'])) {
-    $_SESSION['theme']= 'white';
+    $_SESSION['theme'] = 'white';
 }
 
 if (!isset($_SESSION['showCookiesDiv']) && !isset($_COOKIE['language']) && !isset($_COOKIE['theme'])) {
@@ -16,12 +16,12 @@ if (!isset($_SESSION['showCookiesDiv']) && !isset($_COOKIE['language']) && !isse
 }
 
 if (isset($_COOKIE['theme'])) {
-    $_SESSION['theme']=$_COOKIE['theme'];
+    $_SESSION['theme'] = $_COOKIE['theme'];
 }
 
 ?>
 
-<div class="unfinished_website <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['unfinished website'] ?></div>
+<div class="pen unfinished_website <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['unfinished website'] ?></div>
 
 <header>
     <div class="header_cont container dfjbac pt1 pb1">
@@ -65,7 +65,6 @@ if (isset($_COOKIE['theme'])) {
                 <hr class="w5">
                 <a href=<?php echo $contact; ?> class="db_menu_texts db_menu_contact m1 usn theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['contacts'] ?></a>
                 <hr class="w5">
-
                 <div class="db_menu_lan m1 usn">
                     <div class="dfjlac"><span class="db_menu_texts <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['language'] ?></span><i class="theme ml1 fa-solid fa-angle-down"></i></div>
                     <div class="dn">
@@ -89,7 +88,6 @@ if (isset($_COOKIE['theme'])) {
                         </div>
                     </div>
                 </div>
-
                 <hr class="w5">
                 <div class="db_menu_texts db_menu_theme m1 usn theme dfcjcas gap2">
                     <span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['theme'][1] . " " . $languageArray['theme'][2] ?></span>
@@ -103,7 +101,19 @@ if (isset($_COOKIE['theme'])) {
                     </div>
                 </div>
                 <hr class="w5">
-
+                <div class="cookie_settings dfcjcas gap1 w3">
+                    <div class="dfjcac gap1 cp"><span class="<?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie'][5] ?></span><i class="cookie_arr fa-solid theme fa-angle-down ml1"></i></div>
+                    <div class="cookie_settings_db dn">
+                        <div class="dfcjcas gap1">
+                            <div class="dfjcac gap1">
+                                <div class="theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][1] ?></div><input class="check_cookie lan_checked" type="checkbox">
+                            </div>
+                            <div class="dfjcac gap1">
+                                <div class="theme <?php echo $languageArray['font-family'][0] ?>"><?php echo $languageArray['cookie']['types'][2] ?></div><input class="check_cookie theme_checked" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- lg screen -->

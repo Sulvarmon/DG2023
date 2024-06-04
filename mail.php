@@ -1,4 +1,7 @@
 <?php
+if (!isset($_POST['mailBtn'])) {    
+    die('No Access');    
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -9,10 +12,6 @@ require 'vendor/autoload.php';
 require __DIR__ . "/vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-
-if (!isset($_POST['mailBtn'])) {
-    die('No Access');
-}
 
 $flname = $_POST['flname'];
 $email = $_POST['email'];

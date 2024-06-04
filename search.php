@@ -1,8 +1,7 @@
 <?php
 
 if (!isset($_POST['searchSubmitBtn'])) {
-    exit;
-    header("location: home");
+    die("No Access");
 }
 
 $geo = include "./lan-geo.php";
