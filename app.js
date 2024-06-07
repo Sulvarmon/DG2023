@@ -2,8 +2,6 @@
 $(window).on("load", function () {
     $("body").fadeIn(1000)
 
-    // ცვლადები
-
     let langSlider = { value: true };
     let smallAbout = { value: true };
     let smallSector = { value: true };
@@ -23,14 +21,8 @@ $(window).on("load", function () {
         distance1: ['./projects/berth-7', './projects/berth-15', './projects/container-terminal', './projects/lego-blocks', './projects/pay-terminal', './projects/poti-apartment',],
         distance2: ['../projects/berth-7', '../projects/berth-15', '../projects/container-terminal', '../projects/lego-blocks', '../projects/pay-terminal', '../projects/poti-apartment',],
         distance0: ['./berth-7', './berth-15', './container-terminal', './lego-blocks', './pay-terminal', './poti-apartment',],
-    }
-    let searchPath = { val: '' };
-    //ცვლადების დასასრული
+    } 
 
-    //ფუნქციები       
-
-
-    //  კლიკზე ჩამოშლა მობილურის მენიუს
     function expandMenu(clickedEl, variable, expandEl, rotateArrow, isGear = false) {
         $(`${clickedEl}`).click(function () {
             if (variable.value) {
@@ -54,15 +46,12 @@ $(window).on("load", function () {
         })
     }
 
-    function elementIsInViewport(element) { // ადგენს ელემენტი არის თუ არა მხედველობის არეში და აბრუნებს ჭ ან მ მნიშვნელობებს.
-        let windowTop = $(window).scrollTop(); // ეკრანის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან
-        let windowBottom = windowTop + $(window).height(); // ეკრანის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
-        let elemTop = $(element).offset().top;// ელემენტის ზევითა საზღვრის დაშორება დოკუმენტის ზემოდან 
-        let elemBottom = elemTop + $(element).height();// ელემენტის ქვევითა საზღვრის დაშორება დოკუმენტის ზემოდან
+    function elementIsInViewport(element) { 
+        let windowTop = $(window).scrollTop(); 
+        let windowBottom = windowTop + $(window).height(); 
+        let elemTop = $(element).offset().top;
+        let elemBottom = elemTop + $(element).height();
 
-        /**თუ ელემენტის თავი მოთავსებულია ეკრანის თავსა და ბოლოს შორის ან
-         * ელემენტის ბოლო მოთავსებულია ეკრანის თავსა და ბოლოს შორის
-         */
         if (((elemTop < windowBottom) && (elemTop > windowTop)) || ((elemBottom < windowBottom) && (elemBottom > windowTop))) {
             return true
         } else {
@@ -142,14 +131,12 @@ $(window).on("load", function () {
         }
     }
 
-    // შემდეგი და წინა პროექრტების ჩვენება
-
-    function nextPrevProj(nextHref, prevHref, index) { //პარამეტრები: მომდევნო ლინკი, წინა ლინკი და გვერდის ნომრის აღმნიშვნელი ცვლადი
-        let numberOfThumbs = $(".projects_thumbnail>a").length; // ერთ გვერდზე არსებული ფრჩხილების სრული რაოოდენობა
-        let bottomIndex = index + numberOfThumbs / 2; // ეს ინდექსი საჭიროა ქვედა ფრჩხილების რიგში უმოქმედო ფრჩხილის დასადგენად
-        $(".next_proj").attr("href", nextHref) // მომდევნო ლინკის განსაზღვრა
-        $(".prev_proj").attr("href", prevHref) // წინა ლინკის განსაზღვრა
-        $(".projects_thumbnail>a").removeClass("disabled_thumbnail").addClass("active_thumbnail") // ფრჩხილების რესეტი
+    function nextPrevProj(nextHref, prevHref, index) { 
+        let numberOfThumbs = $(".projects_thumbnail>a").length; 
+        let bottomIndex = index + numberOfThumbs / 2; 
+        $(".next_proj").attr("href", nextHref) 
+        $(".prev_proj").attr("href", prevHref)
+        $(".projects_thumbnail>a").removeClass("disabled_thumbnail").addClass("active_thumbnail") 
         $(`.projects_thumbnail>a:eq(${index}), .projects_thumbnail>a:eq(${bottomIndex})`).removeClass("active_thumbnail").addClass("disabled_thumbnail") // უმოქმედო ფრჩხილების განსაზღვრა
     }
 
@@ -172,8 +159,6 @@ $(window).on("load", function () {
             }
         }
     }
-
-    // ფუნქციების დასასრული
 
     menuSlides(".lg_menu_company", ".company_db_cont", ".lg_menu_company_arr")
     menuSlides(".lg_menu_sector", ".sector_db_cont", ".lg_menu_sector_arr")
@@ -199,7 +184,7 @@ $(window).on("load", function () {
 
 
 
-    // carousel
+    // კარუსელი
     let carouselSlidesNumber = $(".carousel_slide").length;
     let carouselWidth = Math.round(parseFloat($(".carousel_slide_cont").width()));
     let firstClick = { left: false, right: true }
@@ -214,8 +199,8 @@ $(window).on("load", function () {
         $(thumbnail).addClass("carousel_thumbnail_animation")
     }
 
-    for (let i = 0; i < carouselSlidesNumber; i++) { // define initial left values of carousel_slide element 
-        let newLeft = `${(i - carouselSlidesNumber + 2) * carouselWidth}px`;//
+    for (let i = 0; i < carouselSlidesNumber; i++) { 
+        let newLeft = `${(i - carouselSlidesNumber + 2) * carouselWidth}px`;
         $(`.carousel_slide:eq(${i})`).css({ left: newLeft })
     }
 
@@ -385,11 +370,11 @@ $(window).on("load", function () {
     }).mouseleave(function () {
         $(".carousel_arrow_left i").css({ transform: 'rotate(-90deg)' })
     })
-    // end
+    // კარუსელის დასასრული
 
     $(".home_page_image_img:eq(0)").css({ opacity: 1 })
 
-    setInterval(() => { // main page opacity carousel
+    setInterval(() => {
         $(`.home_page_image_img:eq(${manPgOpacityCarouselCurrentCounter.value - 1})`).css({ opacity: 0 })
         $(`.home_page_image_img:eq(${manPgOpacityCarouselCurrentCounter.value})`).css({ opacity: 1 })
         manPgOpacityCarouselCurrentCounter.value += 1;
@@ -433,13 +418,13 @@ $(window).on("load", function () {
         })
     }
 
-    //end
+    //გრიდის დასასრული
 
     let footerAnimationDone = { value: false }
 
     $(window).scroll(function () {
         if (!footerAnimationDone.value) {
-            if (elementIsInViewport(".footer_cont")) { //footer phone number animation
+            if (elementIsInViewport(".footer_cont")) { //footer ტელეფონის ანიმაცია
                 footerAnimationDone.value = true
                 setTimeout(() => {
                     $('.footer_phone>div').css({ width: "150px" });
@@ -591,12 +576,14 @@ $(window).on("load", function () {
         }
     })
 
-    $(".search_input").keyup(function () { //ძებნა
+    //ძებნა
+    $(".search_input").keyup(function () { 
+        let filePath ={val: ''}
         let inputValue = $(".search_input").val().toLowerCase().replace(/[-,.!:'"\/\d\s]/g, ''); // საძებნი ტექსტი
         if (inputValue != "") { // თუ ვერლი ცარიელი არაა
-            findFilePaths(searchPath, 'search')
+            findFilePaths(filePath, 'search')
             $.ajax({
-                url: searchPath.val, // ძებნის ფაილთან დაკავშირება
+                url: filePath.val, // ძებნის ფაილთან დაკავშირება
                 type: "post",
                 data: {
                     searchSubmitBtn: true,
@@ -863,13 +850,13 @@ $(window).on("load", function () {
     })
 
     $(".allow_cookie").click(function (e) {
-        let allowCookies = { val: '' }
+        let filePath = { val: '' }
         e.preventDefault();
         $(".check_cookie").prop('checked', true)
         $(".cookie_cont").hide(0)
-        findFilePaths(allowCookies, 'allow-cookies');
+        findFilePaths(filePath, 'allow-cookies');
         $.ajax({
-            url: allowCookies.val,
+            url: filePath.val,
             type: 'post',
             data: {
                 btn: 'clicked',
@@ -878,12 +865,13 @@ $(window).on("load", function () {
     })
 
     $(".reject_cookie").click(function (e) {
-        let rejectCookies = { val: '' }
+        let filePath = { val: '' }
+        
         e.preventDefault();
         $(".cookie_cont").hide(0)
-        findFilePaths(rejectCookies, 'reject-cookies');
+        findFilePaths(filePath, 'reject-cookies');
         $.ajax({
-            url: rejectCookies.val,
+            url: filePath.val,
             type: 'post',
             data: {
                 btn: 'clicked',
@@ -893,7 +881,7 @@ $(window).on("load", function () {
 
     { // theme
         let changeClasses = ['.theme,.menu_hover,.title_of_page,.icon_view,span,.title_of_sections,.title_of_subsections,.grid_title,.grid_text,p,li']
-        let changeThemeUrl = { val: "" }
+        let filePath ={val: ''}
 
         let whiteTheme = function () {
             $(".theme_dot_inner_dark").show(0)
@@ -919,7 +907,7 @@ $(window).on("load", function () {
             $(':root').css('--bg1', '#2e2b2a');
         }
 
-        findFilePaths(changeThemeUrl, 'changeTheme')
+        findFilePaths(filePath, 'changeTheme')
 
         if ($(".detect_theme").attr('id') == 'theme_white') {
             whiteTheme()
@@ -930,7 +918,7 @@ $(window).on("load", function () {
 
         $(".theme_dot:eq(0),.theme_dot:eq(2)").click(function () { //white theme
             $.ajax({
-                url: changeThemeUrl.val,
+                url: filePath.val,
                 type: 'post',
                 data: {
                     changeThemeBtn: true,
@@ -942,7 +930,7 @@ $(window).on("load", function () {
 
         $(".theme_dot:eq(1),.theme_dot:eq(3)").click(function () { //dark theme
             $.ajax({
-                url: changeThemeUrl.val,
+                url: filePath.val,
                 type: 'post',
                 data: {
                     changeThemeBtn: true,

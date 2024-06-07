@@ -14,38 +14,37 @@
 }
 
 :root {
-    /* responsie width */
+    /* რესპონსივი */
     --width400: 388px;
     --width500: 485px;
     --width768: 760px;
     --width1024: 1000px;
     --width1250: 1200px;
-    /* color */
+    /* ფერები */
     --bgColor: #e6e3e0;
     --bg1: #f0ebe9;
     --blue: #3039b6;
     --red: #b63a3a;
     --menuColor: #a18939;
-    /* font size */
+    /* ფონტის ზომა */
     --titleOfSectionsFontSize: 25px;
     --titleOfSubSectionsFontSize: 20px;
-    /* font family */
-    --textCapitalize: 'text-capitalize';
-    --textNormal: 'text-normal';
-    --englishRussian: 'english-russian';
-    /* font sizes */
     --fontSize1: 12px;
     --fontSize2: 14px;
     --fontSize3: 16px;
     --fontSize4: 18px;
     --fontSize5: 20px;
-    /* pixels */
+    /* ფონტის ოჯახი */
+    --textCapitalize: 'text-capitalize';
+    --textNormal: 'text-normal';
+    --englishRussian: 'english-russian';
+    /* პიქსელები */
     --px5: 5px;
     --px10: 10px;
     --px15: 15px;
     --px30: 30px;
     --px50: 50px;
-    /* percentages */
+    /* პროცენტები */
     --prc25: 25%;
     --prc50: 50%;
     --prc75: 75%;
@@ -613,7 +612,7 @@ img {
     letter-spacing: 10px;
 }
 
-/* predefined classes for this project*/
+/* წინაწარ განსაზღვრული კლასები ამ პროექტისთვის */
 
 .border {
     border: 1px solid var(--blue);
@@ -726,7 +725,7 @@ img {
     }
 }
 
-/* classes */
+/* კლასები */
 
 body {
     position: relative;
@@ -1110,7 +1109,7 @@ textarea {
 }
 
 
-/* grid css */
+/* გრიდი */
 .grid_cont img {
     width: 100%;
     height: 300px;
@@ -1222,7 +1221,7 @@ textarea {
     margin: 0 auto 10px auto;
 }
 
-/* end */
+/* გრიდის დასასრული */
 
 .search_cont {
     position: fixed;
@@ -1486,7 +1485,7 @@ textarea {
     bottom: 80px;
     margin: auto;
     /* უმჯობესია სიგანე დაყენდეს თითიეულ კარუსელში გამოყენებული სლაიდების უსჯ-ს ჯერადის დამატებული 2 პიქსელი  */
-    /* 2 პიქსელი იმიტომ რომ ჯავასკრიპტ ფუნცქცია parseFloat() იპარავს 2 პიქსელს :( */
+    /* 2 პიქსელი იმიტომ რომ ჯავასკრიპტ ფუნცქცია parseFloat() იპარავს 2 პიქსელს (არ ვიცი რატო:( ) */
     /* მაგალითად: თუ გამოყენებულია 2 კარუსელი, პირველის სლაიდების რაოდენობაა 7 და მეორეს 5, სასურველია 
     სიგანე დაყენდეს  უსჯ(7,5)*n + 2, სადაც n ნატურალური რიცხვია */
     overflow-x: hidden;
@@ -1527,7 +1526,7 @@ textarea {
     }
 }
 
-/* end */
+/* კარუსელის დასასრული */
 
 @media(min-width: 1580px) {
 

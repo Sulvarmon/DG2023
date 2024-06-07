@@ -1,37 +1,10 @@
 <?php
 session_start();
 $title = "ჩვენს შესახებ";
-$icon = "../../img/logo.png";
-$css = "../../styles.css";
-$js = "../../app.js";
-$home = "../../home";
-$about = "about";
-$team = "team";
-$marineWorks = "../sectors/marine-works";
-$buildingMaterials = "../sectors/building-materials";
-$civilIndustrialProjects = "../sectors/civil-industrial-projects";
-$projects = "../projectsPg";
-$news = "../news";
-$contact = "../contact";
-$language = "../../language";
 
-if (isset($_COOKIE['language'])) {
-    switch ($_COOKIE['language']) {
-        case 'geo':
-            $defaultLanguage = '../../lan-geo.php';
-            break;
-        case 'eng':
-            $defaultLanguage = '../../lan-eng.php';
-            break;
-        case 'rus':
-            $defaultLanguage = '../../lan-rus.php';
-            break;
-        default:
-            break;
-    }    
-} else {
-    $defaultLanguage = '../../lan-geo.php';
-}
+define('variables', true);
+$pageLvl = 2;
+include "../../reusable/variables.php";
 
 #ფაილის გზის დასახელების ბოლო სიტყვის გაგება .php მდე
 $path = __FILE__;
