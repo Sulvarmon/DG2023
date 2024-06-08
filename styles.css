@@ -23,8 +23,8 @@
     /* ფერები */
     --bgColor: #e6e3e0;
     --bg1: #f0ebe9;
-    --blue: #3039b6;
-    --red: #b63a3a;
+    --blue: #3945ee;
+    --red: #da4c4c;
     --menuColor: #a18939;
     /* ფონტის ზომა */
     --titleOfSectionsFontSize: 25px;
@@ -666,7 +666,7 @@ img {
     }
 
     .menu_hover:hover {
-        color: var(--menuColor);
+        color: var(--menuColor)!important;
     }
 }
 
@@ -1859,6 +1859,7 @@ textarea {
     height: 40px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
+    box-shadow: 0 0 10px 2px #fff;
     z-index: 100;
 }
 
@@ -1925,6 +1926,7 @@ textarea {
     top: 20px;
     box-shadow: 0 0 2px 2px #000;
     text-shadow: 0 0 4px #fff;
+    box-shadow: 0 0 10px 2px #fff;
     border-radius: 2px;
     display: block;
     padding: 2px;
@@ -1945,7 +1947,7 @@ textarea {
     transform: scale(2);
     cursor: pointer;
     border-radius: 50%;
-    box-shadow: 0 0 2px 2px #000;
+    box-shadow: 0 0 2px 2px #fff;
     text-shadow: 0 0 2px #fff;
 }
 

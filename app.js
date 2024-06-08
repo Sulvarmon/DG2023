@@ -434,7 +434,7 @@ $(window).on("load", function () {
                     $(".footer_phone>i").addClass("footer_phone_shake")
                 }, 1000);
                 setTimeout(() => {
-                    $('.footer_phone>div').css({ fontSize: "16px", color: "#3039b6", fontWeight: "bold" });
+                    $('.footer_phone>div').css({ fontSize: "16px", color: "#3945ee", fontWeight: "bold" });
                 }, 1500);
             }
         }
@@ -647,7 +647,8 @@ $(window).on("load", function () {
                             break;
                     }
                     $.each(foundArr, function (index, element) {
-                        $(".searched_links").append(`<a href="${searchedlementsHrefs[index]}" class="cw menu_hover"><li class="${font}">${element}</li></a>`);
+                        $(".searched_links").append(`<li class="cw"><a href="${searchedlementsHrefs[index]}" class="menu_hover ${font}">${element}</a></li>`);
+                        $(".searched_links a").addClass('cw');
                         if (index != foundArr.length - 1) {
                             $(".searched_links").append("<hr class='w5'>")
                         }
@@ -925,6 +926,8 @@ $(window).on("load", function () {
                     theme: 'white',
                 }
             })
+            $('body').hide(0)
+            $("body").fadeIn(1000)
             whiteTheme()
         })
 
@@ -937,6 +940,8 @@ $(window).on("load", function () {
                     theme: 'dark',
                 }
             })
+            $('body').hide(0)
+            $("body").fadeIn(1000)
             darkTheme()
         })
     }
